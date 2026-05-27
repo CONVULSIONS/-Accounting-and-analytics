@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaXaml Remove="App.axaml" />
+    <AvaloniaResource Include="App.axaml" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.0.2" />
+    <PackageReference Include="Avalonia.Desktop" Version="12.0.2" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="12.0.2" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="12.0.2" />
+    <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.1">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
+    <PackageReference Include="MessageBox.Avalonia" Version="12.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
+    <PackageReference Include="System.Net.Http.Json" Version="10.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Presentation\Views\Elements\HeaderView.axaml.cs">
+      <DependentUpon>HeaderView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\Elements\SidebarView.axaml.cs">
+      <DependentUpon>SidebarView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\Pages\DealsView.axaml.cs">
+      <DependentUpon>DealsView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\Views\Windows\AuthorizationWindow.axaml.cs">
+      <DependentUpon>AuthorizationWindow.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

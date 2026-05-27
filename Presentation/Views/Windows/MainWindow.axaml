@@ -1,0 +1,63 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AccountingAndAnalytics.Presentation.ViewModels.Windows"
+        xmlns:vmp="using:AccountingAndAnalytics.Presentation.ViewModels.Pages"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="using:AccountingAndAnalytics.Presentation.Views.Elements"
+        xmlns:pages="using:AccountingAndAnalytics.Presentation.Views.Pages"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AccountingAndAnalytics.Presentation.Views.Windows.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="MainWindow">
+
+    <Window.DataTemplates>
+        <DataTemplate
+            DataType="vmp:DealsViewModel">
+            <pages:DealsView/>
+        </DataTemplate>
+        <DataTemplate
+            DataType="vmp:ApplicationPageViewModel">
+            <pages:ApplicationPageView/>
+        </DataTemplate>
+    </Window.DataTemplates>
+
+
+
+
+     <Design.DataContext>       
+        <vm:MainViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="64,*">
+
+        <!-- Шапка -->
+        <controls:HeaderView Grid.Row="0"
+                                DataContext=""/>
+
+        <!-- Контент -->
+        <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+
+            <!-- Sidebar -->
+            <controls:SidebarView Grid.Column="0" 
+                                     DataContext="{Binding Sidebar}"/>
+
+            <!-- Контент -->
+            
+            <Border
+
+                Grid.Column="1"
+                Padding="20"
+                >
+                
+
+                <ContentControl
+                    Content="{Binding CurrentPage}" />
+
+            </Border>
+                
+
+        </Grid>
+    </Grid>
+
+    </Window>

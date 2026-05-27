@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.Presentation.ViewModels.Elements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AccountingAndAnalytics.Presentation.Views.Elements.ApplicationInListView"
+             x:DataType="vm:ApplicationInListViewModel">
+
+
+    <Border Background="White"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="8"
+            Margin="0,0,0,8">
+        <StackPanel>
+
+            <!-- Заголовок заявки -->
+            <Button
+            Background="Transparent"
+            BorderThickness="0"
+            Padding="20,20">
+                <Grid ColumnDefinitions="200,200,200" ShowGridLines="True">
+
+                    <!-- Номер -->
+                    <TextBlock Grid.Column="0"
+                               Text="{Binding Number}"
+                               FontWeight="Medium"
+                               VerticalAlignment="Center"/>
+
+                    <!-- Объект -->
+                    <StackPanel Grid.Column="1" Spacing="2" HorizontalAlignment="Center">
+                        <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
+                        <TextBlock Text="{Binding RealEstate}"/>
+                    </StackPanel>
+
+                    <!-- Клиент -->
+                    <StackPanel Grid.Column="2" Spacing="2" HorizontalAlignment="Center">
+                        <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
+                        <TextBlock Text="{Binding ClientName}"/>
+                    </StackPanel>
+
+                </Grid>
+            </Button>
+            </StackPanel>
+        </Border>
+        </UserControl>
