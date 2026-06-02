@@ -12,6 +12,9 @@
     <AvaloniaXaml Remove="App.axaml" />
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Data\" />
+    <Folder Include="CRM\" />
+    <Folder Include="TaskManager\" />
+    <Folder Include="Analytics\" />
   </ItemGroup>
 
   <ItemGroup>

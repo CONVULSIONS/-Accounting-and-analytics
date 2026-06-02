@@ -24,10 +24,10 @@
 
 
 
-
+    <!-- Шапка 
      <Design.DataContext>       
         <vm:MainViewModel/>
-    </Design.DataContext>
+    </Design.DataContext> -->
 
     <Grid RowDefinitions="64,*">
 
