@@ -1,17 +1,87 @@
-<Window xmlns="https://github.com/avaloniaui"
+﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:AccountingAndAnalytics.Presentation.ViewModels.Windows"
+        xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AccountingAndAnalytics.Presentation.Views.Windows.ProfileWindow"
         x:DataType="vm:ProfileViewModel"
         Title="ProfileWindow">
 
-    <Grid ShowGridLines="True" RowDefinitions = "50,1*,2*" ColumnDefinitions="70,*">
+    <!-- <Grid ShowGridLines="True" RowDefinitions = "50,1*,2*" ColumnDefinitions="70,*">
         <Viewbox Margin="10,5">
         <Button Content="&lt;- Back"/>
             </Viewbox>
-    </Grid>
+    </Grid> -->
+
+        <DockPanel>
+        
+        <!-- Кнопка "Назад" -->
+        <Button DockPanel.Dock="Top"
+                Content="← Назад"
+                HorizontalAlignment="Left"
+                Margin="12,12,0,0"
+                Classes="secondary"/>
+
+        <!-- Основное содержимое -->
+        <ScrollViewer>
+            <StackPanel Margin="24" Spacing="24">
+                
+                <!-- Блок: аватар + имя + должность -->
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    
+                    <!-- Аватар -->
+                    <Border Width="100" Height="100"
+                            CornerRadius="8"
+                            BorderBrush="Gray"
+                            BorderThickness="1"
+                            ClipToBounds="True">
+                        <Panel>
+                            <!-- Заглушка если нет фото -->
+                            <PathIcon Data="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+                                      Foreground="Gray"
+                                      Width="60" Height="60"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                            <!-- Реальное фото поверх заглушки -->
+                            <Image 
+                                   Stretch="UniformToFill"/>
+                        </Panel>
+                    </Border>
+
+                    <!-- Имя и должность -->
+                    <StackPanel VerticalAlignment="Top" Spacing="4">
+                        <TextBlock Text="FullName"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="Position"
+                                   FontSize="14"
+                                   Foreground="Gray"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+                <StackPanel Spacing="8">
+    <ProgressBar Value="50" Minimum="0" Maximum="100" Height="12"/>
+    <ProgressBar  Minimum="0" Maximum="100" Height="12"/>
+</StackPanel>
+
+                <!-- Разделитель -->
+                <Separator/>
+
+                <!-- Блок статистики — сюда передаётся внешний контрол -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Статистика"
+                               FontSize="16"
+                               FontWeight="Medium"/>
+                    
+                    <!-- Сюда будет подставляться контрол извне -->
+                    <ContentPresenter Content="StatisticsContent"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+        
+    </DockPanel>
 
 </Window>

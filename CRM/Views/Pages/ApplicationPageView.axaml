@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Pages"
+             xmlns:views="using:AccountingAndAnalytics.CRM.Views.Elements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AccountingAndAnalytics.CRM.Views.Pages.ApplicationPageView"
+             x:DataType="vm:ApplicationPageViewModel">
+
+<Grid ShowGridLines="True" RowDefinitions="50,*,50" ColumnDefinitions="10,*,10">
+        
+        <!-- список заявок -->
+        <Border BorderThickness="5,5,5,5" 
+                BorderBrush="Black" 
+                Grid.Column="1" 
+                Grid.Row="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Applications}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <views:ApplicationInListView DataContext="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+            </ScrollViewer>
+        </Border>
+        <Button Grid.Column="1" Grid.Row="2" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,10,0" 
+                VerticalAlignment="Center"
+                Content="Add application"
+                Command="{Binding AddApplicationCommand}"/>
+    <Button Grid.Column="1" Grid.Row="2" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,200,0" 
+                VerticalAlignment="Center"
+                Content="Application to deal"
+                Command="{Binding ApplicationToDealCommand}"/>
+    </Grid> 
+</UserControl>

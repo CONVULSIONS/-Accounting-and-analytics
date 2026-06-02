@@ -1,5 +1,5 @@
-﻿using AccountingAndAnalytics.Interfaces;
-using AccountingAndAnalytics.Models;
+﻿using AccountingAndAnalytics.CRM.Models;
+using AccountingAndAnalytics.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AccountingAndAnalytics.Shared.Views.Elements.HeaderView">
+
+
+
+<Grid ColumnDefinitions="Auto,*,Auto" Height="64"
+          Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+
+        <!-- Лого слева -->
+        <StackPanel Grid.Column="0" Orientation="Horizontal"
+                    Spacing="12" VerticalAlignment="Center" Margin="20,0">
+            <Image Source="" Width="40" Height="40"/>
+        </StackPanel>
+
+        <!-- Профиль справа -->
+        <StackPanel Grid.Column="2" Orientation="Horizontal"
+                    Spacing="10" VerticalAlignment="Center" Margin="0,0,20,0">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Text="FullName"
+                
+                           FontSize="13" FontWeight="Medium"
+                           HorizontalAlignment="Right"/>
+                <TextBlock Text="RoleName"
+                
+                           FontSize="11" Opacity="0.6"
+                           HorizontalAlignment="Right"/>
+            </StackPanel>
+            <!-- Иконка профиля -->
+            <Border Width="36" Height="36" CornerRadius="18"
+                    Background="#E6F1FB" Cursor="Hand">
+                <TextBlock 
+                Text="Initials"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="13" FontWeight="Medium"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+    <!-- Text="{Binding FullName}"-->
+    <!-- Text="{Binding RoleName}" -->
+    <!-- Text="{Binding Initials}" -->
+</UserControl>

@@ -11,10 +11,18 @@
     <AvaloniaResource Include="Assets\**" />
     <AvaloniaXaml Remove="App.axaml" />
     <AvaloniaResource Include="App.axaml" />
-    <Folder Include="Data\" />
-    <Folder Include="CRM\" />
-    <Folder Include="TaskManager\" />
-    <Folder Include="Analytics\" />
+    <Folder Include="Analytics\Interfaces\Repozitories\" />
+    <Folder Include="Analytics\Services\Repozitories\" />
+    <Folder Include="CRM\Interfaces\Repozitories\" />
+    <Folder Include="CRM\Services\Repozitories\" />
+    <Folder Include="CRM\Views\Elements\Deals\" />
+    <Folder Include="CRM\Views\Elements\Applications\" />
+    <Folder Include="Presentation\ViewModels\Elements\" />
+    <Folder Include="Presentation\Views\Elements\" />
+    <Folder Include="Shared\Interfaces\Repozitories\" />
+    <Folder Include="Shared\Services\Repozitories\" />
+    <Folder Include="TaskManager\Interfaces\Repozitories\" />
+    <Folder Include="TaskManager\Services\Repozitories\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,23 +35,21 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
+    <PackageReference Include="LiveChartsCore" Version="2.0.4" />
     <PackageReference Include="MessageBox.Avalonia" Version="12.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
     <PackageReference Include="System.Net.Http.Json" Version="10.0.8" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Presentation\Views\Elements\HeaderView.axaml.cs">
+    <Compile Update="Shared\Views\Elements\HeaderView.axaml.cs">
       <DependentUpon>HeaderView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\Elements\SidebarView.axaml.cs">
+    <Compile Update="Shared\Views\Elements\SidebarView.axaml.cs">
       <DependentUpon>SidebarView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Presentation\Views\Pages\DealsView.axaml.cs">
+    <Compile Update="CRM\Views\Pages\DealsView.axaml.cs">
       <DependentUpon>DealsView.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Presentation\Views\Windows\AuthorizationWindow.axaml.cs">
-      <DependentUpon>AuthorizationWindow.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

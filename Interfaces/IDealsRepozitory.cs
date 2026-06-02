@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.Models;
+﻿using AccountingAndAnalytics.CRM.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

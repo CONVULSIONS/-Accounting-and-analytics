@@ -3,12 +3,14 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using AccountingAndAnalytics.Presentation.Views.Windows;
+using AccountingAndAnalytics.Shared.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-using AccountingAndAnalytics.Presentation.ViewModels.Windows;
-using AccountingAndAnalytics.Presentation.Views;
+using AccountingAndAnalytics.Shared.Views;
 using System;
+using AccountingAndAnalytics.Shared.ViewModels.Windows;
+using AccountingAndAnalytics.Shared.ViewModels.Pages;
+using AccountingAndAnalytics.Shared.Models;
 
 namespace AccountingAndAnalytics
 {
@@ -26,28 +28,16 @@ namespace AccountingAndAnalytics
             services.AddAppServices();
             Services = services.BuildServiceProvider();
 
-            //var authorizationViewModel = servicesProvider.GetRequiredService<AuthorizationViewModel>();
-            //var authorizationViewModel = Services.GetRequiredService<MainViewModel>();
+            var mainViewModel = Services.GetRequiredService<MainViewModel>();
+            //var navigationState = Services.GetRequiredService<NavigationState>();
+            //navigationState.CurrentPage = Services.GetRequiredService<AuthorizationViewModel>();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                var authorizationViewModel =
-                    Services.GetRequiredService<AuthorizationViewModel>();
-
-                var authorizationWindow =
-                    new AuthorizationWindow
-                    {
-                        DataContext = authorizationViewModel
-                    };
-
-                authorizationViewModel.CloseWindowAction =
-                    authorizationWindow.Close;
-
-                desktop.MainWindow = authorizationWindow;
-                //desktop.MainWindow = new MainWindow
-                //{
-                //    DataContext = authorizationViewModel,
-                //};
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = mainViewModel,                
+                }; 
             }
 
             base.OnFrameworkInitializationCompleted();

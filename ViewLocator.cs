@@ -1,6 +1,6 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
-using AccountingAndAnalytics.Presentation.ViewModels;
+using AccountingAndAnalytics.Shared.ViewModels;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 
