@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using AccountingAndAnalytics.CRM.Models;
+using AccountingAndAnalytics.CRM.Models.Applications;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 {

@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Elements"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="200"
              x:Class="AccountingAndAnalytics.CRM.Views.Elements.ApplicationInListView"
              x:DataType="vm:ApplicationInListViewModel">
 
@@ -16,32 +16,42 @@
         <StackPanel>
 
             <!-- Заголовок заявки -->
-            <Button
+            <!-- <Button
             Background="Transparent"
             BorderThickness="0"
-            Padding="20,20">
-                <Grid ColumnDefinitions="200,200,200" ShowGridLines="True">
+            Padding="20,20"> -->
+            <Grid ColumnDefinitions="30,*,70" RowDefinitions="30,*,*,*" ShowGridLines="True">
 
-                    <!-- Номер -->
-                    <TextBlock Grid.Column="0"
-                               Text="{Binding Number}"
-                               FontWeight="Medium"
-                               VerticalAlignment="Center"/>
+                <!-- номер -->
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Text="{Binding Number}"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"/>
+                <!-- заголовок -->
+                <TextBlock Grid.Column="0" Grid.Row="0"
+                           Text="{Binding Number}"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"/>
+                <!-- статус -->
+                <TextBlock Grid.Column="3" Grid.Row="0"
+                           Text="{Binding Number}"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"/>
+                <!-- объект -->
+                <StackPanel Grid.Column="1" Grid.Row="1" Spacing="2"  HorizontalAlignment="Center">
+                    <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
+                    <TextBlock Text="{Binding RealEstate}"/>
+                </StackPanel>
 
-                    <!-- Объект -->
-                    <StackPanel Grid.Column="1" Spacing="2" HorizontalAlignment="Center">
-                        <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding RealEstate}"/>
-                    </StackPanel>
+                <!-- клиент -->
+                <StackPanel Grid.Column="2" Grid.Row="2" Spacing="2" HorizontalAlignment="Center">
+                    <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
+                    <TextBlock Text="{Binding ClientName}"/>
+                </StackPanel>
+                <!-- копка -->
+            </Grid>
+            <!-- </Button> -->
 
-                    <!-- Клиент -->
-                    <StackPanel Grid.Column="2" Spacing="2" HorizontalAlignment="Center">
-                        <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding ClientName}"/>
-                    </StackPanel>
-
-                </Grid>
-            </Button>
-            </StackPanel>
-        </Border>
-        </UserControl>
+        </StackPanel>
+    </Border>
+</UserControl>
