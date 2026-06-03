@@ -1,5 +1,4 @@
-﻿using AccountingAndAnalytics.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,6 +10,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Pages
 {

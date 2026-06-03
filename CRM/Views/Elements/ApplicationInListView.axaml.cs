@@ -1,4 +1,4 @@
-using AccountingAndAnalytics.Presentation.ViewModels;
+using AccountingAndAnalytics.CRM.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;

@@ -13,14 +13,10 @@
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
     <Folder Include="Analytics\Services\Repozitories\" />
-    <Folder Include="CRM\Interfaces\Repozitories\" />
-    <Folder Include="CRM\Services\Repozitories\" />
     <Folder Include="CRM\Views\Elements\Deals\" />
     <Folder Include="CRM\Views\Elements\Applications\" />
-    <Folder Include="Presentation\ViewModels\Elements\" />
-    <Folder Include="Presentation\Views\Elements\" />
-    <Folder Include="Shared\Interfaces\Repozitories\" />
-    <Folder Include="Shared\Services\Repozitories\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
     <Folder Include="TaskManager\Interfaces\Repozitories\" />
     <Folder Include="TaskManager\Services\Repozitories\" />
   </ItemGroup>

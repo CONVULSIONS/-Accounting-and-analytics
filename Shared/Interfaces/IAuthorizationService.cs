@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.Interfaces
+namespace AccountingAndAnalytics.Shared.Interfaces
 {
     public interface IAuthorizationService
     {

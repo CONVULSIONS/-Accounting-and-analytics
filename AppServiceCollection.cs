@@ -1,17 +1,14 @@
 ﻿using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
-using AccountingAndAnalytics.Interfaces;
-using AccountingAndAnalytics.Presentation.Views.Windows;
-using AccountingAndAnalytics.Services;
+using AccountingAndAnalytics.Shared.Views.Windows;
+using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.Shared.Models;
-using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.Services.Navigation;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
 using AccountingAndAnalytics.Shared.Views.Pages;
-using AccountingAndAnalytics.Shared.Views.Windows;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -19,6 +16,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AccountingAndAnalytics.Shared.Services;
+using AccountingAndAnalytics.Shared.Services.Repozitories;
+using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Interfaces;
+using AccountingAndAnalytics.CRM.Services;
+using AccountingAndAnalytics.CRM.Services.Repozitories;
 
 namespace AccountingAndAnalytics
 {
@@ -41,6 +45,7 @@ namespace AccountingAndAnalytics
             // страницы приложения
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<MainWindow>();
+            services.AddTransient<ProfileViewModel>();
 
             services.AddSingleton<NavigationState>();
 
@@ -65,6 +70,7 @@ namespace AccountingAndAnalytics
             services.AddTransient<AuthorizationViewModel>();
             services.AddTransient<AuthorizationView>();
             services.AddSingleton<SidebarViewModel>();
+            services.AddSingleton<HeaderViewModel>();
 
 
             return services;

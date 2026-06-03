@@ -2,6 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Elements"
+             x:DataType="vm:HeaderViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AccountingAndAnalytics.Shared.Views.Elements.HeaderView">
 
@@ -30,13 +32,25 @@
                            HorizontalAlignment="Right"/>
             </StackPanel>
             <!-- Иконка профиля -->
-            <Border Width="36" Height="36" CornerRadius="18"
+            <Border Width="36" Height="36"
                     Background="#E6F1FB" Cursor="Hand">
-                <TextBlock 
+                <!-- <TextBlock 
                 Text="Initials"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="13" FontWeight="Medium"/>
+                           FontSize="13" FontWeight="Medium"
+                           Cursor="Hand"
+                           PointerPressed="">
+                    
+                </TextBlock> -->
+                <Button HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           FontSize="10" FontWeight="Medium"
+                           Content="A.G."
+                           VerticalContentAlignment="Center"
+                           Command="{Binding OpenProfileCommand}">
+                    
+                </Button>
             </Border>
         </StackPanel>
     </Grid>

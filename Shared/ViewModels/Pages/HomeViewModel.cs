@@ -1,5 +1,5 @@
-﻿using AccountingAndAnalytics.CRM.ViewModels.Pages;
-using AccountingAndAnalytics.Interfaces;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,15 +25,14 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
                 OnPropertyChanged();
             }
         }
+
         public SidebarViewModel Sidebar { get; }
+        public HeaderViewModel Header { get; }
 
-        public HomeViewModel()
-        {
-
-        }
-        public HomeViewModel(SidebarViewModel sidebar, IServiceProvider serviceProvider)
+        public HomeViewModel(SidebarViewModel sidebar, HeaderViewModel header, IServiceProvider serviceProvider)
         {
             Sidebar = sidebar;
+            Header = header;
             _serviceProvider = serviceProvider;
             CurrentPage = new ApplicationPageViewModel(_serviceProvider.GetRequiredService<IApplicationRepozitory>(), _serviceProvider.GetRequiredService<IDealsRepozitory>());
 

@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.Interfaces;
+﻿using AccountingAndAnalytics.Shared.Interfaces;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AccountingAndAnalytics.Services
+namespace AccountingAndAnalytics.Shared.Services
 {
     public class DialogService : IDialogService
     {

@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using AccountingAndAnalytics.Services;
+using AccountingAndAnalytics.CRM.Services;
 
 namespace AccountingAndAnalytics.CRM.Views.Elements;
 

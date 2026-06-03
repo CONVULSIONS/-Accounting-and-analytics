@@ -1,5 +1,4 @@
 ﻿using AccountingAndAnalytics.Shared.Interfaces;
-using AccountingAndAnalytics.Interfaces;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.ComponentModel;

@@ -1,5 +1,5 @@
-﻿using AccountingAndAnalytics.CRM.Models;
-using AccountingAndAnalytics.Interfaces;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.Services
+namespace AccountingAndAnalytics.CRM.Services.Repozitories
 {
     public class FakeDealsRepozitory : IDealsRepozitory
     {
@@ -46,13 +46,13 @@ namespace AccountingAndAnalytics.Services
         }
         public Deal AddDeal(string number, string realEstate, string clientName, DateTime dealline)
         {
-            var newDeal = new Deal { Id = (_deals.Count + 1), Number = number, RealEstateName = realEstate, ClientName = clientName, Deadline = dealline, Status = "привет" };
+            var newDeal = new Deal { Id = _deals.Count + 1, Number = number, RealEstateName = realEstate, ClientName = clientName, Deadline = dealline, Status = "привет" };
             _deals.Add(newDeal);
             return newDeal;
         }
         public Deal ApplicationToDeal(Application application)
         {
-            var newDealFromApplication = new Deal { Id = (_deals.Count + 1), Number = application.Number, RealEstateName = application.RealEstateName, ClientName = application.ClientName, Deadline = new DateTime(1111, 1, 1), Status = "привет" };
+            var newDealFromApplication = new Deal { Id = _deals.Count + 1, Number = application.Number, RealEstateName = application.RealEstateName, ClientName = application.ClientName, Deadline = new DateTime(1111, 1, 1), Status = "привет" };
             _deals.Add(newDealFromApplication);
             return newDealFromApplication;
         }

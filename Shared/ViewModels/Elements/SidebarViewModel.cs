@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AccountingAndAnalytics.Interfaces;
-using CommunityToolkit.Mvvm.Input;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
-using AccountingAndAnalytics.Services;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 

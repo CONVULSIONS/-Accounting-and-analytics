@@ -29,7 +29,7 @@
 
         <!-- Шапка -->
         <controls:HeaderView Grid.Row="0"
-                                DataContext=""/>
+                                DataContext="{Binding Header}"/>
 
         <!-- Контент -->
         <Grid Grid.Row="1" ColumnDefinitions="Auto,*">

@@ -19,6 +19,10 @@
         DataType="pagesvm:AuthorizationViewModel">
             <pagesv:AuthorizationView/>
         </DataTemplate>
+        <DataTemplate
+        DataType="pagesvm:ProfileViewModel">
+            <pagesv:ProfileView/>
+        </DataTemplate>
     </Window.DataTemplates>
 
 

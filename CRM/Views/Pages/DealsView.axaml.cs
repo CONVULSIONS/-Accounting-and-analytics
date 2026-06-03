@@ -1,11 +1,8 @@
-using AccountingAndAnalytics.Interfaces;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
-using AccountingAndAnalytics.Services;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.Views.Pages;
 

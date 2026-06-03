@@ -1,12 +1,12 @@
-﻿using AccountingAndAnalytics.Interfaces;
-using AccountingAndAnalytics.Models;
+﻿using AccountingAndAnalytics.Shared.Interfaces;
+using AccountingAndAnalytics.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.Services
+namespace AccountingAndAnalytics.Shared.Services
 {
     public class CurrentUserSession : ICurrentUserSession
     {

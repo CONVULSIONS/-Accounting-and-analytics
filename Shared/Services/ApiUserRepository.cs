@@ -1,5 +1,5 @@
-﻿using AccountingAndAnalytics.Interfaces;
-using AccountingAndAnalytics.Models;
+﻿using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
+using AccountingAndAnalytics.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.Services
+namespace AccountingAndAnalytics.Shared.Services
 {
     public class ApiUserRepository : IUserRepository
     {
@@ -24,7 +24,7 @@ namespace AccountingAndAnalytics.Services
 
         public User? GetUser(string login, string pass)
         {
-            var request = new { login = login, password = pass };
+            var request = new { login, password = pass };
             var response = _httpClient
                 .PostAsJsonAsync("/auth/login", request)
                 .Result;

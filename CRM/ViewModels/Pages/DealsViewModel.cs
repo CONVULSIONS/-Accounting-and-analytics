@@ -1,21 +1,12 @@
-﻿using AccountingAndAnalytics.Interfaces;
-using AccountingAndAnalytics.Models;
-using AccountingAndAnalytics.Services;
-using Avalonia.Controls;
-using Avalonia.Media;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Pages
 {
