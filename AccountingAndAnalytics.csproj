@@ -15,8 +15,6 @@
     <Folder Include="Analytics\Services\Repozitories\" />
     <Folder Include="CRM\Views\Elements\Deals\" />
     <Folder Include="CRM\Views\Elements\Applications\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
     <Folder Include="TaskManager\Interfaces\Repozitories\" />
     <Folder Include="TaskManager\Services\Repozitories\" />
   </ItemGroup>
