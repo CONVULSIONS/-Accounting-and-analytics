@@ -17,6 +17,10 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public string Client { get; set; }
         public string Deadline { get; set; }
         public string Status { get; set; }
+        public string RealEstateTitle { get; } = "Недвижимость";
+        public string ClientTitle { get; } = "Клиент";
+        public string DeadlineTitle { get; } = "Срок до";
+        public string TaskCountTitle { get; } = "Задач";
 
 
         public DealInListViewModel(Deal deal)

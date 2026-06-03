@@ -3,60 +3,108 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Elements"
-             mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="200"
+             mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="300"
              x:Class="AccountingAndAnalytics.CRM.Views.Elements.Deals.DealInListView"
              x:DataType="vm:DealInListViewModel">
 
-            
-    <Border Background="White"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            CornerRadius="8"
-            Margin="0,0,0,8">
-        <StackPanel>
+    <Button HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            CornerRadius="10"
+            Height="100"
+            Padding="0">
+        <Border Background="White"
+                CornerRadius="8"
+                Margin=""
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+            <Grid ColumnDefinitions="150,200*,200*,200*,200*,100" ShowGridLines="True" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  RowDefinitions="1*,2*">
 
-            <!-- Заголовок сделки -->
-                <Grid ColumnDefinitions="200,200,200,200,200,100" ShowGridLines="True">
+                <Rectangle Grid.Row="0"
+                       Grid.ColumnSpan="6"
+                       Fill="LightSteelBlue"/>
 
-                    <!-- Номер -->
-                    <TextBlock Grid.Column="0"
-                               Text="{Binding Number}"
-                               FontWeight="Medium"
-                               VerticalAlignment="Center"/>
+                <!-- номер -->
+                <TextBlock Grid.Column="0"
+                           Text="{Binding Number}"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
 
-                    <!-- Объект -->
-                    <StackPanel Grid.Column="1" Spacing="2" HorizontalAlignment="Center">
-                        <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding RealEstate}"/>
-                    </StackPanel>
+                <!-- объект -->
 
-                    <!-- Клиент -->
-                    <StackPanel Grid.Column="2" Spacing="2" HorizontalAlignment="Center">
-                        <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding Client}"/>
-                    </StackPanel>
+                <TextBlock Text="{Binding RealEstateTitle}"
+                           FontSize="16"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
+                <TextBlock Text="{Binding RealEstate}"
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
 
-                    <!-- Срок -->
-                    <StackPanel Grid.Column="3" Spacing="2" HorizontalAlignment="Center">
-                        <TextBlock Text="Срок" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding Deadline}"/>
-                    </StackPanel>
+                <!-- клиент -->
+                <TextBlock Text="{Binding ClientTitle}"
+                           FontSize="16"
+                           Grid.Column="2"
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
+                <TextBlock Text="{Binding Client}"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
 
-                    <!-- Статус -->
-                    <Border Grid.Column="4"
-                            Background="#E6F1FB"
-                            CornerRadius="12"
-                            Padding="10,4"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding Status}"
-                                   FontSize="11"
-                                   Foreground="#185FA5"/>
-                    </Border>
-                </Grid>
+                <!-- срок -->
+                <TextBlock Text="{Binding DeadlineTitle}"
+                           FontSize="16"
+                           Grid.Column="3"
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
+                <TextBlock Text="{Binding Deadline}"
+                           Grid.Column="3"
+                           Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
 
-          
+                <!-- кол-во задач -->
+                <TextBlock Text="{Binding TaskCountTitle}"
+                           FontSize="16"
+                           Grid.Column="4"
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
+                <TextBlock Text="0"
+                           Grid.Column="4"
+                           Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin=""/>
 
-        </StackPanel>
-    </Border>
+                <!-- Статус -->
+                <Border Grid.Column="5" Grid.RowSpan="2"
+                        Background="#E6F1FB"
+                        CornerRadius="12"
+                        Padding="10,4"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Status}"
+                               FontSize="11"
+                               Foreground="#185FA5"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Button>
+
 </UserControl>

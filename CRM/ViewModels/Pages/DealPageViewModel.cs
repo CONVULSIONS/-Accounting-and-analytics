@@ -16,8 +16,8 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
     {
         private readonly IDealRepozitory _dealsRepository;
         private readonly IDealInListVmFactory _factory;
+        public string Title { get; } = "МОИ СДЕЛКИ";
 
-        public string Title { get; } = " МОИ СДЕЛКИ";
         private ObservableCollection<DealInListViewModel> _deals { get; set; } = new();
         public ObservableCollection<DealInListViewModel> Deals 
         { 

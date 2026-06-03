@@ -10,7 +10,7 @@
 
 
 <Grid ColumnDefinitions="Auto,*,Auto" Height="64"
-          Background="DarkSlateGray">
+          Background="#29594c">
 
         <!-- Лого слева -->
         <StackPanel Grid.Column="0" Orientation="Horizontal"
