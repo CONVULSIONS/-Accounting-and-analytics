@@ -8,6 +8,13 @@ namespace AccountingAndAnalytics.CRM.Models.Applications
 {
     public class ApplicationResponse
     {
-
+        public int id { get; set; }
+        public int number { get; set; }
+        public int real_estate_id { get; set; }
+        public string real_estate_name { get; set; }
+        public int client_id { get; set; }
+        public string client_name { get; set; }
+        public int status_id { get; set; }
+        public string title { get; set; }
     }
 }

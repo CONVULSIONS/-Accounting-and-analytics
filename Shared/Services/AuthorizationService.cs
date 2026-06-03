@@ -20,7 +20,7 @@ namespace AccountingAndAnalytics.Shared.Services
 
         public bool AuthorizeUser(string login, string pass)
         {
-            var currentUser = _userRepository.GetUser(login, pass); 
+            var currentUser = _userRepository.GetUser(login, pass);
             if (currentUser == null) 
                 return false;
             _currentUserSession.SetCurrentUser(currentUser);

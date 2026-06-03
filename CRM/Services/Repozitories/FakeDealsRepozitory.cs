@@ -53,9 +53,9 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
         }
         public Deal ApplicationToDeal(Application application)
         {
-            var newDealFromApplication = new Deal { Id = _deals.Count + 1, Number = application.Number, RealEstateName = application.RealEstateName, ClientName = application.ClientName, Deadline = new DateTime(1111, 1, 1), Status = "привет" };
-            _deals.Add(newDealFromApplication);
-            return newDealFromApplication;
+            //var newDealFromApplication = new Deal { Id = _deals.Count + 1, Number = application.Number, RealEstateName = application.RealEstateName, ClientName = application.ClientName, Deadline = new DateTime(1111, 1, 1), Status = "привет" };
+            //_deals.Add(newDealFromApplication);
+            return new Deal();
         }
     }
 }

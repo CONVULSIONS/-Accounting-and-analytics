@@ -28,24 +28,29 @@
                            FontWeight="Medium"
                            VerticalAlignment="Center"/>
                 <!-- заголовок -->
-                <TextBlock Grid.Column="0" Grid.Row="0"
-                           Text="{Binding Number}"
+                <TextBlock Grid.Column="1" Grid.Row="0"
+                           Text="{Binding Title}"
                            FontWeight="Medium"
                            VerticalAlignment="Center"/>
                 <!-- статус -->
-                <TextBlock Grid.Column="3" Grid.Row="0"
-                           Text="{Binding Number}"
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                           Text="{Binding Status}"
                            FontWeight="Medium"
                            VerticalAlignment="Center"/>
-                <!-- объект -->
-                <StackPanel Grid.Column="1" Grid.Row="1" Spacing="2"  HorizontalAlignment="Center">
-                    <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
-                    <TextBlock Text="{Binding RealEstate}"/>
+                <!-- клиент -->
+                <StackPanel Grid.Column="1" Grid.Row="1"
+                            Spacing="4"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <TextBlock Text="Client: " FontSize="11" Opacity="0.5"/>
+                    <TextBlock Text="{Binding RealEstateName}"/>
                 </StackPanel>
 
-                <!-- клиент -->
-                <StackPanel Grid.Column="2" Grid.Row="2" Spacing="2" HorizontalAlignment="Center">
-                    <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
+                <!-- объект -->
+                <StackPanel Grid.Column="1" Grid.Row="2"
+                            Spacing="4"
+                            HorizontalAlignment="Left">
+                    <TextBlock Text="Real estate: " FontSize="11" Opacity="0.5"/>
                     <TextBlock Text="{Binding ClientName}"/>
                 </StackPanel>
                 <!-- копка -->

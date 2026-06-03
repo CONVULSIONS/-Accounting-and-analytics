@@ -1,4 +1,5 @@
-﻿using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+﻿using AccountingAndAnalytics.CRM.Interfaces;
+using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,12 @@ namespace AccountingAndAnalytics.Shared.Services.Navigation
             where TViewModel : ViewModelBase
         {
             var vm = _provider.GetRequiredService<TViewModel>();
+
+            if (vm is IAsyncInitializable initVm)
+            {
+                _ = initVm.InitializeAsync();
+            }
+
             _setCurrentContent(vm);                
         }
     }

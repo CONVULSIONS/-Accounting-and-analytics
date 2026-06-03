@@ -32,14 +32,17 @@ namespace AccountingAndAnalytics
         {
             // сервисы остальные
             services.AddSingleton<ICurrentUserSession, CurrentUserSession>();
-            services.AddSingleton<IUserRepository, FakeUserRepository>();
+            services.AddSingleton<IUserRepository, ApiUserRepository>();
             services.AddSingleton<IAuthorizationService, AuthorizationService>();
             services.AddSingleton<IDialogService, DialogService>();
             services.AddSingleton<IDealsListManager, DealsListManager>();
 
+            // фабрики
+            services.AddSingleton<IApplicationInListVmFactory, ApplicationInListVmFactory>();
+
             // репозитории
             services.AddSingleton<IDealsRepozitory, FakeDealsRepozitory>();
-            services.AddSingleton<IApplicationRepozitory, FakeApplicationRepository>();
+            services.AddSingleton<IApplicationRepozitory, ApiApplicationsRepository>();
 
             // главный контейнер
             // страницы приложения

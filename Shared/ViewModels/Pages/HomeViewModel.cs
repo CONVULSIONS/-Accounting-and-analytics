@@ -1,4 +1,5 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+﻿using AccountingAndAnalytics.CRM.Interfaces;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +35,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
             Sidebar = sidebar;
             Header = header;
             _serviceProvider = serviceProvider;
-            CurrentPage = new ApplicationPageViewModel(_serviceProvider.GetRequiredService<IApplicationRepozitory>(), _serviceProvider.GetRequiredService<IDealsRepozitory>());
+            CurrentPage = new ApplicationPageViewModel(_serviceProvider.GetRequiredService<IApplicationRepozitory>(), _serviceProvider.GetRequiredService<IApplicationInListVmFactory>());
 
         }
     }
