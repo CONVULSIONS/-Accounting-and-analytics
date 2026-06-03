@@ -13,8 +13,6 @@
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
     <Folder Include="Analytics\Services\Repozitories\" />
-    <Folder Include="CRM\Views\Elements\Deals\" />
-    <Folder Include="CRM\Views\Elements\Applications\" />
     <Folder Include="TaskManager\Interfaces\Repozitories\" />
     <Folder Include="TaskManager\Services\Repozitories\" />
   </ItemGroup>
@@ -36,14 +34,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CRM\Views\Elements\Deals\DealInListView.axaml.cs">
+      <DependentUpon>DealInListView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Shared\Views\Elements\HeaderView.axaml.cs">
       <DependentUpon>HeaderView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Shared\Views\Elements\SidebarView.axaml.cs">
       <DependentUpon>SidebarView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="CRM\Views\Pages\DealsView.axaml.cs">
-      <DependentUpon>DealsView.axaml</DependentUpon>
+    <Compile Update="CRM\Views\Pages\DealPageView.axaml.cs">
+      <DependentUpon>DealPageView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

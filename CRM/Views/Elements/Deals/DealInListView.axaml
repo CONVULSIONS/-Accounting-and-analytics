@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Elements"
              mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="200"
-             x:Class="AccountingAndAnalytics.CRM.Views.Elements.DealView"
-             x:DataType="vm:DealViewModel">
+             x:Class="AccountingAndAnalytics.CRM.Views.Elements.Deals.DealInListView"
+             x:DataType="vm:DealInListViewModel">
 
             
     <Border Background="White"
@@ -16,10 +16,6 @@
         <StackPanel>
 
             <!-- Заголовок сделки -->
-            <Button Command="{Binding ToggleExpandCommand}"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Padding="20,20">
                 <Grid ColumnDefinitions="200,200,200,200,200,100" ShowGridLines="True">
 
                     <!-- Номер -->
@@ -31,13 +27,13 @@
                     <!-- Объект -->
                     <StackPanel Grid.Column="1" Spacing="2" HorizontalAlignment="Center">
                         <TextBlock Text="Объект" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding RealEstateName}"/>
+                        <TextBlock Text="{Binding RealEstate}"/>
                     </StackPanel>
 
                     <!-- Клиент -->
                     <StackPanel Grid.Column="2" Spacing="2" HorizontalAlignment="Center">
                         <TextBlock Text="Клиент" FontSize="11" Opacity="0.5"/>
-                        <TextBlock Text="{Binding ClientName}"/>
+                        <TextBlock Text="{Binding Client}"/>
                     </StackPanel>
 
                     <!-- Срок -->
@@ -57,44 +53,9 @@
                                    FontSize="11"
                                    Foreground="#185FA5"/>
                     </Border>
-
-                    <!-- Стрелка -->
-                    <TextBlock Grid.Column="5"
-                               Text="{Binding IsExpanded, Converter={StaticResource BoolToArrowConverter}}"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
                 </Grid>
-            </Button>
 
-            <!-- Задачи — показываются только если IsExpanded -->
-            <ItemsControl ItemsSource="{Binding Tasks}"
-                          IsVisible="{Binding IsExpanded}"
-                          Margin="14,0,14,10">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="#F5F5F5"
-                                CornerRadius="6"
-                                Padding="10,8"
-                                Margin="0,0,0,4">
-                            <Grid ColumnDefinitions="*,120,100">
-                                <TextBlock Grid.Column="0"
-                                           Text="{Binding Title}"
-                                           VerticalAlignment="Center"/>
-                                <TextBlock Grid.Column="1"
-                                           Text="{Binding Id}"
-                                           FontSize="12"
-                                           Opacity="0.6"
-                                           VerticalAlignment="Center"/>
-                                <TextBlock Grid.Column="2"
-                                           Text="{Binding Title}"
-                                           FontSize="12"
-                                           HorizontalAlignment="Right"
-                                           VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+          
 
         </StackPanel>
     </Border>

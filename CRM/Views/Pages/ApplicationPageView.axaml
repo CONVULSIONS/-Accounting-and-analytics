@@ -31,13 +31,11 @@
                 HorizontalAlignment="Right" 
                 Margin="0,0,10,0" 
                 VerticalAlignment="Center"
-                Content="Add application"
-                Command="{Binding AddApplicationCommand}"/>
+                Content="Add application"/>
     <Button Grid.Column="1" Grid.Row="2" 
                 HorizontalAlignment="Right" 
                 Margin="0,0,200,0" 
                 VerticalAlignment="Center"
-                Content="Application to deal"
-                Command="{Binding ApplicationToDealCommand}"/>
+                Content="Application to deal"/>
     </Grid> 
 </UserControl>

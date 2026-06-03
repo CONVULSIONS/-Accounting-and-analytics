@@ -3,11 +3,11 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using AccountingAndAnalytics.CRM.Services;
 
-namespace AccountingAndAnalytics.CRM.Views.Elements;
+namespace AccountingAndAnalytics.CRM.Views.Elements.Deals;
 
-public partial class DealView : UserControl
+public partial class DealInListView : UserControl
 {
-    public DealView()
+    public DealInListView()
     {
         InitializeComponent();
     }

@@ -19,16 +19,16 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public int Number { get; private set; }
         public string RealEstateName { get; private set; }
         public string ClientName { get; private set; }
-        public int Status { get; private set; }
+        public string Status { get; private set; }
         public string Title { get; private set; }
 
         public ApplicationInListViewModel(Application application)
         {
             Id = application.Id;
             Number = application.Number;
-            ClientName = application.ClientName;
-            RealEstateName = application.RealEstateName;
-            Status = application.Status_id;
+            ClientName = application.Client;
+            RealEstateName = application.RealEstate;
+            Status = application.Status;
             Title = application.Title;
         }
     }

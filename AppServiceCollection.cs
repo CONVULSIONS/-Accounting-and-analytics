@@ -1,28 +1,29 @@
-﻿using AccountingAndAnalytics.CRM.ViewModels.Elements;
+﻿using AccountingAndAnalytics.CRM.Interfaces;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Services;
+using AccountingAndAnalytics.CRM.Services.Repozitories;
+using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
-using AccountingAndAnalytics.Shared.Views.Windows;
 using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
 using AccountingAndAnalytics.Shared.Models;
+using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.Services.Navigation;
+using AccountingAndAnalytics.Shared.Services.Repozitories;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
 using AccountingAndAnalytics.Shared.Views.Pages;
+using AccountingAndAnalytics.Shared.Views.Windows;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using AccountingAndAnalytics.Shared.Services;
-using AccountingAndAnalytics.Shared.Services.Repozitories;
-using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
-using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
-using AccountingAndAnalytics.CRM.Interfaces;
-using AccountingAndAnalytics.CRM.Services;
-using AccountingAndAnalytics.CRM.Services.Repozitories;
 
 namespace AccountingAndAnalytics
 {
@@ -31,31 +32,29 @@ namespace AccountingAndAnalytics
         public static IServiceCollection AddAppServices(this ServiceCollection services)
         {
             // сервисы остальные
-            services.AddSingleton<ICurrentUserSession, CurrentUserSession>();
-            services.AddSingleton<IUserRepository, ApiUserRepository>();
+            services.AddSingleton<ICurrentUserSession, CurrentUserSession>();            
             services.AddSingleton<IAuthorizationService, AuthorizationService>();
             services.AddSingleton<IDialogService, DialogService>();
-            services.AddSingleton<IDealsListManager, DealsListManager>();
 
             // фабрики
             services.AddSingleton<IApplicationInListVmFactory, ApplicationInListVmFactory>();
+            services.AddSingleton<IDealInListVmFactory, DealInListVmFactory>();
 
             // репозитории
-            services.AddSingleton<IDealsRepozitory, FakeDealsRepozitory>();
+            services.AddSingleton<IDealRepozitory, ApiDealService>();
             services.AddSingleton<IApplicationRepozitory, ApiApplicationsRepository>();
+            services.AddSingleton<IUserRepository, ApiUserRepository>();
 
             // главный контейнер
             // страницы приложения
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<MainWindow>();
-            services.AddTransient<ProfileViewModel>();
-
-            services.AddSingleton<NavigationState>();
+            services.AddTransient<ProfileViewModel>();            
 
             // страницы контент домашней страницы
             services.AddSingleton<HomeViewModel>();
-            services.AddTransient<DealsViewModel>(); // сделки
-            services.AddTransient<DealViewModel>();
+            services.AddTransient<DealPageViewModel>(); // сделки
+            services.AddTransient<DealInListViewModel>();
             services.AddTransient<ApplicationPageViewModel>(); // заявки
             services.AddTransient<ApplicationInListViewModel>();
 
@@ -74,7 +73,11 @@ namespace AccountingAndAnalytics
             services.AddTransient<AuthorizationView>();
             services.AddSingleton<SidebarViewModel>();
             services.AddSingleton<HeaderViewModel>();
-
+            services.AddSingleton<NavigationState>();
+            services.AddSingleton<HttpClient>(_ => new HttpClient
+            {
+                BaseAddress = new Uri("http://127.0.0.1:8000")
+            });
 
             return services;
         }

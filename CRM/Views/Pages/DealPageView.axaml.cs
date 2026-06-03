@@ -6,11 +6,10 @@ using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.Views.Pages;
 
-public partial class DealsView : UserControl
+public partial class DealPageView : UserControl
 {
-    public DealsView()
+    public DealPageView()
     {
         InitializeComponent();
-        DataContext = new DealsViewModel(App.Services.GetRequiredService<IDealsRepozitory>());
     }
 }

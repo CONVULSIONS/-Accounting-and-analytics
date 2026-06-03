@@ -1,35 +1,35 @@
-﻿using System;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Models.Deals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using AccountingAndAnalytics.CRM.Models.Applications;
-using System.Net.Http.Json;
-using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.Services.Repozitories
 {
-    public class ApiApplicationsRepository : IApplicationRepozitory
+    public class ApiDealService : IDealRepozitory
     {
         private readonly HttpClient _httpClient;
-        public ApiApplicationsRepository(HttpClient httpClient)
+        public ApiDealService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            
         }
-
-        public async Task<List<Application>> GetAllAsync()
+        public async Task<List<Deal>> GetAllAsync()
         {
             var response = await _httpClient
-                .GetFromJsonAsync<List<ApplicationResponse>>("/applications/get-all");
-            
+                .GetFromJsonAsync<List<DealResponse>>("/deals/get-all");
+
             if (response == null)
             {
-                return new List<Application>();
+                return new List<Deal>();
             }
 
-            var AppList = response
-                            .Select(x => new Application
+            var dealList = response
+                            .Select(x => new Deal
                             {
                                 Id = x.id,
                                 ClientId = x.client_id,
@@ -38,12 +38,10 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                                 RealEstate = x.real_estate_name,
                                 StatusId = x.status_id,
                                 Status = x.status_name,
-                                Number = x.number,
-                                Title = x.title
+                                Deadline = x.deadline
                             })
                             .ToList();
-            return AppList;
-        }
+            return dealList;
+        } 
     }
 }
-

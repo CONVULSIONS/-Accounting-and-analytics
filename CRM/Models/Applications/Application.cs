@@ -11,10 +11,11 @@ namespace AccountingAndAnalytics.CRM.Models.Applications
         public int Id { get; set; }
         public int Number { get; set; }
         public int RealEstateId { get; set; }
-        public string RealEstateName { get; set; }
+        public string RealEstate { get; set; }
         public int ClientId { get; set; }
-        public string ClientName { get; set; }
-        public int Status_id { get; set; }
+        public string Client { get; set; }
+        public int StatusId { get; set; }
+        public string Status { get; set; }
         public string Title { get; set; }
     }
 }

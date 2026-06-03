@@ -27,7 +27,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Windows
                     OnPropertyChanged(nameof(CurrentPage));
             };
             _appNavigationService = appNavigationService;
-            _appNavigationService.NavigateTo<AuthorizationViewModel>();
+            _appNavigationService.NavigateTo<HomeViewModel>();
         }
     }
 }

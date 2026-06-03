@@ -16,8 +16,8 @@
 
     <UserControl.DataTemplates>
         <DataTemplate
-            DataType="crmvm:DealsViewModel">
-            <crmv:DealsView/>
+            DataType="crmvm:DealPageViewModel">
+            <crmv:DealPageView/>
         </DataTemplate>
         <DataTemplate
             DataType="crmvm:ApplicationPageViewModel">
@@ -43,7 +43,6 @@
             <Border
 
                 Grid.Column="1"
-                Padding="20"
                 >
                 
 

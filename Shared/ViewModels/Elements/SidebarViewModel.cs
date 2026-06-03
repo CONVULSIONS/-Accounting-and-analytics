@@ -52,7 +52,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Elements
         }
         private void GoToDeals()
         {
-            _homeNavigationService.NavigateTo<DealsViewModel>();
+            _homeNavigationService.NavigateTo<DealPageViewModel>();
         }
     }
 }
