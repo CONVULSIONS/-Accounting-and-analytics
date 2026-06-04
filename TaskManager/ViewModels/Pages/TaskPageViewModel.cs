@@ -47,9 +47,9 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
             _dealId = dealId;
             var taskList = await _taskService.GetAllByDealIdAsync(_dealId);
 
-            foreach (var deal in taskList)
+            foreach (var task in taskList)
             {
-                _tasks.Add(_factory.Create(deal));
+                _tasks.Add(_factory.Create(task));
             }
         }
     }

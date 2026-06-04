@@ -11,22 +11,22 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:HomeViewModel"
              x:Class="AccountingAndAnalytics.Shared.Views.Pages.HomeView">
-   
+
     <Design.DataContext>
         <vm:AuthorizationViewModel/>
     </Design.DataContext>
 
     <UserControl.DataTemplates>
         <DataTemplate
-            DataType="crmvm:DealPageViewModel">
+        DataType="crmvm:DealPageViewModel">
             <crmv:DealPageView/>
         </DataTemplate>
         <DataTemplate
-            DataType="crmvm:ApplicationPageViewModel">
+        DataType="crmvm:ApplicationPageViewModel">
             <crmv:ApplicationPageView/>
         </DataTemplate>
         <DataTemplate
-            DataType="tmvm:TaskPageViewModel">
+        DataType="tmvm:TaskPageViewModel">
             <tmv:TaskPageView/>
         </DataTemplate>
     </UserControl.DataTemplates>
@@ -35,28 +35,23 @@
 
         <!-- Шапка -->
         <controls:HeaderView Grid.Row="0"
-                                DataContext="{Binding Header}"/>
+                             DataContext="{Binding Header}"/>
 
         <!-- Контент -->
         <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
 
             <!-- Sidebar -->
-            <controls:SidebarView Grid.Column="0" 
-                                     DataContext="{Binding Sidebar}"/>
+            <controls:SidebarView Grid.Column="0"
+                                  DataContext="{Binding Sidebar}"/>
 
             <!-- Контент -->
-            
+
             <Border
-
-                Grid.Column="1"
-                >
-                
-
+            Grid.Column="1">
                 <ContentControl
-                    Content="{Binding CurrentPage}" />
-
+                Content="{Binding CurrentPage}" />
             </Border>
-                
+
 
         </Grid>
     </Grid>

@@ -31,6 +31,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public DealInListViewModel(Deal deal, IHomeNavigationService navigation)
         {
             _navigation = navigation;
+            _id = deal.Id;
             Number = deal.Number;
             RealEstate = deal.RealEstate;
             Client = deal.Client;

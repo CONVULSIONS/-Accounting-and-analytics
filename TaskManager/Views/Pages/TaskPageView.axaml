@@ -24,7 +24,7 @@
                 Background="#1A3C4D"
                 CornerRadius="10,10,0,0"
                 Padding="0,0,0,0">
-            <Grid ColumnDefinitions="130,1*,1*,1*,1*,110">
+            <Grid ColumnDefinitions="130,1*,1*,110">
                 <TextBlock Grid.Column="0" Text="{Binding NumberTitle}"
                            FontSize="11" FontWeight="Medium"
                            Foreground="#9FB8C4"

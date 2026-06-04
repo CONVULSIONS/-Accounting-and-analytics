@@ -6,5 +6,50 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:TaskInListViewModel"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.TaskInListView">
+    <Button HorizontalAlignment="Stretch"
+            Padding="0"
+            CornerRadius="10"
+            Height="50"
+            Cursor="hand">
+        <Button.Styles>
+            <Style Selector="Button:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="#F0F6FF"/>
+            </Style>
+            <Style Selector="Button /template/ ContentPresenter">
+                <Setter Property="Background" Value="White"/>
+            </Style>
+        </Button.Styles>
 
+        <Grid ColumnDefinitions="130,1*,1*,110"
+              HorizontalAlignment="Stretch">
+
+            <!-- Данные строки -->
+            <TextBlock Grid.Column="0"
+                       Text="{Binding Number}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2"
+                       Text="{Binding Deadline}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <!-- Статус -->
+            <Border Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"
+                    Background="#E6F1FB"
+                    CornerRadius="12"
+                    Padding="10,4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Status}"
+                           FontSize="11"
+                           Foreground="#185FA5"/>
+            </Border>
+        </Grid>
+    </Button>
 </UserControl>

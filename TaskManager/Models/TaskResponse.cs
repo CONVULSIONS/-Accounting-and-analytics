@@ -9,6 +9,7 @@ namespace AccountingAndAnalytics.TaskManager.Models
     public class TaskResponse
     {
         public int id { get; set; }
+        public int number { get; set; }
         public string title { get; set; }
         public string description { get; set; }
         public int deal_id { get; set; }
