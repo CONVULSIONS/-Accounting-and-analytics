@@ -1,6 +1,8 @@
 ﻿using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.CRM.Models.Deals;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,11 @@ namespace AccountingAndAnalytics.CRM.Services
 {
     public class DealInListVmFactory : IDealInListVmFactory
     {
-        public DealInListViewModel Create(Deal deal)
+        private readonly IServiceProvider _provider;
+        public DealInListVmFactory(IServiceProvider provider)
         {
-            return new DealInListViewModel(deal);
+            _provider = provider;
         }
+        public DealInListViewModel Create(Deal deal) => new DealInListViewModel(deal, _provider.GetRequiredService<IHomeNavigationService>());
     }
 }

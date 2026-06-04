@@ -13,8 +13,6 @@
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
     <Folder Include="Analytics\Services\Repozitories\" />
-    <Folder Include="TaskManager\Interfaces\Repozitories\" />
-    <Folder Include="TaskManager\Services\Repozitories\" />
   </ItemGroup>
 
   <ItemGroup>

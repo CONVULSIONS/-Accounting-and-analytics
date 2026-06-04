@@ -1,6 +1,7 @@
 ﻿using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.ViewModels;
 using CommunityToolkit.Mvvm.Input;
 using System;

@@ -16,6 +16,11 @@ using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
 using AccountingAndAnalytics.Shared.Views.Pages;
 using AccountingAndAnalytics.Shared.Views.Windows;
+using AccountingAndAnalytics.TaskManager.Interfaces;
+using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
+using AccountingAndAnalytics.TaskManager.Services;
+using AccountingAndAnalytics.TaskManager.Services.Repozitories;
+using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -39,11 +44,13 @@ namespace AccountingAndAnalytics
             // фабрики
             services.AddSingleton<IApplicationInListVmFactory, ApplicationInListVmFactory>();
             services.AddSingleton<IDealInListVmFactory, DealInListVmFactory>();
+            services.AddSingleton<ITaskInListVmFactory, TaskInListVmFactory>();
 
             // репозитории
             services.AddSingleton<IDealRepozitory, ApiDealService>();
             services.AddSingleton<IApplicationRepozitory, ApiApplicationsRepository>();
             services.AddSingleton<IUserRepository, ApiUserRepository>();
+            services.AddSingleton<ITaskService, ApiTaskService>();
 
             // главный контейнер
             // страницы приложения
@@ -52,12 +59,12 @@ namespace AccountingAndAnalytics
             services.AddTransient<ProfileViewModel>();            
 
             // страницы контент домашней страницы
-            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<HomeViewModel>(); // глав
             services.AddTransient<DealPageViewModel>(); // сделки
-            services.AddTransient<DealInListViewModel>();
+            services.AddTransient<DealInListViewModel>(); // элемент сделка
             services.AddTransient<ApplicationPageViewModel>(); // заявки
-            services.AddTransient<ApplicationInListViewModel>();
-
+            services.AddTransient<ApplicationInListViewModel>(); //элемент заявка
+            services.AddTransient<TaskPageViewModel>(); // задачи
 
             // сервис навигации приложения
             services.AddSingleton<IAppNavigationService, AppNavigationService>();

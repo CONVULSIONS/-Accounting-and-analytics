@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
+             xmlns:views="using:AccountingAndAnalytics.TaskManager.Views.Elements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:TaskPageViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.TaskPageView">
+    <Grid Background="#F4F6F9"
+          RowDefinitions="Auto,Auto,*,Auto"
+          Margin="24,20,24,20">
+
+        <!-- заголовок -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+            <TextBlock Grid.Column="0"
+                       Text="{Binding Title}"
+                       FontSize="22" FontWeight="Medium"
+                       VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- шапка таблицы -->
+        <Border Grid.Row="1"
+                Background="#1A3C4D"
+                CornerRadius="10,10,0,0"
+                Padding="0,0,0,0">
+            <Grid ColumnDefinitions="130,1*,1*,1*,1*,110">
+                <TextBlock Grid.Column="0" Text="{Binding NumberTitle}"
+                           FontSize="11" FontWeight="Medium"
+                           Foreground="#9FB8C4"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Margin="0,10"/>
+                <TextBlock Grid.Column="1" Text="{Binding TaskTitle}"
+                           FontSize="11" FontWeight="Medium"
+                           Foreground="#9FB8C4"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Margin="0,10"/>
+                <TextBlock Grid.Column="2" Text="{Binding DeadlineTitle}"
+                           FontSize="11" FontWeight="Medium"
+                           Foreground="#9FB8C4"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Margin="0,10"/>
+                <TextBlock Grid.Column="3" Text="{Binding StatusTitle}"
+                           FontSize="11" FontWeight="Medium"
+                           Foreground="#9FB8C4"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Margin="0,10"/>
+            </Grid>
+        </Border>
+
+        <!-- Список сделок -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="0,0,10,10"
+                BorderBrush="#E0E0E0"
+                BorderThickness="0,0,0,1">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Tasks}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInListView DataContext="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+    </Grid>
+</UserControl>

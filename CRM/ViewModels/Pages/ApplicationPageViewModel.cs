@@ -13,6 +13,7 @@ using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using Microsoft.Extensions.DependencyInjection;
 using AccountingAndAnalytics.CRM.Interfaces;
+using AccountingAndAnalytics.Shared.Interfaces;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Pages
 {
