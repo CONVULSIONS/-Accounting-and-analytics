@@ -25,6 +25,7 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
+    <PackageReference Include="DialogHost.Avalonia" Version="0.12.2" />
     <PackageReference Include="LiveChartsCore" Version="2.0.4" />
     <PackageReference Include="MessageBox.Avalonia" Version="12.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
@@ -32,6 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CRM\Views\Elements\CreateApplicationView.axaml.cs">
+      <DependentUpon>CreateApplicationView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="CRM\Views\Elements\Deals\DealInListView.axaml.cs">
       <DependentUpon>DealInListView.axaml</DependentUpon>
     </Compile>

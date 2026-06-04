@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pagesv="using:AccountingAndAnalytics.Shared.Views.Pages"
+        xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AccountingAndAnalytics.Shared.Views.Windows.MainWindow"
         x:DataType="vm:MainViewModel"
@@ -25,10 +26,15 @@
         </DataTemplate>
     </Window.DataTemplates>
 
+    
 
     <Grid>
         <ContentControl
         Content="{Binding CurrentPage}" />
+        <dialogHost:DialogHost Identifier="MainDialog">
+    <!-- <ContentControl Content="{Binding CurrentPage}"/> -->
+    </dialogHost:DialogHost>
+        
     </Grid>
 
     </Window>

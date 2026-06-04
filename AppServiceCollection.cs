@@ -75,6 +75,7 @@ namespace AccountingAndAnalytics
                     provider,
                     vm => provider.GetRequiredService<HomeViewModel>().CurrentPage = vm));
 
+
             // другое
             services.AddTransient<AuthorizationViewModel>();
             services.AddTransient<AuthorizationView>();

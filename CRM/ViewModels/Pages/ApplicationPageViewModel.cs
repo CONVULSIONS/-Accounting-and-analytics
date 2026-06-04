@@ -10,14 +10,17 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.CRM.Views.Elements;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using Microsoft.Extensions.DependencyInjection;
 using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces;
+using Avalonia.Controls;
+using DialogHostAvalonia;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Pages
 {
-    public class ApplicationPageViewModel : ViewModelBase, IAsyncInitializable
+    public partial class ApplicationPageViewModel : ViewModelBase, IAsyncInitializable
     {
         private readonly IApplicationInListVmFactory _factory;
         private readonly IApplicationRepozitory _applicationsRepozitory;
@@ -50,6 +53,17 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
             {                
                 _applications.Add(_factory.Create(app));
             }
+        }
+
+        [RelayCommand]
+        public async Task OpenCreateDialog()
+        {
+            var createVm = new CreateApplicationViewModel();
+            var createV = new CreateApplicationView { DataContext = createVm };
+
+            await DialogHost.Show(createV, "MainDialog");
+            _applications.Clear();
+            await InitializeAsync();
         }
     }
 }

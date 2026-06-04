@@ -1,6 +1,7 @@
 ﻿using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
+using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
 using System;
