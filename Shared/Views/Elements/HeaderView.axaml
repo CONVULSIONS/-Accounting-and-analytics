@@ -4,53 +4,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Elements"
              x:DataType="vm:HeaderViewModel"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" 
              x:Class="AccountingAndAnalytics.Shared.Views.Elements.HeaderView">
 
 
 
 <Grid ColumnDefinitions="Auto,*,Auto" Height="64"
-          Background="#29594c">
+          Background="#1A3C4D">
 
-        <!-- Лого слева -->
+        <!-- Лого -->
         <StackPanel Grid.Column="0" Orientation="Horizontal"
                     Spacing="12" VerticalAlignment="Center" Margin="20,0">
-            <Image Source="" Width="40" Height="40"/>
+            <TextBlock Text="Accounting and analytics"
+                       FontSize="16" FontWeight="Medium"
+                       Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
 
-        <!-- Профиль справа -->
+        <!-- Профиль -->
         <StackPanel Grid.Column="2" Orientation="Horizontal"
                     Spacing="10" VerticalAlignment="Center" Margin="0,0,20,0">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+            <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="FullName"
-                
                            FontSize="13" FontWeight="Medium"
+                           Foreground="White"
                            HorizontalAlignment="Right"/>
                 <TextBlock Text="RoleName"
-                
-                           FontSize="11" Opacity="0.6"
+                           FontSize="11"
+                           Foreground="#9FB8C4"
                            HorizontalAlignment="Right"/>
             </StackPanel>
-            <!-- Иконка профиля -->
             <Border Width="36" Height="36"
-                    Background="#E6F1FB" Cursor="Hand">
-                <!-- <TextBlock 
-                Text="Initials"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontSize="13" FontWeight="Medium"
-                           Cursor="Hand"
-                           PointerPressed="">
-                    
-                </TextBlock> -->
+                    Background="#2E6B8A"
+                    CornerRadius="18">
                 <Button HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch"
-                           FontSize="10" FontWeight="Medium"
-                           Content="A.G."
-                           VerticalContentAlignment="Center"
-                           Command="{Binding OpenProfileCommand}">
-                    
-                </Button>
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Foreground="#9FE1CB"
+                        FontSize="11" FontWeight="Medium"
+                        Content="Initials"
+                        CornerRadius="18"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Command="{Binding OpenProfileCommand}"/>
             </Border>
         </StackPanel>
     </Grid>

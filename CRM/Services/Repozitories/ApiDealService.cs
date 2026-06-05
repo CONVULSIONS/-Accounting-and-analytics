@@ -38,7 +38,7 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                                 RealEstate = x.real_estate_name,
                                 StatusId = x.status_id,
                                 Status = x.status_name,
-                                Deadline = x.deadline
+                                Period = x.period
                             })
                             .ToList();
             return dealList;

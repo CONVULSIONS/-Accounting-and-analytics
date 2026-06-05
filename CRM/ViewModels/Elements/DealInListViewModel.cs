@@ -9,6 +9,7 @@ using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
+using System.Threading;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 {
@@ -19,7 +20,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public string Number { get; set; }
         public string RealEstate { get; set; }
         public string Client { get; set; }
-        public string Deadline { get; set; }
+        public string Period { get; set; }
         public string Status { get; set; }
         public string RealEstateTitle { get; } = "Недвижимость";
         public string ClientTitle { get; } = "Клиент";
@@ -35,9 +36,8 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
             Number = deal.Number;
             RealEstate = deal.RealEstate;
             Client = deal.Client;
-            Deadline = deal.Deadline.ToString();
+            Period= deal.Period.ToString();
             Status = deal.Status;
-            Deadline = deal.Deadline.ToString();
 
             GoToTasksCommand = new RelayCommand(GoToTasks);
         }

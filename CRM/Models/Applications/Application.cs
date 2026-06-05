@@ -17,5 +17,6 @@ namespace AccountingAndAnalytics.CRM.Models.Applications
         public int StatusId { get; set; }
         public string Status { get; set; }
         public string Title { get; set; }
+        public DateOnly Period { get; set; }
     }
 }

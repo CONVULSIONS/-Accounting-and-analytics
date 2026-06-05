@@ -10,26 +10,43 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using AccountingAndAnalytics.CRM.Models.Applications;
 using AccountingAndAnalytics.Shared.ViewModels;
+using System.Threading;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 {
-    public class ApplicationInListViewModel : ViewModelBase
+    public partial class ApplicationInListViewModel : ViewModelBase
     {
-        public int Id { get; private set; }
+        private readonly IApplicationRepozitory _repozitory;
+        private int _id { get; set; }
         public int Number { get; private set; }
-        public string RealEstateName { get; private set; }
-        public string ClientName { get; private set; }
-        public string Status { get; private set; }
         public string Title { get; private set; }
+        public string ClientTitle { get; private set; } = "Клиент:";
+        public string ClientName { get; private set; }
+        public string RealEstateTitle { get; private set; } = "Недвижимость:";
+        public string RealEstateName { get; private set; }
+        public string Status { get; private set; }
+        public string PeriodTitle { get; private set; }
+        public string Period { get; private set; }
+        public string btnApproveTitle { get; private set; } = "Одобрить";
+        public string btnRejectTitle { get; private set; } = "Отклонить";    
 
-        public ApplicationInListViewModel(Application application)
+        public ApplicationInListViewModel(Application application, IApplicationRepozitory repozitory)
         {
-            Id = application.Id;
+            _repozitory = repozitory;
+            _id = application.Id;
             Number = application.Number;
             ClientName = application.Client;
             RealEstateName = application.RealEstate;
             Status = application.Status;
             Title = application.Title;
+            Period = application.Period.ToString();
+        }
+
+        [RelayCommand]
+        private async Task Approve()
+        {
+            await _repozitory.AppToDeal(_id);
         }
     }
 }

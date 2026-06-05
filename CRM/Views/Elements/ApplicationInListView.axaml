@@ -3,37 +3,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Elements"
-             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="200"
+             mc:Ignorable="d"
              x:Class="AccountingAndAnalytics.CRM.Views.Elements.ApplicationInListView"
              x:DataType="vm:ApplicationInListViewModel">
 
-
-        <Button HorizontalAlignment="Stretch"
-            Padding="0"
-            CornerRadius="10">
-        <Button.Styles>
-            <Style Selector="Button /template/ ContentPresenter">
-                <Setter Property="Background" Value="White"/>
-                <Setter Property="CornerRadius" Value="10"/>
-            </Style>
-            <Style Selector="Button:pointerover /template/ ContentPresenter">
-                <Setter Property="Background" Value="#F0F6FF"/>
-            </Style>
-        </Button.Styles>
-
-        <Border CornerRadius="10"
-                BorderBrush="#E0E0E0"
-                BorderThickness="1"
-                HorizontalAlignment="Stretch"
-                ClipToBounds="True">
+    <Border CornerRadius="10"
+            BorderBrush="#1A3C4D"
+            BorderThickness="1"
+            HorizontalAlignment="Stretch"
+            ClipToBounds="True"
+            Margin="0,2,0,8">
+        <StackPanel>
 
             <Grid ColumnDefinitions="Auto,*,Auto">
-
-                <!-- Левая полоса с номером -->
+                <!-- номер -->
                 <Border Grid.Column="0"
                         Background="#1A3C4D"
                         Width="64"
-                        CornerRadius="10,0,0,10">
+                        CornerRadius="8,0,0,0">
                     <TextBlock Text="{Binding Number}"
                                Foreground="White"
                                FontSize="15"
@@ -41,36 +28,30 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
                 </Border>
-
-                <!-- Центр: title, client, realestate -->
+                <!-- содержимое -->
                 <StackPanel Grid.Column="1"
                             Spacing="4"
                             Margin="16,12,16,12"
                             VerticalAlignment="Center">
-
                     <TextBlock Text="{Binding Title}"
                                FontSize="14"
                                FontWeight="Medium"/>
-
                     <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="Клиент:"
+                        <TextBlock Text="{Binding ClientTitle}"
                                    FontSize="12"
-                                   Foreground="#9FB8C4"/>
+                                   Foreground="#1A3C4D"/>
                         <TextBlock Text="{Binding ClientName}"
                                    FontSize="12"/>
                     </StackPanel>
-
                     <StackPanel Orientation="Horizontal" Spacing="6">
-                        <TextBlock Text="Объект:"
+                        <TextBlock Text="{Binding RealEstateTitle}"
                                    FontSize="12"
-                                   Foreground="#9FB8C4"/>
+                                   Foreground="#1A3C4D"/>
                         <TextBlock Text="{Binding RealEstateName}"
                                    FontSize="12"/>
                     </StackPanel>
-
                 </StackPanel>
-
-                <!-- Правая часть: статус -->
+                <!-- статус -->
                 <Border Grid.Column="2"
                         Background="#E6F1FB"
                         CornerRadius="12"
@@ -82,8 +63,33 @@
                                FontWeight="Medium"
                                Foreground="#0C447C"/>
                 </Border>
-
             </Grid>
-        </Border>
-    </Button>
+
+            <!-- разделитель -->
+            <Border Height="1" Background="#E0E0E0"/>
+
+            <!-- Кнопки -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Spacing="8"
+                        Margin="0,8,12,8">
+                <Button Content="{Binding btnApproveTitle}"
+                        Command="{Binding ApproveCommand}"
+                        Background="#E1F5EE"
+                        Foreground="#085041"
+                        CornerRadius="8"
+                        Padding="14,6"
+                        FontSize="12"
+                        FontWeight="Medium"/>
+                <Button Content="{Binding btnRejectTitle}"
+
+                        Background="#FCEBEB"
+                        Foreground="#791F1F"
+                        CornerRadius="8"
+                        Padding="14,6"
+                        FontSize="12"
+                        FontWeight="Medium"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
 </UserControl>

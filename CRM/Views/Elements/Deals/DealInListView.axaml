@@ -71,7 +71,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin=""/>
-                <TextBlock Text="{Binding Deadline}"
+                <TextBlock Text="{Binding Period}"
                            Grid.Column="3"
                            Grid.Row="1"
                            HorizontalAlignment="Center"

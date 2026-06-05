@@ -4,38 +4,43 @@
              xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Elements"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d"
              x:Class="AccountingAndAnalytics.Shared.Views.Elements.SidebarView"
              x:DataType="vm:SidebarViewModel">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-        to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:SidebarViewModel/>
-    </Design.DataContext>
+    <Border Background="#3a5c6e">
+        <StackPanel Width="{Binding SidebarWidth}">
+            <StackPanel.Transitions>
+                <Transitions>
+                    <DoubleTransition Property="Width"
+                                      Duration="0:0:0.25"
+                                      Easing="CubicEaseOut"/>
+                </Transitions>
+            </StackPanel.Transitions>
 
+            <!-- Кнопка сворачивания -->
+            <Button HorizontalAlignment="Right"
+                    Margin="8"
+                    Foreground="White"
+                    Background="Transparent"
+                    Content="{Binding SidebarArrow}"
+                    Command="{Binding ToggleSidebarCommand}"/>
 
-    <Border BorderThickness="0,0,1,0"
-        BorderBrush="{DynamicResource SystemControlForegroundBaseLowBrush}">
-    <StackPanel Width="{Binding SidebarWidth}">
-        <StackPanel.Transitions>
-            <Transitions>
-                <DoubleTransition Property="Width"
-                                  Duration="0:0:0.25"
-                                  Easing="CubicEaseOut"/>
-            </Transitions>
-        </StackPanel.Transitions>
-
-        <!-- Кнопка сворачивания -->
-        <Button HorizontalAlignment="Right"
-                Margin="8"
-                Content="{Binding SidebarArrow}"
-                Command="{Binding ToggleSidebarCommand}"/>
-        <!-- Навигация -->
-        <Button Content="Application"
-                Command="{Binding GoToApplicationCommand}"/>
-        <Button Content="Deals"
-                Command="{Binding GoToDealsCommand}"/>     
-    </StackPanel>
-</Border>
+            <!-- Навигация -->
+            <Button Content="Application"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    Foreground="#9FB8C4"
+                    Padding="16,10"
+                    Command="{Binding GoToApplicationCommand}"/>
+            <Button Content="Deals"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    Foreground="#9FB8C4"
+                    Padding="16,10"
+                    Command="{Binding GoToDealsCommand}"/>
+        </StackPanel>
+    </Border>
 </UserControl>

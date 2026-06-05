@@ -10,9 +10,7 @@ namespace AccountingAndAnalytics.CRM.Interfaces.Repozitories
 {
     public interface IApplicationRepozitory
     {
-        //ObservableCollection<Application> GetApplication();
-        //Application AddApplication(string number, string realEstate, string clientName);
-        //void RemoveApplication(Application application);
         Task<List<Application>> GetAllAsync();
+        Task AppToDeal(int appId);
     }
 }

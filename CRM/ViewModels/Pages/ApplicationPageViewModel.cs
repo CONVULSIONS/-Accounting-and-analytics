@@ -50,7 +50,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
             var appList = await _applicationsRepozitory.GetAllAsync();
 
             foreach (var app in appList)
-            {                
+            {
                 _applications.Add(_factory.Create(app));
             }
         }

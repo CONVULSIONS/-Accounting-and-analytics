@@ -22,7 +22,7 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
         {
             var response = await _httpClient
                 .GetFromJsonAsync<List<ApplicationResponse>>("/applications/get-all");
-            
+
             if (response == null)
             {
                 return new List<Application>();
@@ -39,10 +39,16 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                                 StatusId = x.status_id,
                                 Status = x.status_name,
                                 Number = x.number,
-                                Title = x.title
+                                Title = x.title,
+                                Period = x.period,
                             })
                             .ToList();
             return AppList;
+        }
+        public async Task AppToDeal(int appId)
+        {
+            await _httpClient
+                .PostAsync($"/applications/to-deal/{appId}", null);
         }
     }
 }

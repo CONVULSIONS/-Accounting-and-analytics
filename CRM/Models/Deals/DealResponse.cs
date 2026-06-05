@@ -14,7 +14,7 @@ namespace AccountingAndAnalytics.CRM.Models.Deals
         public string real_estate_name { get; set; }
         public int client_id { get; set; }
         public string client_name { get; set; }
-        public DateOnly deadline { get; set; }
+        public DateOnly period { get; set; }
         public int status_id { get; set; }
         public string status_name { get; set; }
     }
