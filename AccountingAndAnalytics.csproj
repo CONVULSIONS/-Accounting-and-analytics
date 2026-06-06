@@ -13,6 +13,11 @@
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
     <Folder Include="Analytics\Services\Repozitories\" />
+    <Folder Include="Analytics\ViewModels\Elements\" />
+    <Folder Include="Analytics\ViewModels\Pages\" />
+    <Folder Include="Analytics\Models\" />
+    <Folder Include="Analytics\Views\Elements\" />
+    <Folder Include="Analytics\Views\Pages\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -8,104 +8,69 @@
              x:DataType="vm:DealInListViewModel">
 
     <Button HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            CornerRadius="10"
-            Height="100"
             Padding="0"
+            CornerRadius="0"
             Command="{Binding GoToTasksCommand}">
-        <Border Background="White"
-                CornerRadius="8"
-                Margin=""
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch">
-            <Grid ColumnDefinitions="150,200*,200*,200*,200*,100" ShowGridLines="True" HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
-                  RowDefinitions="1*,2*">
+        <Button.Styles>
+            <Style Selector="Button:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="#F0F6FF"/>
+            </Style>
+            <Style Selector="Button /template/ ContentPresenter">
+                <Setter Property="Background" Value="White"/>
+            </Style>
+        </Button.Styles>
 
-                <Rectangle Grid.Row="0"
-                           Grid.ColumnSpan="6"
-                           Fill="LightSteelBlue"/>
+        <Grid ColumnDefinitions="130,1*,1*,1*,1*,110"
+              RowDefinitions="1*,2*"
+              HorizontalAlignment="Stretch">
 
-                <!-- номер -->
-                <TextBlock Grid.Column="0"
-                           Text="{Binding Number}"
-                           FontWeight="Bold"
-                           VerticalAlignment="Center"/>
+            <!-- Заголовки колонок -->
 
-                <!-- объект -->
 
-                <TextBlock Text="{Binding RealEstateTitle}"
-                           FontSize="16"
-                           Grid.Column="1"
-                           Grid.Row="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-                <TextBlock Text="{Binding RealEstate}"
-                           Grid.Column="1"
-                           Grid.Row="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-
-                <!-- клиент -->
-                <TextBlock Text="{Binding ClientTitle}"
-                           FontSize="16"
-                           Grid.Column="2"
-                           Grid.Row="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-                <TextBlock Text="{Binding Client}"
-                           Grid.Column="2"
-                           Grid.Row="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-
-                <!-- срок -->
-                <TextBlock Text="{Binding DeadlineTitle}"
-                           FontSize="16"
-                           Grid.Column="3"
-                           Grid.Row="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-                <TextBlock Text="{Binding Period}"
-                           Grid.Column="3"
-                           Grid.Row="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-
-                <!-- кол-во задач -->
-                <TextBlock Text="{Binding TaskCountTitle}"
-                           FontSize="16"
-                           Grid.Column="4"
-                           Grid.Row="0"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-                <TextBlock Text="0"
-                           Grid.Column="4"
-                           Grid.Row="1"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Margin=""/>
-
-                <!-- Статус -->
-                <Border Grid.Column="5" Grid.RowSpan="2"
-                        Background="#E6F1FB"
-                        CornerRadius="12"
-                        Padding="10,4"
+            <!-- Номер сделки -->
+            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding Status}"
-                               FontSize="11"
-                               Foreground="#185FA5"/>
-                </Border>
-            </Grid>
-        </Border>
+                        Margin="12,0">
+                <TextBlock Text="{Binding Number}"
+                           FontWeight="Medium"
+                           FontSize="13"
+                           Foreground="#1A3C4D"/>
+            </StackPanel>
+
+            <!-- Данные строки -->
+            <TextBlock Grid.Column="1" Grid.Row="1"
+                       Text="{Binding RealEstate}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Grid.Row="1"
+                       Text="{Binding Client}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Grid.Row="1"
+                       Text="{Binding Period}"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="4" Grid.Row="1"
+                       Text="0"
+                       FontSize="13"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <!-- Статус -->
+            <Border Grid.Column="5" Grid.Row="0" Grid.RowSpan="2"
+                    Background="#E6F1FB"
+                    CornerRadius="12"
+                    Padding="10,4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Status}"
+                           FontSize="11"
+                           Foreground="#185FA5"/>
+            </Border>
+        </Grid>
     </Button>
 
 </UserControl>
