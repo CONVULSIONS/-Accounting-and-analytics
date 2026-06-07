@@ -11,7 +11,7 @@ using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
 using System.Threading;
 
-namespace AccountingAndAnalytics.CRM.ViewModels.Elements
+namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
 {
     public class DealInListViewModel : ViewModelBase
     {
@@ -40,7 +40,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 
         private void GoToTasks()
         {
-            _navigation.NavigateTo<TaskPageViewModel, int>(_id);
+            _navigation.NavigateTo<DealTasksViewModel, int>(_id);
         }
     }
 }

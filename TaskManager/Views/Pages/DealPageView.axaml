@@ -2,11 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Pages"
-             xmlns:views="using:AccountingAndAnalytics.CRM.Views.Elements.Deals"
+xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
+             xmlns:views="using:AccountingAndAnalytics.TaskManager.Views.Elements.Deals"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:DealPageViewModel"
-             x:Class="AccountingAndAnalytics.CRM.Views.Pages.DealPageView">
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DealPageView">
 
     <Grid Background="#F4F6F9"
           RowDefinitions="Auto,Auto,*,Auto"

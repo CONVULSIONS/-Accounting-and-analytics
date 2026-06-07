@@ -18,8 +18,8 @@
 
     <UserControl.DataTemplates>
         <DataTemplate
-        DataType="crmvm:DealPageViewModel">
-            <crmv:DealPageView/>
+        DataType="tmvm:DealPageViewModel">
+            <tmv:DealPageView/>
         </DataTemplate>
         <DataTemplate
         DataType="crmvm:ApplicationPageViewModel">

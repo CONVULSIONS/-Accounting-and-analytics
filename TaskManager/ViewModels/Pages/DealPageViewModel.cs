@@ -1,8 +1,8 @@
 ﻿using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
-using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.ViewModels;
+using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace AccountingAndAnalytics.CRM.ViewModels.Pages
+namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
 {
     public class DealPageViewModel : ViewModelBase, IAsyncInitializable
     {

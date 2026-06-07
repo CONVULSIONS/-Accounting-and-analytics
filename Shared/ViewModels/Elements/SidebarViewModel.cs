@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Elements
 {

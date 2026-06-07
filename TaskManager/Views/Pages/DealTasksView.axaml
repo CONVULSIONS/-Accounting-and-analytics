@@ -1,0 +1,178 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
+             xmlns:taskViews="using:AccountingAndAnalytics.TaskManager.Views.Elements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1000"
+             x:DataType="vm:DealTasksViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DealTasksView">
+        <ScrollViewer>
+        <StackPanel Margin="24,20,24,20" Spacing="16">
+
+            <!-- Шапка -->
+            <Border Background="#1A3C4D"
+                    CornerRadius="10,10,0,0">
+                <StackPanel Margin="20,16,20,16" Spacing="6">
+                    <TextBlock Text="Number"
+                               FontSize="11"
+                               Foreground="#9FB8C4"
+                               FontWeight="Medium"/>
+                    <TextBlock Text="Сделка"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               Foreground="White"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Основная инфо -->
+            <Border Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="0,0,10,10"
+                    Padding="20,16">
+                <Grid ColumnDefinitions="1*,1*" RowDefinitions="Auto,Auto">
+
+                    <StackPanel Grid.Column="0" Grid.Row="0"
+                                Spacing="4" Margin="0,0,0,12">
+                        <TextBlock Text="КЛИЕНТ"
+                                   FontSize="10" FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="Client"
+                                   FontSize="13" FontWeight="Medium"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Grid.Row="0"
+                                Spacing="4" Margin="0,0,0,12">
+                        <TextBlock Text="ОБЪЕКТ"
+                                   FontSize="10" FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="RealEstate"
+                                   FontSize="13" FontWeight="Medium"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="0" Grid.Row="1"
+                                Spacing="4">
+                        <TextBlock Text="ДАТА ОКОНЧАНИЯ"
+                                   FontSize="10" FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="Period"
+                                   FontSize="13" FontWeight="Medium"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+            <!-- Исполнители -->
+            <Border Background="White"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    Padding="20,16">
+                <StackPanel Spacing="12">
+
+                    <TextBlock Text="ИСПОЛНИТЕЛИ"
+                               FontSize="10" FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Ответственный клиентского отдела"
+                                   FontSize="11"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="ClientExecutor"
+                                   FontSize="13"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Ответственный юридического отдела"
+                                   FontSize="11"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="LegalExecutor"
+                                   FontSize="13"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Ответственный финансового отдела"
+                                   FontSize="11"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="FinanceExecutor"
+                                   FontSize="13"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <!-- Задачи -->
+            <ScrollViewer>
+            <StackPanel Spacing="0">
+                <Border Background="#1A3C4D"
+                        CornerRadius="10,10,0,0"
+                        Padding="16,10">
+                    <TextBlock Text="ЗАДАЧИ"
+                               FontSize="10" FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                </Border>
+                <Border Background="White"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1,0,1,1"
+                        CornerRadius="0,0,10,10">
+                   <ItemsControl ItemsSource="{Binding Tasks}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <taskViews:TaskInListView DataContext="{Binding}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+            </StackPanel>
+                </ScrollViewer>
+
+            <!-- Комментарии -->
+            <StackPanel Spacing="0">
+                <Border Background="#1A3C4D"
+                        CornerRadius="10,10,0,0"
+                        Padding="16,10">
+                    <TextBlock Text="КОММЕНТАРИИ"
+                               FontSize="10" FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                </Border>
+                <Border Background="White"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1,0,1,1"
+                        CornerRadius="0,0,10,10">
+                    <StackPanel>
+                        <!-- <ItemsControl ItemsSource="{Binding Comments}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <commentViews:CommentView DataContext="{Binding}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl> -->
+
+                        <!-- Ввод комментария -->
+                        <Border BorderBrush="#E0E0E0"
+                                BorderThickness="0,1,0,0"
+                                Padding="14,10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <!-- <TextBox Grid.Column="0"
+                                         Text="{Binding NewComment}"
+                                         Watermark="Написать комментарий..."
+                                         FontSize="13"
+                                         CornerRadius="8,0,0,8"/>
+                                <Button Grid.Column="1"
+                                        Content="Отправить"
+                                        Command="{Binding SendCommentCommand}"
+                                        Background="#1A3C4D"
+                                        Foreground="White"
+                                        CornerRadius="0,8,8,0"
+                                        Padding="14,0"
+                                        FontSize="12"/> -->
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

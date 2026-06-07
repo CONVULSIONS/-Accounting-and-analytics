@@ -9,7 +9,7 @@
     <Button HorizontalAlignment="Stretch"
             Padding="0"
             CornerRadius="10"
-            Height="50"
+
             Cursor="hand">
         <Button.Styles>
             <Style Selector="Button:pointerover /template/ ContentPresenter">
@@ -20,36 +20,80 @@
             </Style>
         </Button.Styles>
 
-        <Grid ColumnDefinitions="130,1*,1*,110"
-              HorizontalAlignment="Stretch">
+            <Border BorderBrush="#E0E0E0"
+            BorderThickness="0,0,0,1"
+            Padding="16,12">
+        <Grid ColumnDefinitions="*,Auto">
 
-            <!-- Данные строки -->
-            <TextBlock Grid.Column="0"
-                       Text="{Binding Number}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="1"
-                       Text="{Binding Title}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="2"
-                       Text="{Binding Deadline}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <!-- Статус -->
-            <Border Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"
-                    Background="#E6F1FB"
-                    CornerRadius="12"
-                    Padding="10,4"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Status}"
-                           FontSize="11"
-                           Foreground="#185FA5"/>
-            </Border>
+            <!-- Левая часть: инфо -->
+            <StackPanel Grid.Column="0" Spacing="4">
+
+                <!-- Номер + Название -->
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="{Binding Number}"
+                               FontSize="12"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <TextBlock Text="{Binding Title}"
+                               FontSize="13"
+                               FontWeight="Medium"/>
+                </StackPanel>
+
+                <!-- Описание -->
+                <TextBlock Text="Description"
+                           FontSize="12"
+                           Foreground="#6B7280"
+                           TextTrimming="CharacterEllipsis"/>
+
+                <!-- Даты -->
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <TextBlock Text="Назначена:"
+                                   FontSize="11"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="AssignDate"
+                                   FontSize="11"
+                                   Foreground="#6B7280"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="4">
+                        <TextBlock Text="Срок:"
+                                   FontSize="11"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text="{Binding Deadline}"
+                                   FontSize="11"
+                                   Foreground="#6B7280"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Правая часть: статус + кнопка -->
+            <StackPanel Grid.Column="1"
+                        Spacing="8"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+
+                <Border Background="#E6F1FB"
+                        CornerRadius="12"
+                        Padding="12,4"
+                        HorizontalAlignment="Right">
+                    <TextBlock Text="{Binding Status}"
+                               FontSize="11"
+                               FontWeight="Medium"
+                               Foreground="#0C447C"/>
+                </Border>
+
+                <Button Content="Отметить готовой"
+                       
+                        Background="#1A3C4D"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="12,6"
+                        FontSize="11"/>
+
+            </StackPanel>
+
         </Grid>
+    </Border>
     </Button>
 </UserControl>

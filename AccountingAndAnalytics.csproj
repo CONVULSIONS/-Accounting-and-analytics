@@ -18,6 +18,7 @@
     <Folder Include="Analytics\Models\" />
     <Folder Include="Analytics\Views\Elements\" />
     <Folder Include="Analytics\Views\Pages\" />
+    <Folder Include="CRM\Views\Elements\Deals\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,7 +43,7 @@
     <Compile Update="CRM\Views\Elements\CreateApplicationView.axaml.cs">
       <DependentUpon>CreateApplicationView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="CRM\Views\Elements\Deals\DealInListView.axaml.cs">
+    <Compile Update="TaskManager\Views\Elements\DealInListView.axaml.cs">
       <DependentUpon>DealInListView.axaml</DependentUpon>
     </Compile>
     <Compile Update="Shared\Views\Elements\HeaderView.axaml.cs">
@@ -51,7 +52,7 @@
     <Compile Update="Shared\Views\Elements\SidebarView.axaml.cs">
       <DependentUpon>SidebarView.axaml</DependentUpon>
     </Compile>
-    <Compile Update="CRM\Views\Pages\DealPageView.axaml.cs">
+    <Compile Update="TaskManager\Views\Pages\DealPageView.axaml.cs">
       <DependentUpon>DealPageView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>

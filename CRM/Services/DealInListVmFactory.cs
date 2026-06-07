@@ -1,7 +1,7 @@
 ﻿using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.CRM.Models.Deals;
-using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
