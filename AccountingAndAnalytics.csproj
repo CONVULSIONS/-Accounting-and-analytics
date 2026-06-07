@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaXaml Remove="CRM\Views\Elements\Deals\**" />
+    <Compile Remove="CRM\Views\Elements\Deals\**" />
+    <EmbeddedResource Remove="CRM\Views\Elements\Deals\**" />
+    <Folder Include="Shared\Interfaces\Repozitories\" />
+    <None Remove="CRM\Views\Elements\Deals\**" />
     <AvaloniaXaml Remove="App.axaml" />
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
@@ -18,7 +23,6 @@
     <Folder Include="Analytics\Models\" />
     <Folder Include="Analytics\Views\Elements\" />
     <Folder Include="Analytics\Views\Pages\" />
-    <Folder Include="CRM\Views\Elements\Deals\" />
   </ItemGroup>
 
   <ItemGroup>

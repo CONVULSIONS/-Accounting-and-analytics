@@ -6,11 +6,9 @@ using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
-using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
 using AccountingAndAnalytics.Shared.Models;
 using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.Services.Navigation;
-using AccountingAndAnalytics.Shared.Services.Repozitories;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
@@ -37,8 +35,8 @@ namespace AccountingAndAnalytics
     {
         public static IServiceCollection AddAppServices(this ServiceCollection services)
         {
-            // сервисы остальные
-            services.AddSingleton<ICurrentUserSession, CurrentUserSession>();            
+            // сервисы 
+            services.AddSingleton<CurrentUserService>();            
             services.AddSingleton<IAuthorizationService, AuthorizationService>();
             services.AddSingleton<IDialogService, DialogService>();
 
@@ -50,7 +48,7 @@ namespace AccountingAndAnalytics
             // репозитории
             services.AddSingleton<IDealRepozitory, ApiDealService>();
             services.AddSingleton<IApplicationRepozitory, ApiApplicationsRepository>();
-            services.AddSingleton<IUserRepository, ApiUserRepository>();
+            services.AddSingleton<IUserService, ApiUserService>();
             services.AddSingleton<ITaskService, ApiTaskService>();
 
             // главный контейнер
@@ -81,11 +79,23 @@ namespace AccountingAndAnalytics
             services.AddTransient<AuthorizationViewModel>();
             services.AddTransient<AuthorizationView>();
             services.AddSingleton<SidebarViewModel>();
-            services.AddSingleton<HeaderViewModel>();
+            services.AddTransient<HeaderViewModel>();
             services.AddSingleton<NavigationState>();
-            services.AddSingleton<HttpClient>(_ => new HttpClient
+            //services.AddSingleton<HttpClient>(_ => new HttpClient
+            //{
+            //    BaseAddress = new Uri("http://127.0.0.1:8000")
+            //});
+
+
+            services.AddTransient<AuthHeaderHandler>();
+            services.AddSingleton<HttpClient>(provider =>
             {
-                BaseAddress = new Uri("http://127.0.0.1:8000")
+                var handler = new AuthHeaderHandler(
+                    provider.GetRequiredService<CurrentUserService>())
+                {
+                    InnerHandler = new HttpClientHandler()
+                };
+                return new HttpClient(handler) { BaseAddress = new Uri("http://127.0.0.1:8000") };
             });
 
             return services;

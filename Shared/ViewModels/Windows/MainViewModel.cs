@@ -1,6 +1,11 @@
-﻿using AccountingAndAnalytics.Shared.ViewModels.Pages;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.Shared.Models;
+using AccountingAndAnalytics.Shared.Services;
+using AccountingAndAnalytics.Shared.Services.Navigation;
+using AccountingAndAnalytics.Shared.ViewModels.Pages;
+using System.Threading.Tasks;
 
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Windows
@@ -9,14 +14,10 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Windows
     {
         private readonly NavigationState _navigationState;
         private readonly IAppNavigationService _appNavigationService;
-        //private ViewModelBase? _currentPage;
+
         public ViewModelBase? CurrentPage
         { 
             get => _navigationState.CurrentPage;
-        }
-        public MainViewModel()
-        {
-
         }
         public MainViewModel(NavigationState state, IAppNavigationService appNavigationService)
         {
@@ -25,7 +26,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Windows
             {
                 if (e.PropertyName == nameof(NavigationState.CurrentPage))
                     OnPropertyChanged(nameof(CurrentPage));
-            };
+            };            
             _appNavigationService = appNavigationService;
             _appNavigationService.NavigateTo<HomeViewModel>();
         }

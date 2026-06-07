@@ -8,6 +8,6 @@ namespace AccountingAndAnalytics.Shared.Interfaces
 {
     public interface IAuthorizationService
     {
-        bool AuthorizeUser(string login, string pass);
+        Task<bool> AuthorizeUser(string login, string pass);
     }
 }

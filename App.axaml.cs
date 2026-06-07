@@ -29,8 +29,6 @@ namespace AccountingAndAnalytics
             Services = services.BuildServiceProvider();
 
             var mainViewModel = Services.GetRequiredService<MainViewModel>();
-            //var navigationState = Services.GetRequiredService<NavigationState>();
-            //navigationState.CurrentPage = Services.GetRequiredService<AuthorizationViewModel>();
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

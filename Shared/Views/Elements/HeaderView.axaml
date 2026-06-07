@@ -24,11 +24,11 @@
         <StackPanel Grid.Column="2" Orientation="Horizontal"
                     Spacing="10" VerticalAlignment="Center" Margin="0,0,20,0">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="FullName"
+                <TextBlock Text="{Binding FullName}"
                            FontSize="13" FontWeight="Medium"
                            Foreground="White"
                            HorizontalAlignment="Right"/>
-                <TextBlock Text="RoleName"
+                <TextBlock Text="{Binding RoleName}"
                            FontSize="11"
                            Foreground="#9FB8C4"
                            HorizontalAlignment="Right"/>

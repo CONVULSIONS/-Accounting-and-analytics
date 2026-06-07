@@ -9,8 +9,13 @@ namespace AccountingAndAnalytics.Shared.Models
     public class LoginResponse
     {
         public string token { get; set; }
-        public string role { get; set; }
+        public int id { get; set; }
+        public int department_id { get; set; }
+        public string department_name { get; set; }
+        public int role_id { get; set; }
+        public string role_name { get; set; }
         public string first_name { get; set; }
-        public string last_name { get; set; }
+        public string second_name { get; set; }
+        public string surname { get; set; }
     }
 }
