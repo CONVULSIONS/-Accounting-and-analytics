@@ -2,6 +2,7 @@
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.Interfaces;
+using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,9 +15,10 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Pages
 {
-    public class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase, IAsyncInitializable
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IAuthorizationService _authorizationService;
         private ViewModelBase? _currentPage;
         public ViewModelBase? CurrentPage
         {
@@ -29,15 +31,30 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
         }
 
         public SidebarViewModel Sidebar { get; }
-        public HeaderViewModel Header { get; }
+        private HeaderViewModel _header;
+        public HeaderViewModel Header 
+        {
+            get => _header;
+            set
+            {
+                _header = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public HomeViewModel(SidebarViewModel sidebar, HeaderViewModel header, IServiceProvider serviceProvider)
+        public HomeViewModel(SidebarViewModel sidebar, HeaderViewModel header, IServiceProvider serviceProvider, IAuthorizationService authorizationService)
         {
             Sidebar = sidebar;
-            Header = header;
+            //Header = header;
             _serviceProvider = serviceProvider;
+            _authorizationService = authorizationService;
             CurrentPage = new ApplicationPageViewModel(_serviceProvider.GetRequiredService<IApplicationRepozitory>(), _serviceProvider.GetRequiredService<IApplicationInListVmFactory>());
 
+        }
+        public async Task InitializeAsync()
+        {
+            await _authorizationService.AuthorizeUser("lera_alex", "2007");
+            Header = _serviceProvider.GetRequiredService<HeaderViewModel>();
         }
     }
 }
