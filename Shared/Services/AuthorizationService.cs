@@ -1,5 +1,4 @@
 ﻿using AccountingAndAnalytics.Shared.Interfaces;
-using AccountingAndAnalytics.Shared.Interfaces.Repozitories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,21 +9,15 @@ namespace AccountingAndAnalytics.Shared.Services
 {
     public class AuthorizationService : IAuthorizationService
     {
-        private IUserRepository _userRepository;
-        private ICurrentUserSession _currentUserSession;
-        public AuthorizationService(IUserRepository userRepository, ICurrentUserSession currentUserSession)
+        private IUserService _userService;
+        public AuthorizationService(IUserService userService)
         {
-            _userRepository = userRepository;
-            _currentUserSession = currentUserSession;
+            _userService = userService;
         }
 
-        public bool AuthorizeUser(string login, string pass)
+        public async Task<bool> AuthorizeUser(string login, string pass)
         {
-            var currentUser = _userRepository.GetUser(login, pass);
-            if (currentUser == null) 
-                return false;
-            _currentUserSession.SetCurrentUser(currentUser);
-            return true;
+            return await _userService.GetUser(login, pass);
         }
 
     }

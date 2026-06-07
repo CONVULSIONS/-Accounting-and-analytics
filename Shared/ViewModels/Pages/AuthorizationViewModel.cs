@@ -76,13 +76,13 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
                 await _dialogService.ShowWarningAsync("Введите логин и пароль!");
                 return;
             }
-            if (_authorizationService.AuthorizeUser(_loginText, _passText))
-            {
-                //await _dialogService.ShowInfoAsync("Успешная авторизация");
-                _appNavigationService.NavigateTo<HomeViewModel>();
-                CloseWindowAction?.Invoke();
-                return ;
-            }
+            //if (_authorizationService.AuthorizeUser(_loginText, _passText))
+            //{
+            //    //await _dialogService.ShowInfoAsync("Успешная авторизация");
+            //    _appNavigationService.NavigateTo<HomeViewModel>();
+            //    CloseWindowAction?.Invoke();
+            //    return ;
+            //}
             else
             {
                 await _dialogService.ShowErrorAsync("Неверный логин или пароль");

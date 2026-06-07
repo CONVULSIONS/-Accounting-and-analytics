@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.Shared.Interfaces
 {
-    public interface ICurrentUserSession
+    public interface IUserService
     {
-        User? CurrentUser { get; }
-        void SetCurrentUser(User user);
+        Task<bool> GetUser(string login, string pass);
     }
 }
