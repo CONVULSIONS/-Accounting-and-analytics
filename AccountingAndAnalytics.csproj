@@ -23,7 +23,6 @@
     <Folder Include="Analytics\Services\Repozitories\" />
     <Folder Include="Analytics\ViewModels\Elements\" />
     <Folder Include="Analytics\ViewModels\Pages\" />
-    <Folder Include="Analytics\Models\" />
     <Folder Include="Analytics\Views\Elements\" />
     <Folder Include="Analytics\Views\Pages\" />
   </ItemGroup>
@@ -39,8 +38,6 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
     <PackageReference Include="DialogHost.Avalonia" Version="0.12.2" />
-    <PackageReference Include="HttpRequestException" Version="1.0.1" />
-    <PackageReference Include="LiveChartsCore" Version="2.0.4" />
     <PackageReference Include="MessageBox.Avalonia" Version="12.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
     <PackageReference Include="System.Net.Http.Json" Version="10.0.8" />

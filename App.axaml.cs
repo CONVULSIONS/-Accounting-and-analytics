@@ -9,8 +9,8 @@ using System.Linq;
 using AccountingAndAnalytics.Shared.Views;
 using System;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
-using AccountingAndAnalytics.Shared.ViewModels.Pages;
-using AccountingAndAnalytics.Shared.Models;
+//using LiveChartsCore;
+//using LiveChartsCore.SkiaSharpView;
 
 namespace AccountingAndAnalytics
 {
@@ -24,6 +24,8 @@ namespace AccountingAndAnalytics
 
         public override void OnFrameworkInitializationCompleted()
         {
+            //LiveCharts.Configure(config => config.AddSkiaSharp());
+
             var services = new ServiceCollection();
             services.AddAppServices();
             Services = services.BuildServiceProvider();

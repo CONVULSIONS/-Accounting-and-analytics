@@ -3,76 +3,95 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Pages"
+             xmlns:statisticVm="using:AccountingAndAnalytics.Analytics.ViewModels"
+             xmlns:statisticV="using:AccountingAndAnalytics.Analytics.Views"
              x:DataType="vm:ProfileViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AccountingAndAnalytics.Shared.Views.Pages.ProfileView">
-<DockPanel>
-        
-        <!-- Кнопка "Назад" -->
-        <Button DockPanel.Dock="Top"
-                Content="← Назад"
-                HorizontalAlignment="Left"
-                Margin="12,12,0,0"
-                Classes="secondary"
-                Command="{Binding BackCommand}"/>
+    
+    <UserControl.DataTemplates>
+        <DataTemplate
+        DataType="statisticVm:StatisticViewModel">
+            <statisticV:StatisticsView/>
+        </DataTemplate>
+    </UserControl.DataTemplates>
+    
+    <Grid RowDefinitions="Auto,*" Background="#F4F6F9">
 
-        <!-- Основное содержимое -->
-        <ScrollViewer>
-            <StackPanel Margin="24" Spacing="24">
-                
-                <!-- Блок: аватар + имя + должность -->
-                <StackPanel Orientation="Horizontal" Spacing="20">
-                    
-                    <!-- Аватар -->
-                    <Border Width="100" Height="100"
-                            CornerRadius="8"
-                            BorderBrush="Gray"
-                            BorderThickness="1"
-                            ClipToBounds="True">
-                        <Panel>
-                            <!-- Заглушка если нет фото -->
-                            <PathIcon Data="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
-                                      Foreground="Gray"
-                                      Width="60" Height="60"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                            <!-- Реальное фото поверх заглушки -->
-                            <Image 
-                                   Stretch="UniformToFill"/>
-                        </Panel>
+        <!-- Шапка -->
+        <Border Grid.Row="0"
+                Background="#1A3C4D"
+                Padding="24,20">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+
+                <!-- Кнопка назад -->
+                <Button Grid.Column="0"
+                        Content="←"
+                        Command="{Binding BackCommand}"
+                        Background="Transparent"
+                        Foreground="White"
+                        FontSize="20"
+                        Padding="0,0,16,0"
+                        VerticalAlignment="Center"/>
+
+                <!-- Аватар + инфо -->
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="16"
+                            VerticalAlignment="Center">
+                    <Border Width="56" Height="56"
+                            Background="#2E6B8A"
+                            CornerRadius="28">
+                        <TextBlock Text=" Initials}"
+                                   FontSize="18"
+                                   FontWeight="Medium"
+                                   Foreground="#9FE1CB"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
                     </Border>
-
-                    <!-- Имя и должность -->
-                    <StackPanel VerticalAlignment="Top" Spacing="4">
-                        <TextBlock Text="FullName"
-                                   FontSize="22"
-                                   FontWeight="SemiBold"/>
-                        <TextBlock Text="Position"
-                                   FontSize="14"
-                                   Foreground="Gray"/>
+                    <StackPanel Spacing="4" VerticalAlignment="Center">
+                        <TextBlock Text=" FullName}"
+                                   FontSize="18"
+                                   FontWeight="Medium"
+                                   Foreground="White"/>
+                        <TextBlock Text=" Department}"
+                                   FontSize="13"
+                                   Foreground="#9FB8C4"/>
+                        <TextBlock Text=" Role}"
+                                   FontSize="12"
+                                   Foreground="#9FB8C4"/>
                     </StackPanel>
-                    
                 </StackPanel>
-                <StackPanel Spacing="8">
-    <ProgressBar Value="50" Minimum="0" Maximum="100" Height="12"/>
-    <ProgressBar  Minimum="0" Maximum="100" Height="12"/>
-</StackPanel>
 
-                <!-- Разделитель -->
-                <Separator/>
+                <!-- Кнопка выйти -->
+                <Button Grid.Column="2"
+                        Content="Выйти"
+                       
+                        Background="#FCEBEB"
+                        Foreground="#A32D2D"
+                        CornerRadius="8"
+                        Padding="16,8"
+                        FontSize="13"
+                        FontWeight="Medium"
+                        VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
 
-                <!-- Блок статистики — сюда передаётся внешний контрол -->
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Статистика"
-                               FontSize="16"
-                               FontWeight="Medium"/>
-                    
-                    <!-- Сюда будет подставляться контрол извне -->
-                    <ContentPresenter Content="StatisticsContent"/>
-                </StackPanel>
+        <!-- Контент -->
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="24,20,24,20" Spacing="16">
+
+                <!-- Статистика -->
+                <Border Background="White"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        Padding="20,16">
+                  <ContentControl Content="{Binding Statistic}"/>
+                </Border>
 
             </StackPanel>
         </ScrollViewer>
-        
-    </DockPanel>
+
+    </Grid>
 </UserControl>

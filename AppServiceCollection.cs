@@ -20,6 +20,7 @@ using AccountingAndAnalytics.TaskManager.Services;
 using AccountingAndAnalytics.TaskManager.Services.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
+using AccountingAndAnalytics.Analytics.ViewModels;
 using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -64,6 +65,8 @@ namespace AccountingAndAnalytics
             services.AddTransient<ApplicationPageViewModel>(); // заявки
             services.AddTransient<ApplicationInListViewModel>(); //элемент заявка
             services.AddTransient<DealTasksViewModel>(); // задачи
+
+            services.AddSingleton<StatisticViewModel>();
 
             // сервис навигации приложения
             services.AddSingleton<IAppNavigationService, AppNavigationService>();
