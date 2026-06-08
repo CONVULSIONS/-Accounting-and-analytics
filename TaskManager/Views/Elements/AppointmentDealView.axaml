@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.AppointmentDealView">
+    <Border Background="White"
+            CornerRadius="12"
+            Padding="0"
+            Width="560">
+        <StackPanel>
+
+            <!-- Шапка -->
+            <Border Background="#1A3C4D"
+                    CornerRadius="12,12,0,0"
+                    Padding="24,16">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <TextBlock Text="Appontmrnt executor for"
+                               FontSize="16"
+                               FontWeight="Medium"
+                               Foreground="White"/>
+                    <TextBlock Text="Number}"
+                                       FontSize="16" FontWeight="Medium" 
+                                       Foreground="White"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Тело -->
+            <StackPanel Margin="24,20,24,24" Spacing="16">
+
+                <!-- Инфо о сделке -->
+                <Border Background="#F4F6F9"
+                        CornerRadius="8"
+                        Padding="16,12">
+                    <Grid ColumnDefinitions="1*,1*" RowDefinitions="Auto,Auto,Auto">
+
+
+                        <StackPanel Grid.Column="1" Grid.Row="0"
+                                    Spacing="2" Margin="0,0,0,10">
+                            <TextBlock Text="ПЕРИОД"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="Period}"
+                                       FontSize="13" FontWeight="Medium"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Grid.Row="0"
+                                    Spacing="2" Margin="0,0,0,10">
+                            <TextBlock Text="КЛИЕНТ"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="Client}"
+                                       FontSize="13"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Grid.Row="2"
+                                    Spacing="2">
+                            <TextBlock Text="ОБЪЕКТ"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="RealEstate}"
+                                       FontSize="13"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <!-- Разделитель -->
+                <Border Height="1" Background="#E0E0E0"/>
+
+                <!-- Выбор исполнителя -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="EXECUTER"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <ComboBox ItemsSource="Users}"
+                              SelectedItem="SelectedUser}"
+                              HorizontalAlignment="Stretch"
+                              Padding="12,8"
+                              CornerRadius="8">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="FullName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Кнопка -->
+                <Button Content="Назначить"
+
+                        HorizontalAlignment="Right"
+                        Background="#1A3C4D"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="24,10"
+                        FontSize="13"
+                        FontWeight="Medium"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -1,0 +1,92 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.CreateTaskView">
+    <Border Background="White"
+            CornerRadius="12"
+            Width="480">
+        <StackPanel>
+
+            <!-- Шапка -->
+            <Border Background="#1A3C4D"
+                    CornerRadius="12,12,0,0"
+                    Padding="24,16">
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Grid.Column="0"
+                               Text="Создание задачи"
+                               FontSize="16"
+                               FontWeight="Medium"
+                               Foreground="White"
+                               VerticalAlignment="Center"/>
+                    <Button Grid.Column="1"
+                            Content="✕"
+
+                            Background="Transparent"
+                            Foreground="#9FB8C4"
+                            FontSize="16"
+                            Padding="8,4"/>
+                </Grid>
+            </Border>
+
+            <!-- Тело -->
+            <StackPanel Margin="24,20,24,24" Spacing="14">
+
+                <!-- Заголовок Watermark="Введите заголовок задачи" Watermark="Введите описание" -->
+                <StackPanel Spacing="6">
+                    <TextBlock Text="ЗАГОЛОВОК"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <TextBox Text="Title}"
+
+                             FontSize="13"
+                             CornerRadius="8"
+                             Padding="12,8"/>
+                </StackPanel>
+
+                <!-- Описание -->
+                <StackPanel Spacing="6">
+                    <TextBlock Text="ОПИСАНИЕ"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <TextBox Text="Description}"
+
+                             FontSize="13"
+                             CornerRadius="8"
+                             Padding="12,8"
+                             Height="80"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"/>
+                </StackPanel>
+
+                <!-- Дедлайн -->
+                <StackPanel Spacing="6">
+                    <TextBlock Text="ДЕДЛАЙН"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <CalendarDatePicker SelectedDate=""
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="8"
+                                        Padding="12,8"/>
+
+                </StackPanel>
+
+                <!-- Кнопка -->
+                <Button Content="Создать"
+
+                        HorizontalAlignment="Right"
+                        Background="#1A3C4D"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="24,10"
+                        FontSize="13"
+                        FontWeight="Medium"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

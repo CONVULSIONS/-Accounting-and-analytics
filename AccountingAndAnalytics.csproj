@@ -10,10 +10,13 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <AvaloniaXaml Remove="CRM\Views\Elements\Deals\**" />
+    <AvaloniaXaml Remove="Shared\Interfaces\Repozitories\**" />
     <Compile Remove="CRM\Views\Elements\Deals\**" />
+    <Compile Remove="Shared\Interfaces\Repozitories\**" />
     <EmbeddedResource Remove="CRM\Views\Elements\Deals\**" />
-    <Folder Include="Shared\Interfaces\Repozitories\" />
+    <EmbeddedResource Remove="Shared\Interfaces\Repozitories\**" />
     <None Remove="CRM\Views\Elements\Deals\**" />
+    <None Remove="Shared\Interfaces\Repozitories\**" />
     <AvaloniaXaml Remove="App.axaml" />
     <AvaloniaResource Include="App.axaml" />
     <Folder Include="Analytics\Interfaces\Repozitories\" />
@@ -47,6 +50,9 @@
     <Compile Update="CRM\Views\Elements\CreateApplicationView.axaml.cs">
       <DependentUpon>CreateApplicationView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="TaskManager\Views\Elements\AppointmentDealView.axaml.cs">
+      <DependentUpon>AppointmentDealView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="TaskManager\Views\Elements\DealInListView.axaml.cs">
       <DependentUpon>DealInListView.axaml</DependentUpon>
     </Compile>
@@ -55,6 +61,9 @@
     </Compile>
     <Compile Update="Shared\Views\Elements\SidebarView.axaml.cs">
       <DependentUpon>SidebarView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="TaskManager\Views\Pages\DeadlineDashboardPageView.axaml.cs">
+      <DependentUpon>DeadlineDashboardPageView.axaml</DependentUpon>
     </Compile>
     <Compile Update="TaskManager\Views\Pages\DealPageView.axaml.cs">
       <DependentUpon>DealPageView.axaml</DependentUpon>

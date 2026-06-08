@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.TaskInDashboardView">
+    <Border Background="White"
+            BorderBrush="#1A3C4D"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="12,10"
+            Cursor="Hand">
+
+
+        <StackPanel Spacing="6">
+
+            <!-- Сделка -->
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <TextBlock Text="Сделка"
+                           FontSize="10"
+                           Foreground="#9FB8C4"/>
+                <TextBlock Text="DealNumber}"
+                           FontSize="10"
+                           Foreground="#9FB8C4"
+                           FontWeight="Medium"/>
+            </StackPanel>
+
+            <!-- Задача -->
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <TextBlock Text="Задача"
+                           FontSize="10"
+                           Foreground="#9FB8C4"/>
+                <TextBlock Text="TaskNumber}"
+                           FontSize="10"
+                           Foreground="#9FB8C4"
+                           FontWeight="Medium"/>
+            </StackPanel>
+
+            <!-- Название -->
+            <TextBlock Text="Title}"
+                       FontSize="12"
+                       FontWeight="Medium"
+                       TextWrapping="Wrap"/>
+
+            <!-- Срок -->
+            <StackPanel Orientation="Horizontal" Spacing="4">
+                <TextBlock Text="Срок:"
+                           FontSize="11"
+                           Foreground="#9FB8C4"/>
+                <TextBlock Text="Deadline}"
+                           FontSize="11"
+                           FontWeight="Medium"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</UserControl>
