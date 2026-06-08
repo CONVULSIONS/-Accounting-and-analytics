@@ -32,9 +32,7 @@
         <ContentControl
         Content="{Binding CurrentPage}" />
         <dialogHost:DialogHost Identifier="MainDialog" Background="Transparent">
-    <!-- <ContentControl Content="{Binding CurrentPage}"/> -->
-            
-    </dialogHost:DialogHost>
+        </dialogHost:DialogHost>
         
     </Grid>
 

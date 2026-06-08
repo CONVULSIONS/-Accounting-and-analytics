@@ -3,81 +3,92 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Elements"
-             mc:Ignorable="d" d:DesignWidth="1100" d:DesignHeight="300"
+             mc:Ignorable="d"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.Deals.DealInListView"
              x:DataType="vm:DealInListViewModel">
 
-        <Border CornerRadius="10"
+    <Border CornerRadius="10"
             BorderBrush="#1A3C4D"
             BorderThickness="1"
             HorizontalAlignment="Stretch"
             ClipToBounds="True"
             Margin="0,2,0,8">
-    <Button HorizontalAlignment="Stretch"
-            Padding="0"
-            CornerRadius="10"
-            Height="50"
-            Background="White"
-            Command="{Binding GoToTasksCommand}">
-        <!-- <Button.Styles>
-            <Style Selector="Button:pointerover /template/ ContentPresenter">
-                <Setter Property="Background" Value="White"/>
-            </Style>
-            <Style Selector="Button /template/ ContentPresenter">
-                <Setter Property="Background" Value="White"/>
-            </Style>
-        </Button.Styles> -->
+        <Button HorizontalAlignment="Stretch"
+                Padding="0"
+                CornerRadius="10"
+                Background="White"
+                Command="{Binding GoToTasksCommand}">
 
-        <Grid ColumnDefinitions="130,1*,1*,1*,1*,110"
-              RowDefinitions="1*,2*"
-              HorizontalAlignment="Stretch">
+            <Grid ColumnDefinitions="130,1*,1*,1*,1*,110"
+                  RowDefinitions="50,30"
+                  HorizontalAlignment="Stretch">
 
-            <!-- Заголовки колонок -->
+                <!-- Заголовки колонок -->
 
 
-            <!-- Номер сделки -->
+                <!-- Номер сделки -->
 
                 <TextBlock Grid.Column="0" Grid.Row="0"
-                Text="{Binding Number}"
+                           Text="{Binding Number}"
                            FontWeight="Medium"
                            FontSize="13"
                            Foreground="#1A3C4D"/>
 
 
-            <!-- Данные строки -->
-            <TextBlock Grid.Column="1" Grid.Row="1"
-                       Text="{Binding RealEstate}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="2" Grid.Row="1"
-                       Text="{Binding Client}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="3" Grid.Row="1"
-                       Text="{Binding Period}"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="4" Grid.Row="1"
-                       Text="0"
-                       FontSize="13"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
+                <!-- Данные строки -->
+                <TextBlock Grid.Column="1" Grid.Row="0"
+                           Text="{Binding RealEstate}"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" Grid.Row="0"
+                           Text="{Binding Client}"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="3" Grid.Row="0"
+                           Text="{Binding Period}"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="4" Grid.Row="0"
+                           Text="0"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
 
-            <!-- Статус -->
-            <Border Grid.Column="5" Grid.Row="0" Grid.RowSpan="2"
-                    Background="#E6F1FB"
-                    CornerRadius="12"
-                    Padding="10,4"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Status}"
-                           FontSize="11"
-                           Foreground="#185FA5"/>
-            </Border>
-        </Grid>
-    </Button>
-            </Border>
+                <!-- Статус -->
+                <Border Grid.Column="5" Grid.Row="0"
+                        Background="#E6F1FB"
+                        CornerRadius="12"
+                        Padding="10,4"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding Status}"
+                               FontSize="11"
+                               Foreground="#185FA5"/>
+                </Border>
+
+                <!-- разделитель -->
+                <Border Grid.RowSpan="2" Grid.ColumnSpan="6"
+                        Height="1"
+                        Background="#E0E0E0"
+                        VerticalAlignment="Center"
+                        Margin="10,0,10,0"/>
+
+                <!-- Кнопки -->
+                <Button Grid.Column="5" Grid.Row="1"
+                        Content="TEXT HEY?"
+                        HorizontalAlignment="Right"
+
+                        Margin="0,8,12,8"
+                        Background="#E1F5EE"
+                        Foreground="#085041"
+                        CornerRadius="8"
+                        Padding="14,6"
+                        FontSize="12"
+                        FontWeight="Medium"/>
+            </Grid>
+        </Button>
+    </Border>
 </UserControl>

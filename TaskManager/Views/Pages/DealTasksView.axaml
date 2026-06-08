@@ -7,7 +7,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1000"
              x:DataType="vm:DealTasksViewModel"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DealTasksView">
-        <ScrollViewer>
+    <ScrollViewer>
         <StackPanel Margin="24,20,24,20" Spacing="16">
 
             <!-- Шапка -->
@@ -101,31 +101,41 @@
 
                 </StackPanel>
             </Border>
+            <Button Grid.Column="1"
+                    Content="+ New task"
+                    Command="{Binding OpenCreateDialogCommand}"
+                    Background="#1A3C4D"
+                    Foreground="White"
+                    CornerRadius="8"
+                    Padding="14,8"
+                    FontSize="13"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"/>
 
             <!-- Задачи -->
             <ScrollViewer>
-            <StackPanel Spacing="0">
-                <Border Background="#1A3C4D"
-                        CornerRadius="10,10,0,0"
-                        Padding="16,10">
-                    <TextBlock Text="ЗАДАЧИ"
-                               FontSize="10" FontWeight="Medium"
-                               Foreground="#9FB8C4"/>
-                </Border>
-                <Border Background="White"
-                        BorderBrush="#E0E0E0"
-                        BorderThickness="1,0,1,1"
-                        CornerRadius="0,0,10,10">
-                   <ItemsControl ItemsSource="{Binding Tasks}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <taskViews:TaskInListView DataContext="{Binding}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Border>
-            </StackPanel>
-                </ScrollViewer>
+                <StackPanel Spacing="0">
+                    <Border Background="#1A3C4D"
+                            CornerRadius="10,10,0,0"
+                            Padding="16,10">
+                        <TextBlock Text="ЗАДАЧИ"
+                                   FontSize="10" FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+                    </Border>
+                    <Border Background="White"
+                            BorderBrush="#E0E0E0"
+                            BorderThickness="1,0,1,1"
+                            CornerRadius="0,0,10,10">
+                        <ItemsControl ItemsSource="{Binding Tasks}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <taskViews:TaskInListView DataContext="{Binding}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
 
             <!-- Комментарии -->
             <StackPanel Spacing="0">
@@ -142,11 +152,11 @@
                         CornerRadius="0,0,10,10">
                     <StackPanel>
                         <!-- <ItemsControl ItemsSource="{Binding Comments}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <commentViews:CommentView DataContext="{Binding}"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                        <commentViews:CommentView DataContext="{Binding}"/>
+                        </DataTemplate>
+                        </ItemsControl.ItemTemplate>
                         </ItemsControl> -->
 
                         <!-- Ввод комментария -->
@@ -155,18 +165,18 @@
                                 Padding="14,10">
                             <Grid ColumnDefinitions="*,Auto">
                                 <!-- <TextBox Grid.Column="0"
-                                         Text="{Binding NewComment}"
-                                         Watermark="Написать комментарий..."
-                                         FontSize="13"
-                                         CornerRadius="8,0,0,8"/>
+                                Text="{Binding NewComment}"
+                                Watermark="Написать комментарий..."
+                                FontSize="13"
+                                CornerRadius="8,0,0,8"/>
                                 <Button Grid.Column="1"
-                                        Content="Отправить"
-                                        Command="{Binding SendCommentCommand}"
-                                        Background="#1A3C4D"
-                                        Foreground="White"
-                                        CornerRadius="0,8,8,0"
-                                        Padding="14,0"
-                                        FontSize="12"/> -->
+                                Content="Отправить"
+                                Command="{Binding SendCommentCommand}"
+                                Background="#1A3C4D"
+                                Foreground="White"
+                                CornerRadius="0,8,8,0"
+                                Padding="14,0"
+                                FontSize="12"/> -->
                             </Grid>
                         </Border>
                     </StackPanel>

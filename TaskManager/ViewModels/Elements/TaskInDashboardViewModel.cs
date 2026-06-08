@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
 {
-    internal class TaskInDashboardViewModel
+   public class TaskInDashboardViewModel
     {
+        public string DealNumber { get; set; }
+        public string TaskNumber { get; set; }
+        public string Title { get; set; }
+        public string Deadline { get; set; }
     }
 }

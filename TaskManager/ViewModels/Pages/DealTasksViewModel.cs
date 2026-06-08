@@ -1,8 +1,13 @@
-﻿using AccountingAndAnalytics.Shared.Interfaces;
+﻿using AccountingAndAnalytics.CRM.ViewModels.Elements;
+using AccountingAndAnalytics.CRM.Views.Elements;
+using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.TaskManager.Interfaces;
 using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
+using AccountingAndAnalytics.TaskManager.Views.Elements;
+using CommunityToolkit.Mvvm.Input;
+using DialogHostAvalonia;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
 {
-    public class DealTasksViewModel : ViewModelBase, IAsyncInitializableParam<int>
+    public partial class DealTasksViewModel : ViewModelBase, IAsyncInitializableParam<int>
     {
         private readonly ITaskService _taskService;
         private readonly ITaskInListVmFactory _factory;
@@ -60,6 +65,17 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
             {
                 _tasks.Add(_factory.Create(task));
             }
+        }
+
+        [RelayCommand]
+        public async Task OpenCreateDialog()
+        {
+            var createVm = new CreateTaskViewModel();
+            var createV = new CreateTaskView { DataContext = createVm };
+
+            await DialogHost.Show(createV, "MainDialog");
+            _tasks.Clear();
+            await InitializeAsync(_dealId);
         }
     }
 }

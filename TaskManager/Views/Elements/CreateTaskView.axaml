@@ -2,7 +2,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Elements"
              mc:Ignorable="d"
+             x:DataType="vm:CreateTaskViewModel"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.CreateTaskView">
     <Border Background="White"
             CornerRadius="12"
@@ -22,7 +24,7 @@
                                VerticalAlignment="Center"/>
                     <Button Grid.Column="1"
                             Content="✕"
-
+                            Command="{Binding CloseCreateDialogCommand}"
                             Background="Transparent"
                             Foreground="#9FB8C4"
                             FontSize="16"
@@ -33,14 +35,14 @@
             <!-- Тело -->
             <StackPanel Margin="24,20,24,24" Spacing="14">
 
-                <!-- Заголовок Watermark="Введите заголовок задачи" Watermark="Введите описание" -->
+                <!-- Заголовок  -->
                 <StackPanel Spacing="6">
                     <TextBlock Text="ЗАГОЛОВОК"
                                FontSize="10"
                                FontWeight="Medium"
                                Foreground="#9FB8C4"/>
-                    <TextBox Text="Title}"
-
+                    <TextBox Text="{Binding Title}"
+                             Watermark="Введите заголовок задачи"
                              FontSize="13"
                              CornerRadius="8"
                              Padding="12,8"/>
@@ -52,8 +54,8 @@
                                FontSize="10"
                                FontWeight="Medium"
                                Foreground="#9FB8C4"/>
-                    <TextBox Text="Description}"
-
+                    <TextBox Text="{Binding Description}"
+                             Watermark="Введите описание"
                              FontSize="13"
                              CornerRadius="8"
                              Padding="12,8"
@@ -68,7 +70,7 @@
                                FontSize="10"
                                FontWeight="Medium"
                                Foreground="#9FB8C4"/>
-                    <CalendarDatePicker SelectedDate=""
+                    <CalendarDatePicker SelectedDate="{Binding Deadline}"
                                         HorizontalAlignment="Stretch"
                                         CornerRadius="8"
                                         Padding="12,8"/>

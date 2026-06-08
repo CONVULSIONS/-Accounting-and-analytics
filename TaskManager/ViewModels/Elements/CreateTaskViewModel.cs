@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AccountingAndAnalytics.Shared.ViewModels;
+using CommunityToolkit.Mvvm.Input;
+using DialogHostAvalonia;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,22 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
 {
-    internal class CreateTaskViewModel
+    public partial class CreateTaskViewModel : ViewModelBase
     {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateOnly Deadline { get; set; }
+        public DateTime Created { get; set; }
+        public CreateTaskViewModel()
+        {
+
+        }
+
+        [RelayCommand]
+        private async Task CloseCreateDialog()
+        {
+            DialogHost.Close("MainDialog");
+        }
     }
+
 }

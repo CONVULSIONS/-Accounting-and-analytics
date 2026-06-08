@@ -9,7 +9,7 @@ xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DealPageView">
 
     <Grid Background="#F4F6F9"
-          RowDefinitions="Auto,Auto,*,Auto"
+          RowDefinitions="Auto,30,*,Auto"
           Margin="24,20,24,20">
 
         <!-- Заголовок + кнопка -->
