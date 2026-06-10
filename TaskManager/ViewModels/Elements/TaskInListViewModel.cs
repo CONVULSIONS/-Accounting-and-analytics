@@ -11,8 +11,13 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
     {
         public int Number { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
+        public string AssignDateLabel { get; set; } = "Назначена:";
+        public string AssignDate { get; set; }
+        public string DeadlineLabel { get; set; } = "Срок:";
         public string Deadline { get; set; }
         public string Status { get; set; }
+        public string MarkAsDoneLabel { get; set; } = "Отметить готовой";
         public TaskInListViewModel(TaskModel task)
         {
             Number = task.Number;

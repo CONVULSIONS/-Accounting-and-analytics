@@ -9,105 +9,60 @@
              x:Class="AccountingAndAnalytics.Analytics.Views.StatisticsView">
 
     <Design.DataContext>
-    <vm:StatisticViewModel/>
-</Design.DataContext>
+        <vm:StatisticViewModel/>
+    </Design.DataContext>
 
-    <StackPanel Spacing="20">
+    <StackPanel Spacing="20" Margin="16">
 
-        <!-- Прогрессбар задач -->
+        <!-- Прогрессбар + счетчик -->
         <StackPanel Spacing="8">
-            <Grid ColumnDefinitions="*,Auto">
-                <TextBlock Grid.Column="0"
-                           Text="Скорость выполнения задач"
-                           FontSize="12"
-                           FontWeight="Medium"
-                           Foreground="#6B7280"/>
-                <TextBlock Grid.Column="1"
-                           Text="{Binding TasksCompletedCount, StringFormat='Задач выполнено: {0}'}"
-                           FontSize="12"
-                           Foreground="#6B7280"/>
-            </Grid>
-            <ProgressBar Value="65"
+            <TextBlock Text="{Binding TaskSpeedLabel}"
+                       FontSize="12"
+                       FontWeight="Medium"
+                       Foreground="#6B7280"/>
+            <ProgressBar Value="{Binding TasksCompletedPercent}"
                          Minimum="0"
                          Maximum="100"
                          Height="12"
                          CornerRadius="6"
                          Foreground="#0F6E56"
-                         Background="#E0E0E0"/>
+                         Background="#E0E0E0"
+                         MaxWidth="300"
+                         HorizontalAlignment="Left"/>
+            <TextBlock Text="{Binding TasksCompletedCount}"
+                       FontSize="12"
+                       Foreground="#6B7280"/>
         </StackPanel>
 
-        <!-- Счётчики -->
-        <Grid ColumnDefinitions="1*,1*">
-            <StackPanel Grid.Column="0" Spacing="2">
-                <TextBlock Text="Заявок оформлено"
-                           FontSize="11"
-                           Foreground="#9FB8C4"/>
-                <TextBlock Text="{Binding ApplicationsCount}"
-                           FontSize="22"
-                           FontWeight="Medium"
-                           Foreground="#1A3C4D"/>
-            </StackPanel>
-        </Grid>
+        <!-- Диаграмма сделок -->
+        <StackPanel Spacing="8" HorizontalAlignment="Left">
+            <TextBlock Text="{Binding DealsChartLabel}"
+                       FontSize="12"
+                       FontWeight="Medium"
+                       Foreground="#6B7280"/>
+            <Grid ColumnDefinitions="Auto,Auto">
+                <charts:PieChartView Grid.Column="0"
+                                     Width="160" Height="160"
+                                     Slices="{Binding DealsSlices}"/>
+                <StackPanel Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Spacing="6" Margin="16,0,0,0">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Ellipse Width="10" Height="10" Fill="#0F6E56"/>
+                        <TextBlock Text="{Binding DealsClosedLabel}" FontSize="11"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Ellipse Width="10" Height="10" Fill="#2E6B8A"/>
+                        <TextBlock Text="{Binding DealsActiveLabel}" FontSize="11"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Ellipse Width="10" Height="10" Fill="#A32D2D"/>
+                        <TextBlock Text="{Binding DealsCancelledLabel}" FontSize="11"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
 
-<Grid ColumnDefinitions="1*,1*" Height="220">
-
-    <StackPanel Grid.Column="0" Spacing="8">
-        <TextBlock Text="Заявки"
-                   FontSize="12" FontWeight="Medium"
-                   Foreground="#6B7280"
-                   HorizontalAlignment="Center"/>
-        <Grid ColumnDefinitions="Auto,*">
-            <charts:PieChartView Grid.Column="0"
-                                 Width="160" Height="160"
-                                 Slices="{Binding ApplicationsSlices}"/>
-            <StackPanel Grid.Column="1"
-                        VerticalAlignment="Center"
-                        Spacing="6" Margin="12,0,0,0">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#0F6E56"/>
-                    <TextBlock Text="Одобрено" FontSize="11"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#2E6B8A"/>
-                    <TextBlock Text="В обработке" FontSize="11"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#A32D2D"/>
-                    <TextBlock Text="Отменено" FontSize="11"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
-
-    <StackPanel Grid.Column="1" Spacing="8">
-        <TextBlock Text="Сделки"
-                   FontSize="12" FontWeight="Medium"
-                   Foreground="#6B7280"
-                   HorizontalAlignment="Center"/>
-        <Grid ColumnDefinitions="Auto,*">
-            <charts:PieChartView Grid.Column="0"
-                                 Width="160" Height="160"
-                                 Slices="{Binding DealsSlices}"/>
-            <StackPanel Grid.Column="1"
-                        VerticalAlignment="Center"
-                        Spacing="6" Margin="12,0,0,0">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#0F6E56"/>
-                    <TextBlock Text="Закрыто" FontSize="11"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#2E6B8A"/>
-                    <TextBlock Text="В сопровождении" FontSize="11"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <Ellipse Width="10" Height="10" Fill="#A32D2D"/>
-                    <TextBlock Text="Разорвано" FontSize="11"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-    </StackPanel>
-
-</Grid>
     </StackPanel>
 
 </UserControl>

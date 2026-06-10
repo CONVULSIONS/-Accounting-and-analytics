@@ -8,7 +8,7 @@ xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
              x:DataType="vm:DealPageViewModel"
              x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DealPageView">
 
-    <Grid Background="#F4F6F9"
+    <Grid Background="White"
           RowDefinitions="Auto,30,*,Auto"
           Margin="24,20,24,20">
 

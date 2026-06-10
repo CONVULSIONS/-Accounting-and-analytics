@@ -8,14 +8,13 @@
              x:DataType="vm:ProfileViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AccountingAndAnalytics.Shared.Views.Pages.ProfileView">
-    
+
     <UserControl.DataTemplates>
-        <DataTemplate
-        DataType="statisticVm:StatisticViewModel">
+        <DataTemplate DataType="statisticVm:StatisticViewModel">
             <statisticV:StatisticsView/>
         </DataTemplate>
     </UserControl.DataTemplates>
-    
+
     <Grid RowDefinitions="Auto,*" Background="#F4F6F9">
 
         <!-- Шапка -->
@@ -24,7 +23,6 @@
                 Padding="24,20">
             <Grid ColumnDefinitions="Auto,*,Auto">
 
-                <!-- Кнопка назад -->
                 <Button Grid.Column="0"
                         Content="←"
                         Command="{Binding BackCommand}"
@@ -34,7 +32,6 @@
                         Padding="0,0,16,0"
                         VerticalAlignment="Center"/>
 
-                <!-- Аватар + инфо -->
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             Spacing="16"
@@ -42,7 +39,7 @@
                     <Border Width="56" Height="56"
                             Background="#2E6B8A"
                             CornerRadius="28">
-                        <TextBlock Text=" Initials}"
+                        <TextBlock Text="{Binding Initials}"
                                    FontSize="18"
                                    FontWeight="Medium"
                                    Foreground="#9FE1CB"
@@ -50,23 +47,22 @@
                                    VerticalAlignment="Center"/>
                     </Border>
                     <StackPanel Spacing="4" VerticalAlignment="Center">
-                        <TextBlock Text=" FullName}"
+                        <TextBlock Text="{Binding FullName}"
                                    FontSize="18"
                                    FontWeight="Medium"
                                    Foreground="White"/>
-                        <TextBlock Text=" Department}"
+                        <TextBlock Text="{Binding Department}"
                                    FontSize="13"
                                    Foreground="#9FB8C4"/>
-                        <TextBlock Text=" Role}"
+                        <TextBlock Text="{Binding Role}"
                                    FontSize="12"
                                    Foreground="#9FB8C4"/>
                     </StackPanel>
                 </StackPanel>
 
-                <!-- Кнопка выйти -->
                 <Button Grid.Column="2"
-                        Content="Выйти"
-                       
+                        Content="{Binding LogoutLabel}"
+                        Command="{Binding LogoutCommand}"
                         Background="#FCEBEB"
                         Foreground="#A32D2D"
                         CornerRadius="8"
@@ -80,16 +76,13 @@
         <!-- Контент -->
         <ScrollViewer Grid.Row="1">
             <StackPanel Margin="24,20,24,20" Spacing="16">
-
-                <!-- Статистика -->
                 <Border Background="White"
                         BorderBrush="#E0E0E0"
                         BorderThickness="1"
                         CornerRadius="10"
                         Padding="20,16">
-                  <ContentControl Content="{Binding Statistic}"/>
+                    <ContentControl Content="{Binding Statistic}"/>
                 </Border>
-
             </StackPanel>
         </ScrollViewer>
 

@@ -6,19 +6,24 @@ using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Elements
 {
-    public class SidebarViewModel : ViewModelBase
+    public partial class SidebarViewModel : ViewModelBase
     {
         private readonly IHomeNavigationService _homeNavigationService;
 
-        private bool _isSidebarExpanded = true;
-        public bool IsSidebarExpanded
+        public string ApplicationsLabel { get; set; } = "Заявки";
+        public string DealsLabel { get; set; } = "Сделки";
+        public string DeadlinesLabel { get; set; } = "Сроки";
+        public string UsersLabel { get; set; } = "Управление пользователями";
+
+        private bool _isExpanded = true;
+        public bool IsExpanded
         {
-            get => _isSidebarExpanded;
+            get => _isExpanded;
             set
             {
-                if (_isSidebarExpanded != value)
+                if (_isExpanded != value)
                 {
-                    _isSidebarExpanded = value;
+                    _isExpanded = value;
                     OnPropertyChanged();
                     OnPropertyChanged(nameof(SidebarWidth));
                     OnPropertyChanged(nameof(SidebarArrow));
@@ -26,34 +31,35 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Elements
             }
         }
 
-        public double SidebarWidth => IsSidebarExpanded ? 220 : 52;
-        public string SidebarArrow => IsSidebarExpanded ? "←" : "→";
+        public double SidebarWidth => IsExpanded ? 220 : 52;
+        public string SidebarArrow => IsExpanded ? "←" : "→";
 
         public ICommand ToggleSidebarCommand { get; }
-        public ICommand GoToApplicationCommand { get; }
-        public ICommand GoToDealsCommand { get; }
 
 
         public SidebarViewModel(IHomeNavigationService homeNavigationService)
         {
             _homeNavigationService = homeNavigationService;
 
-            GoToApplicationCommand = new RelayCommand(GoToAppliaction);
-            GoToDealsCommand = new RelayCommand(GoToDeals);
 
-
-            ToggleSidebarCommand = new RelayCommand(() => IsSidebarExpanded = !IsSidebarExpanded);
+            ToggleSidebarCommand = new RelayCommand(() => IsExpanded = !IsExpanded);
         }
 
 
-
+        [RelayCommand]
         private void GoToAppliaction()
         {
             _homeNavigationService.NavigateTo<ApplicationPageViewModel>();
         }
+        [RelayCommand]
         private void GoToDeals()
         {
             _homeNavigationService.NavigateTo<DealPageViewModel>();
+        }
+        [RelayCommand]
+        private void GoToDeadlineDashboard()
+        {
+            _homeNavigationService.NavigateTo<DeadlineDashboardPageViewModel>();
         }
     }
 }

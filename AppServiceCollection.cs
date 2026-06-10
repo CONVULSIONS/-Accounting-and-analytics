@@ -21,14 +21,9 @@ using AccountingAndAnalytics.TaskManager.Services.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
 using AccountingAndAnalytics.Analytics.ViewModels;
-using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics
 {
@@ -65,6 +60,7 @@ namespace AccountingAndAnalytics
             services.AddTransient<ApplicationPageViewModel>(); // заявки
             services.AddTransient<ApplicationInListViewModel>(); //элемент заявка
             services.AddTransient<DealTasksViewModel>(); // задачи
+            services.AddTransient<DeadlineDashboardPageViewModel>(); // сроки
 
             services.AddSingleton<StatisticViewModel>();
 

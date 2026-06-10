@@ -1,5 +1,4 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:controls="using:AccountingAndAnalytics.Shared.ViewModels.Elements"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Elements"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="AccountingAndAnalytics.Shared.Views.Elements.SidebarView"
              x:DataType="vm:SidebarViewModel">
-
     <Border Background="#3a5c6e">
         <StackPanel Width="{Binding SidebarWidth}">
             <StackPanel.Transitions>
@@ -26,21 +24,74 @@
                     Content="{Binding SidebarArrow}"
                     Command="{Binding ToggleSidebarCommand}"/>
 
-            <!-- Навигация -->
-            <Button Content="Application"
-                    HorizontalAlignment="Stretch"
+            <!-- Заявки -->
+            <Button HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    Foreground="#9FB8C4"
-                    Padding="16,10"
-                    Command="{Binding GoToApplicationCommand}"/>
-            <Button Content="Deals"
-                    HorizontalAlignment="Stretch"
+                    Padding="12,10"
+                    Command="{Binding GoToAppliactionCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <PathIcon Data="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M10,19L8,14L10,11L11,13H13L10,19M14,19L13,13H15L14,11L16,14L14,19Z"
+                              Width="16" Height="16"
+                              Foreground="#9FB8C4"/>
+                    <TextBlock Text="{Binding ApplicationsLabel}"
+                               Foreground="#9FB8C4"
+                               VerticalAlignment="Center"
+                               IsVisible="{Binding IsExpanded}"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Сделки -->
+            <Button HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Left"
                     Background="Transparent"
-                    Foreground="#9FB8C4"
-                    Padding="16,10"
-                    Command="{Binding GoToDealsCommand}"/>
+                    Padding="12,10"
+                    Command="{Binding GoToDealsCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <PathIcon Data="M20,6H16V4A2,2 0 0,0 14,2H10A2,2 0 0,0 8,4V6H4A2,2 0 0,0 2,8V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V8A2,2 0 0,0 20,6M10,4H14V6H10V4Z"
+                              Width="16" Height="16"
+                              Foreground="#9FB8C4"/>
+                    <TextBlock Text="{Binding DealsLabel}"
+                               Foreground="#9FB8C4"
+                               VerticalAlignment="Center"
+                               IsVisible="{Binding IsExpanded}"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Сроки -->
+            <Button HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    Padding="12,10"
+                    Command="{Binding GoToDeadlineDashboardCommand}">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <PathIcon Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"
+                              Width="16" Height="16"
+                              Foreground="#9FB8C4"/>
+                    <TextBlock Text="{Binding DeadlinesLabel}"
+                               Foreground="#9FB8C4"
+                               VerticalAlignment="Center"
+                               IsVisible="{Binding IsExpanded}"/>
+                </StackPanel>
+            </Button>
+
+            <!-- Управление пользователями -->
+            <Button HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Background="Transparent"
+                    Padding="12,10"
+                    >
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <PathIcon Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+                              Width="16" Height="16"
+                              Foreground="#9FB8C4"/>
+                    <TextBlock Text="{Binding UsersLabel}"
+                               Foreground="#9FB8C4"
+                               VerticalAlignment="Center"
+                               IsVisible="{Binding IsExpanded}"/>
+                </StackPanel>
+            </Button>
+
         </StackPanel>
     </Border>
 </UserControl>

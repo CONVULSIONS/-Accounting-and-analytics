@@ -13,7 +13,7 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateOnly Deadline { get; set; }
+        public DateTime Deadline { get; set; } = DateTime.Now;
         public DateTime Created { get; set; }
         public CreateTaskViewModel()
         {

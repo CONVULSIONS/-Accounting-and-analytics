@@ -2,143 +2,108 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
+             xmlns:views="using:AccountingAndAnalytics.TaskManager.Views.Elements"
              mc:Ignorable="d"
-             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.DeadlineDashboardPageView">
-<Grid RowDefinitions="Auto,*" Background="#F4F6F9">
+             x:DataType="vm:DeadlineDashboardPageViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Pages.DeadlineDashboardPageView">
+    <Grid RowDefinitions="Auto,Auto,*" Background="#F4F6F9">
 
         <!-- Заголовок -->
         <Border Grid.Row="0" Padding="24,20,24,12">
-            <TextBlock Text="Дашборд сроков"
+            <TextBlock Text="{Binding PageTitle}"
                        FontSize="22"
                        FontWeight="Medium"/>
         </Border>
 
-        <!-- Колонки -->
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
-            <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*"
-                  Margin="24,0,24,24">
+        <!-- Шапка колонок -->
+        <Grid Grid.Row="1"
+              ColumnDefinitions="1*,1*,1*,1*,1*,1*"
+              Margin="24,0,24,8">
+
+            <Border Grid.Column="0" Background="#FCEBEB" CornerRadius="8" Padding="12,8" Margin="0,0,8,0">
+                <TextBlock Text="{Binding OverdueLabel}" FontSize="12" FontWeight="Medium" Foreground="#A32D2D"/>
+            </Border>
+
+            <Border Grid.Column="1" Background="#E1F5EE" CornerRadius="8" Padding="12,8" Margin="0,0,8,0">
+                <TextBlock Text="{Binding CompletedLabel}" FontSize="12" FontWeight="Medium" Foreground="#085041"/>
+            </Border>
+
+            <Border Grid.Column="2" Background="#1A3C4D" CornerRadius="8" Padding="12,8" Margin="0,0,8,0">
+                <TextBlock Text="{Binding WeekLabel}" FontSize="12" FontWeight="Medium" Foreground="White"/>
+            </Border>
+
+            <Border Grid.Column="3" Background="#2A5F7A" CornerRadius="8" Padding="12,8" Margin="0,0,8,0">
+                <TextBlock Text="{Binding NextWeekLabel}" FontSize="12" FontWeight="Medium" Foreground="White"/>
+            </Border>
+
+            <Border Grid.Column="4" Background="#4A8FAD" CornerRadius="8" Padding="12,8" Margin="0,0,8,0">
+                <TextBlock Text="{Binding NextMonthLabel}" FontSize="12" FontWeight="Medium" Foreground="White"/>
+            </Border>
+
+            <Border Grid.Column="5" Background="#9FB8C4" CornerRadius="8" Padding="12,8">
+                <TextBlock Text="{Binding LaterLabel}" FontSize="12" FontWeight="Medium" Foreground="White"/>
+            </Border>
+
+        </Grid>
+
+        <!-- Колонки с карточками -->
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto">
+            <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*" Margin="24,0,24,24">
 
                 <!-- Просрочено -->
-                <StackPanel Grid.Column="0" Spacing="8" Margin="0,0,8,0">
-                    <Border Background="#FCEBEB"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="Просрочено"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#A32D2D"/>
-                    </Border>
-                 <!--     <ItemsControl ItemsSource="Overdue}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>  -->
-                </StackPanel>
+                <ItemsControl Grid.Column="0" ItemsSource="{Binding Overdue}" Margin="0,0,8,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- Выполнено -->
-                <StackPanel Grid.Column="1" Spacing="8" Margin="0,0,8,0">
-                    <Border Background="#E1F5EE"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="Выполнено"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#085041"/>
-                    </Border>
-                <!--      <ItemsControl ItemsSource="Completed}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>  -->
-                </StackPanel>
+                <ItemsControl Grid.Column="1" ItemsSource="{Binding Completed}" Margin="0,0,8,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- На этой неделе -->
-                <StackPanel Grid.Column="2" Spacing="8" Margin="0,0,8,0">
-                    <Border Background="#EAF3DE"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="На этой неделе"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#3B6D11"/>
-                    </Border>
-    <!--                  <ItemsControl ItemsSource="ThisWeek}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>  -->
-                </StackPanel>
+                <ItemsControl Grid.Column="2" ItemsSource="{Binding Week}" Margin="0,0,8,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- Через неделю -->
-                <StackPanel Grid.Column="3" Spacing="8" Margin="0,0,8,0">
-                    <Border Background="#E6F1FB"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="Через неделю"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#0C447C"/>
-                    </Border>
-      <!--                <ItemsControl ItemsSource="NextWeek}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>  -->
-                </StackPanel>
+                <ItemsControl Grid.Column="3" ItemsSource="{Binding NextWeek}" Margin="0,0,8,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- Через месяц -->
-                <StackPanel Grid.Column="4" Spacing="8" Margin="0,0,8,0">
-                    <Border Background="#EDE6FB"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="Через месяц"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#4C0C7C"/>
-                    </Border>
-      <!--                <ItemsControl ItemsSource="NextMonth}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>  -->
-                </StackPanel>
+                <ItemsControl Grid.Column="4" ItemsSource="{Binding NextMonth}" Margin="0,0,8,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- Более месяца -->
-                <StackPanel Grid.Column="5" Spacing="8">
-                    <Border Background="#F4F6F9"
-                            BorderBrush="#E0E0E0"
-                            BorderThickness="1"
-                            CornerRadius="8"
-                            Padding="12,8">
-                        <TextBlock Text="Более месяца"
-                                   FontSize="12"
-                                   FontWeight="Medium"
-                                   Foreground="#6B7280"/>
-                    </Border>
-       <!--               <ItemsControl ItemsSource="Later}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <views:TaskInDashboardView DataContext="{Binding}"
-                                                              Margin="0,0,0,8"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>   -->
-                </StackPanel>
+                <ItemsControl Grid.Column="5" ItemsSource="{Binding Later}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:TaskInDashboardView DataContext="{Binding}" Margin="0,0,0,8"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
             </Grid>
         </ScrollViewer>

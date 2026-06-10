@@ -25,6 +25,9 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
         private readonly IApplicationInListVmFactory _factory;
         private readonly IApplicationRepozitory _applicationsRepozitory;
 
+        public string Title { get; set; } = "Заявки";
+        public string btnCreateTitle { get; set; } = "+ Создать заявку";
+
         private ObservableCollection<ApplicationInListViewModel> _applications { get; set; } = new();
         public ObservableCollection<ApplicationInListViewModel> Applications
         {

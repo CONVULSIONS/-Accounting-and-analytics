@@ -32,6 +32,7 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                             .Select(x => new Deal
                             {
                                 Id = x.id,
+                                Number = x.number,
                                 ClientId = x.client_id,
                                 Client = x.client_name,
                                 RealEstateId = x.real_estate_id,

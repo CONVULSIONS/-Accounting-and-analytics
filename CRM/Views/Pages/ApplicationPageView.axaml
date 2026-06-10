@@ -8,17 +8,17 @@
              x:Class="AccountingAndAnalytics.CRM.Views.Pages.ApplicationPageView"
              x:DataType="vm:ApplicationPageViewModel">
 
-    <Grid Background="#F4F6F9"
+    <Grid Background="White"
           RowDefinitions="Auto,Auto,*,Auto"
           Margin="24,20,24,20">
 
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,16">
             <TextBlock Grid.Column="0"
-                       Text="Applications"
+                       Text="{Binding Title}"
                        FontSize="22" FontWeight="Medium"
                        VerticalAlignment="Center"/>
             <Button Grid.Column="1"
-                    Content="+ New App"
+                    Content="{Binding btnCreateTitle}"
                     Command="{Binding OpenCreateDialogCommand}"
                     Background="#1A3C4D"
                     Foreground="White"

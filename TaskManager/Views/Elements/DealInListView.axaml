@@ -27,13 +27,13 @@
 
 
                 <!-- Номер сделки -->
-
                 <TextBlock Grid.Column="0" Grid.Row="0"
                            Text="{Binding Number}"
                            FontWeight="Medium"
                            FontSize="13"
-                           Foreground="#1A3C4D"/>
-
+                           Foreground="#1A3C4D"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
 
                 <!-- Данные строки -->
                 <TextBlock Grid.Column="1" Grid.Row="0"
@@ -80,14 +80,15 @@
                 <Button Grid.Column="5" Grid.Row="1"
                         Content="TEXT HEY?"
                         HorizontalAlignment="Right"
-
-                        Margin="0,8,12,8"
+                        VerticalAlignment="Center"
+                        Margin="0,0,12,0"
                         Background="#E1F5EE"
                         Foreground="#085041"
                         CornerRadius="8"
                         Padding="14,6"
                         FontSize="12"
-                        FontWeight="Medium"/>
+                        FontWeight="Medium"
+                        />
             </Grid>
         </Button>
     </Border>

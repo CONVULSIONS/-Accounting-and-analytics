@@ -15,7 +15,7 @@
         <!-- Лого -->
         <StackPanel Grid.Column="0" Orientation="Horizontal"
                     Spacing="12" VerticalAlignment="Center" Margin="20,0">
-            <TextBlock Text="Accounting and analytics"
+            <TextBlock Text="{Binding Title}"
                        FontSize="16" FontWeight="Medium"
                        Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
@@ -41,7 +41,7 @@
                         Background="Transparent"
                         Foreground="#9FE1CB"
                         FontSize="11" FontWeight="Medium"
-                        Content="Initials"
+                        Content="{Binding Initials}"
                         CornerRadius="18"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"
@@ -49,7 +49,4 @@
             </Border>
         </StackPanel>
     </Grid>
-    <!-- Text="{Binding FullName}"-->
-    <!-- Text="{Binding RoleName}" -->
-    <!-- Text="{Binding Initials}" -->
 </UserControl>

@@ -29,6 +29,10 @@
         DataType="tmvm:TaskPageViewModel">
             <tmv:TaskPageView/>
         </DataTemplate>
+                <DataTemplate
+        DataType="tmvm:DeadlineDashboardPageViewModel">
+            <tmv:DeadlineDashboardPageView/>
+        </DataTemplate>
     </UserControl.DataTemplates>
 
     <Grid RowDefinitions="64,*">

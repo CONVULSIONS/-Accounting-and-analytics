@@ -23,7 +23,7 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
         public string DeadlineTitle { get; } = "Срок до";
         public string TaskCountTitle { get; } = "Задач";
 
-        public string Title { get; } = "СДЕЛКИ";
+        public string Title { get; } = "Сделки";
 
         private ObservableCollection<DealInListViewModel> _deals { get; set; } = new();
         public ObservableCollection<DealInListViewModel> Deals 

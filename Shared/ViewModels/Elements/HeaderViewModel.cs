@@ -16,14 +16,15 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Elements
     {
         private readonly IAppNavigationService _appNavigationService;
         private readonly CurrentUserService? _currentUser;
+        public string Title { get; set; } = "Учет и аналитика";
+        public string Initials { get; private set; }
         public string RoleName { get; private set; }
         public string FullName { get; private set; }
         public HeaderViewModel(IAppNavigationService appNavigationService, CurrentUserService currentUser)
         {
             _appNavigationService = appNavigationService;
             _currentUser = currentUser;
-            Debug.WriteLine($"READ USER {_currentUser.GetHashCode()}");
-            Debug.WriteLine(_currentUser.Token);
+            //Initials = _currentUser.FirstName[0].ToString() + _currentUser.SecondName[0].ToString();
             RoleName = _currentUser.RoleName;
             FullName = _currentUser.Surname + " " + _currentUser.FirstName + " " + _currentUser.SecondName;
         }

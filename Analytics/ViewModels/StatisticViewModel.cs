@@ -12,8 +12,16 @@ namespace AccountingAndAnalytics.Analytics.ViewModels
 {
     public partial class StatisticViewModel : ViewModelBase
     {
+        public string TaskSpeedLabel { get; set; } = "Скорость выполнения задач";
+        public string TasksCompletedCount { get; set; } = "Задач выполнено: 0";
+        public double TasksCompletedPercent { get; set; } = 65;
+
+        public string DealsChartLabel { get; set; } = "Сделки";
+        public string DealsClosedLabel { get; set; } = "Закрыто";
+        public string DealsActiveLabel { get; set; } = "В сопровождении";
+        public string DealsCancelledLabel { get; set; } = "Разорвано";
         public double TasksProgress => 65;
-        public int TasksCompletedCount => 12;
+        //public int TasksCompletedCount => 12;
         public int ApplicationsCount => 8;
 
         public List<PieSlice> ApplicationsSlices => new()

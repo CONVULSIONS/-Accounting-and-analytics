@@ -1,58 +1,39 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+ï»¿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.CRM.ViewModels.Elements"
-             mc:Ignorable="d"   
+             mc:Ignorable="d"
              x:DataType="vm:CreateApplicationViewModel"
              x:Class="AccountingAndAnalytics.CRM.Views.Elements.CreateApplicationView"
              CornerRadius="10,10,10,10">
-    <ScrollViewer Background="Transparent">
-        <Grid RowDefinitions="Auto,*" Background="Transparent"  Width="600" Height="500">
 
-            <!-- Øàïêà -->
+    <ScrollViewer Background="Transparent">
+        <Grid RowDefinitions="Auto,*" Background="Transparent" Width="600">
+
+            <!-- Ð¨Ð°Ð¿ÐºÐ° -->
             <Border Grid.Row="0"
                     Background="#1A3C4D"
                     CornerRadius="10,10,0,0">
-                <Grid ColumnDefinitions="*, Auto"
+                <Grid ColumnDefinitions="*,Auto"
                       Margin="20,16,20,16">
-
-                    <!-- Ëåâàÿ ÷àñòü: íîìåð, íàçâàíèå, ñäåëêà -->
-                    <StackPanel Grid.Column="0"
-                                Spacing="4"
-                                VerticalAlignment="Center">
-                        <TextBlock Text="Number"
-                                   FontSize="11"
-                                   Foreground="#9FB8C4"
-                                   FontWeight="Medium"/>
-                        <TextBox  Text=""
-                                  FontSize="20"
-                                  FontWeight="Medium"
-                                  Foreground="White"
-                                  Margin="0,0,10,0"/>
-                        <StackPanel Orientation="Horizontal" Spacing="6">
-                        </StackPanel>
-                    </StackPanel>
-
-                    <!-- Ïðàâàÿ ÷àñòü: ñòàòóñ + êíîïêà ðåäàêòèðîâàòü -->
-                    <Border Background="#E6F1FB"
-                            CornerRadius="12"
-                            Padding="12,5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            Grid.Column="1">
-                        <TextBlock Text="StatusName"
-                                   FontSize="11"
-                                   FontWeight="Medium"
-                                   Foreground="#0C447C"/>
-                    </Border>
-
+                    <TextBlock Grid.Column="0"
+                               Text="Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð·Ð°ÑÐ²ÐºÐ¸"
+                               FontSize="16"
+                               FontWeight="Medium"
+                               Foreground="White"
+                               VerticalAlignment="Center"/>
+                    <Button Grid.Column="1"
+                            Content="âœ•"
+                            Command="{Binding CloseCreateDialogCommand}"
+                            Background="Transparent"
+                            Foreground="#9FB8C4"
+                            FontSize="16"
+                            Padding="8,4"/>
                 </Grid>
             </Border>
 
-
-
-            <!-- Òåëî -->
+            <!-- Ð¢ÐµÐ»Ð¾ -->
             <Border Grid.Row="1"
                     Background="White"
                     BorderBrush="#E0E0E0"
@@ -60,99 +41,119 @@
                     CornerRadius="0,0,10,10">
                 <StackPanel Margin="20,16,20,16" Spacing="16">
 
-                    <!-- ïðèìå÷àíèå -->
-                    <Border Background="#F4F6F9"
-                            CornerRadius="8"
-                            Padding="14,12">
-                        <TextBlock Text="Description"
-                                   FontSize="13"
-                                   TextWrapping="Wrap"
-                                   LineHeight="20"/>
-                    </Border>
-
-                    <!-- Ìåòà-ïîëÿ -->
-                    <Grid ColumnDefinitions="1*,1*" RowDefinitions="Auto,Auto"
-                          HorizontalAlignment="Stretch" ShowGridLines="True">
-
-                        <!-- Ñðîê âûïîëíåíèÿ -->
-                        <StackPanel Grid.Column="0" Grid.Row="0"
-                                    Spacing="4" Margin="0,0,0,12">
-                            <TextBlock Text="CLIENT"
-                                       FontSize="10"
-                                       FontWeight="Medium"
-                                       Foreground="#9FB8C4"
-                                       LetterSpacing="0.5"/>
-                            <ComboBox  FontSize="13"
-                                       FontWeight="Medium"
-                                       Margin="0,0,10,0"
-                                       HorizontalAlignment="Stretch"/>
-                        </StackPanel>
-
-                        <!-- Äàòà ãîòîâíîñòè -->
-                        <StackPanel Grid.Column="1" Grid.Row="0"
-                                    Spacing="4" Margin="0,0,0,12">
-                            <TextBlock Text="REAL ESTATE"
-                                       FontSize="10"
-                                       FontWeight="Medium"
-                                       Foreground="#9FB8C4"
-                                       LetterSpacing="0.5"/>
-                            <ComboBox  FontSize="13"
-                                       FontWeight="Medium"
-                                       Margin="10,0,0,0"
-                                       HorizontalAlignment="Stretch"/>
-                        </StackPanel>
-
-                        <!-- Ñîçäàíà -->
-                        <StackPanel Grid.Column="0" Grid.Row="1"
-                                    Spacing="4">
-                            <TextBlock Text="ÑÎÇÄÀÍÀ"
-                                       FontSize="10"
-                                       FontWeight="Medium"
-                                       Foreground="#9FB8C4"
-                                       LetterSpacing="0.5"/>
-                            <TextBlock Text="Created"
-                                       FontSize="13"
-                                       FontWeight="Medium"/>
-                        </StackPanel>
-
-                    </Grid>
-
-                    <!-- Ðàçäåëèòåëü -->
-                    <Border Height="1" Background="#E0E0E0"/>
-
-                    <!-- Èñïîëíèòåëè -->
-                    <StackPanel Spacing="8">
-                        <TextBlock Text="ÈÑÏÎËÍÈÒÅËÈ"
+                    <!-- ÐŸÑ€Ð¸Ð¼ÐµÑ‡Ð°Ð½Ð¸Ðµ -->
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding DescriptionTitle}"
                                    FontSize="10"
                                    FontWeight="Medium"
-                                   Foreground="#9FB8C4"
-                                   LetterSpacing="0.5"/>
-                        <ItemsControl ItemsSource="Users">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Horizontal"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                                   Foreground="#9FB8C4"/>
+                        <TextBox Text="{Binding DescriptionText}"
+                                 Watermark="Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð·Ð°ÑÐ²ÐºÐ¸"
+                                 FontSize="13"
+                                 CornerRadius="8"
+                                 Padding="12,8"
+                                 Height="70"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"/>
                     </StackPanel>
 
-                    <!-- Ðàçäåëèòåëü -->
+                    <!-- Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ -->
                     <Border Height="1" Background="#E0E0E0"/>
 
-                    <!-- Êíîïêà -->
-                    <Button Content="Ãîòîâî"
-                            Command="{Binding CloseCreateDialogCommand}"
+                    <!-- ÐšÐ»Ð¸ÐµÐ½Ñ‚ -->
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="{Binding ClientTitle}"
+                                   FontSize="10"
+                                   FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+
+                        <Grid ColumnDefinitions="1*,1*" RowDefinitions="Auto,Auto">
+
+                            <StackPanel Grid.Column="0" Grid.Row="0"
+                                        Spacing="4" Margin="0,0,8,10">
+                                <TextBlock Text="{Binding SurnameTitle}"
+                                           FontSize="10"
+                                           FontWeight="Medium"
+                                           Foreground="#9FB8C4"/>
+                                <TextBox Text="{Binding SurnameText}"
+                                         Watermark="Ð˜Ð²Ð°Ð½Ð¾Ð²"
+                                         FontSize="13"
+                                         CornerRadius="8"
+                                         Padding="12,8"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Grid.Row="0"
+                                        Spacing="4" Margin="8,0,0,10">
+                                <TextBlock Text="{Binding FirstNameTitle}"
+                                           FontSize="10"
+                                           FontWeight="Medium"
+                                           Foreground="#9FB8C4"/>
+                                <TextBox Text="{Binding FirstNameText}"
+                                         Watermark="Ð˜Ð²Ð°Ð½"
+                                         FontSize="13"
+                                         CornerRadius="8"
+                                         Padding="12,8"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="0" Grid.Row="1"
+                                        Spacing="4" Margin="0,0,8,0">
+                                <TextBlock Text="{Binding SecondNameTitle}"
+                                           FontSize="10"
+                                           FontWeight="Medium"
+                                           Foreground="#9FB8C4"/>
+                                <TextBox Text="{Binding SecondNameText}"
+                                         Watermark="Ð˜Ð²Ð°Ð½Ð¾Ð²Ð¸Ñ‡"
+                                         FontSize="13"
+                                         CornerRadius="8"
+                                         Padding="12,8"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Grid.Row="1"
+                                        Spacing="4" Margin="8,0,0,0">
+                                <TextBlock Text="{Binding PhonTitle}"
+                                           FontSize="10"
+                                           FontWeight="Medium"
+                                           Foreground="#9FB8C4"/>
+                                <TextBox Text="{Binding PhonText}"
+                                         Watermark="+7 (999) 000-00-00"
+                                         FontSize="13"
+                                         CornerRadius="8"
+                                         Padding="12,8"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ -->
+                    <Border Height="1" Background="#E0E0E0"/>
+
+                    <!-- ÐÐµÐ´Ð²Ð¸Ð¶Ð¸Ð¼Ð¾ÑÑ‚ÑŒ -->
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding RealEstateTitle}"
+                                   FontSize="10"
+                                   FontWeight="Medium"
+                                   Foreground="#9FB8C4"/>
+                       <ComboBox ItemsSource="{Binding RealEstate}"
+                                  SelectedItem=""
+                                  FontSize="13"
+                                  HorizontalAlignment="Stretch"
+                                  CornerRadius="8"
+                                  Padding="12,8"/> 
+                    </StackPanel>
+
+                    <!-- Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ -->
+                    <Border Height="1" Background="#E0E0E0"/>
+
+                    <!-- ÐšÐ½Ð¾Ð¿ÐºÐ° -->
+                    <Button Content="Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð·Ð°ÑÐ²ÐºÑƒ"
+                            
                             HorizontalAlignment="Right"
                             Background="#1A3C4D"
                             Foreground="White"
                             CornerRadius="8"
                             Padding="16,9"
                             FontSize="13"/>
+
                 </StackPanel>
             </Border>
 

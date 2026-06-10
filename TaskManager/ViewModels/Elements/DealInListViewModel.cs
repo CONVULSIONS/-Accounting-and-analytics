@@ -16,6 +16,7 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
     public class DealInListViewModel : ViewModelBase
     {
         private readonly IHomeNavigationService _navigation;
+        private Deal _deal;
         private int _id { get; set; }
         public string Number { get; set; }
         public string RealEstate { get; set; }
@@ -34,13 +35,14 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
             Client = deal.Client;
             Period= deal.Period.ToString();
             Status = deal.Status;
+            _deal = deal;
 
             GoToTasksCommand = new RelayCommand(GoToTasks);
         }
 
         private void GoToTasks()
         {
-            _navigation.NavigateTo<DealTasksViewModel, int>(_id);
+            _navigation.NavigateTo<DealTasksViewModel, Deal>(_deal);
         }
     }
 }

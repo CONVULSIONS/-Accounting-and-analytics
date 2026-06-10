@@ -1,43 +1,53 @@
-﻿using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+﻿using AccountingAndAnalytics.Analytics.ViewModels;
+using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using AccountingAndAnalytics.Shared.Services;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
-using AccountingAndAnalytics.Analytics.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Pages
 {
-    public class ProfileViewModel : ViewModelBase
+    public partial class ProfileViewModel : ViewModelBase
     {
-        private readonly IAppNavigationService _navigation;
-        public StatisticViewModel Statistic {  get; set; }
-        public ProfileViewModel(IAppNavigationService navigation)
+        private readonly IAppNavigationService _appNavigationService;
+        private readonly CurrentUserService _currentUser;
+
+        public string Initials { get; private set; }
+        public string FullName { get; private set; }
+        public string Department { get; private set; }
+        public string Role { get; private set; }
+        public string LogoutLabel { get; private set; } = "Выйти";
+
+        public StatisticViewModel Statistic { get; private set; }
+
+        public ProfileViewModel(IAppNavigationService appNavigationService, CurrentUserService currentUser)
         {
-            //_navigation = navigation;
-            //BackCommand = new RelayCommand(Back);
-            //Statistic = new StatisticViewModel();
-            try
-            {
-                _navigation = navigation;
-                BackCommand = new RelayCommand(Back);
-                Statistic = new StatisticViewModel();
-                Console.WriteLine("ProfileViewModel создан успешно");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка в ProfileViewModel: {ex.Message}");
-                Console.WriteLine(ex.StackTrace);
-            }
+            _appNavigationService = appNavigationService;
+            _currentUser = currentUser;
+
+            FullName = _currentUser.Surname + " " + _currentUser.FirstName + " " + _currentUser.SecondName;
+            Initials = _currentUser.FirstName[0].ToString() + _currentUser.SecondName[0].ToString();
+            //Department = _currentUser.Department;
+            Role = _currentUser.RoleName;
+
+            Statistic = new StatisticViewModel();
         }
 
-        public ICommand BackCommand { get; }
+        [RelayCommand]
         private void Back()
         {
-            _navigation.NavigateTo<HomeViewModel>();
+           _appNavigationService.NavigateTo<HomeViewModel>();
+        }
+
+        [RelayCommand]
+        private void Logout()
+        {
+         //   _appNavigationService.NavigateTo<LoginViewModel>();
         }
     }
 }
