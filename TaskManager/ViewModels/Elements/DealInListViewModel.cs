@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
 {
-    public class DealInListViewModel : ViewModelBase
+    public partial class DealInListViewModel : ViewModelBase
     {
         private readonly IHomeNavigationService _navigation;
         private Deal _deal;
@@ -23,8 +23,9 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
         public string Client { get; set; }
         public string Period { get; set; }
         public string Status { get; set; }
+        public string btnAppointmentTitle { get; set; } = "Назначить";
+        public bool IsVisible { get; set; } = true;
 
-        public ICommand GoToTasksCommand { get; private set; }
 
         public DealInListViewModel(Deal deal, IHomeNavigationService navigation)
         {
@@ -37,9 +38,10 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
             Status = deal.Status;
             _deal = deal;
 
-            GoToTasksCommand = new RelayCommand(GoToTasks);
+            if (Status == "сопровождение") IsVisible = false;
         }
 
+        [RelayCommand]
         private void GoToTasks()
         {
             _navigation.NavigateTo<DealTasksViewModel, Deal>(_deal);

@@ -13,7 +13,7 @@ namespace AccountingAndAnalytics.Analytics.ViewModels
     public partial class StatisticViewModel : ViewModelBase
     {
         public string TaskSpeedLabel { get; set; } = "Скорость выполнения задач";
-        public string TasksCompletedCount { get; set; } = "Задач выполнено: 0";
+        public string TasksCompletedCount { get; set; } = "Задач выполнено: 13";
         public double TasksCompletedPercent { get; set; } = 65;
 
         public string DealsChartLabel { get; set; } = "Сделки";

@@ -78,10 +78,11 @@
 
                 <!-- Êíîïêè -->
                 <Button Grid.Column="5" Grid.Row="1"
-                        Content="TEXT HEY?"
+                        Content="{Binding btnAppointmentTitle}"
+                        IsVisible="{Binding IsVisible}"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Margin="0,0,12,0"
+                        Margin="0,0,20,0"
                         Background="#E1F5EE"
                         Foreground="#085041"
                         CornerRadius="8"

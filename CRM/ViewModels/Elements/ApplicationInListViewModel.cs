@@ -30,6 +30,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public string Period { get; private set; }
         public string btnApproveTitle { get; private set; } = "Одобрить";
         public string btnRejectTitle { get; private set; } = "Отклонить";    
+        public bool IsVisible { get; private set; } = true;
 
         public ApplicationInListViewModel(Application application, IApplicationRepozitory repozitory)
         {
@@ -41,6 +42,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
             Status = application.Status;
             Title = application.Title;
             Period = application.Period.ToString();
+            if (Status == "в обработке") IsVisible = false;
         }
 
         [RelayCommand]

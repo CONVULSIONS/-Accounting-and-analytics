@@ -6,12 +6,8 @@
              x:DataType="vm:HeaderViewModel"
              mc:Ignorable="d" 
              x:Class="AccountingAndAnalytics.Shared.Views.Elements.HeaderView">
-
-
-
-<Grid ColumnDefinitions="Auto,*,Auto" Height="64"
+    <Grid ColumnDefinitions="Auto,*,Auto" Height="64"
           Background="#1A3C4D">
-
         <!-- Лого -->
         <StackPanel Grid.Column="0" Orientation="Horizontal"
                     Spacing="12" VerticalAlignment="Center" Margin="20,0">
@@ -19,10 +15,20 @@
                        FontSize="16" FontWeight="Medium"
                        Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
-
         <!-- Профиль -->
         <StackPanel Grid.Column="2" Orientation="Horizontal"
                     Spacing="10" VerticalAlignment="Center" Margin="0,0,20,0">
+
+            <!-- Уведомления -->
+            <Button Background="Transparent"
+                    Padding="6"
+                    VerticalAlignment="Center"
+                    Cursor="Hand">
+                <PathIcon Data="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"
+                          Width="20" Height="20"
+                          Foreground="#9FB8C4"/>
+            </Button>
+
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="{Binding FullName}"
                            FontSize="13" FontWeight="Medium"

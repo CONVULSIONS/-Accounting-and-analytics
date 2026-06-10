@@ -18,12 +18,17 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
         public string Deadline { get; set; }
         public string Status { get; set; }
         public string MarkAsDoneLabel { get; set; } = "Отметить готовой";
+        public bool IsReady { get; set; } = true;
         public TaskInListViewModel(TaskModel task)
         {
             Number = task.Number;
             Title = task.Title;
             Deadline = task.Deadline.ToString();
             Status = task.StatusName;
+            if (Status == "выполнена")
+            {
+                IsReady = false;
+            }
         }
     }
 }

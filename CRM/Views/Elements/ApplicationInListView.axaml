@@ -69,7 +69,7 @@
             <Border Height="1" Background="#E0E0E0"/>
 
             <!-- Êíîïêè -->
-            <StackPanel Orientation="Horizontal"
+            <StackPanel Orientation="Horizontal" IsVisible="{Binding IsVisible}"
                         HorizontalAlignment="Right"
                         Spacing="8"
                         Margin="0,8,12,8">

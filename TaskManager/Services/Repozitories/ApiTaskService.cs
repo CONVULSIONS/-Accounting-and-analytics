@@ -31,6 +31,7 @@ namespace AccountingAndAnalytics.TaskManager.Services.Repozitories
                 .Select(x => new TaskModel
                 {
                     Id = x.id,
+                    Number = x.number,
                     DealId = x.deal_id,
                     DealTitle = x.deal_title,
                     UserId = x.user_id,

@@ -216,6 +216,7 @@
                      FontSize="13"
                      CornerRadius="8,0,0,8"/>
             <Button Grid.Column="1"
+                    VerticalAlignment="Stretch"
                     Content="{Binding SendButtonLabel}"
                     Background="#1A3C4D"
                     Foreground="White"
