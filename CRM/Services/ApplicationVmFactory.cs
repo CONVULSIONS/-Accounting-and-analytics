@@ -20,7 +20,7 @@ namespace AccountingAndAnalytics.CRM.Services
         }
         public ApplicationInListViewModel Create(Application app)
         {
-            return new ApplicationInListViewModel(app, _provider.GetRequiredService<IApplicationRepozitory>());
+            return new ApplicationInListViewModel(app, _provider.GetRequiredService<IApplicationService>());
         }
     }
 }

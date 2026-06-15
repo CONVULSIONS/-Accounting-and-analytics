@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountingAndAnalytics.TaskManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,12 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
         public string DeadlineLabel { get; set; } = "Срок";
         public string Deadline { get; set; }
 
-        public TaskInDashboardViewModel(string dealNumber, string taskNumber, string title, string deadline)
+        public void Init(TaskModel task)
         {
-            DealNumber = dealNumber;
-            TaskNumber = taskNumber;
-            Title = title;
-            Deadline = deadline;
+            DealNumber = task.DealTitle;
+            TaskNumber = task.Number.ToString();
+            Title = task.Title;
+            Deadline = task.Deadline.ToString();
         }
     }
 }

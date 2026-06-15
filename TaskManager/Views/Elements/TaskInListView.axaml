@@ -44,12 +44,12 @@
                                     <!-- Даты -->
                                     <StackPanel Orientation="Horizontal" Spacing="16">
                                         <StackPanel Orientation="Horizontal" Spacing="4">
-                                            <TextBlock Text="{Binding AssignDateLabel}"
+                                            <TextBlock Text="{Binding CreatedDateLabel}"
                                                        FontSize="11"
                                                        Foreground="#9FB8C4"/>
-                                            <TextBlock Text="{Binding AssignDate}"
+                                            <TextBlock Text="{Binding CreatedDate}"
                                                        FontSize="11"
-                                                       Foreground="#6B7280"/>
+                                                       Foreground="#6B7280"/> 
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" Spacing="4">
                                             <TextBlock Text="{Binding DeadlineLabel}"
@@ -88,6 +88,7 @@
                 </Grid>
         </Border>
         <Button Grid.Column="1" Grid.Row="0"
+                Command="{Binding EditCommand}"
                 Width="28"
                 Height="28"
                 Padding="0"
@@ -103,7 +104,8 @@
                       Foreground="White"/>
         </Button>
         <Button Grid.Column="1" Grid.Row="1"
-        Width="28"
+                Command="{Binding DeleteCommand}"
+                Width="28"
                 Height="28"
                 Padding="0"
                 CornerRadius="6"

@@ -25,10 +25,6 @@
         DataType="crmvm:ApplicationPageViewModel">
             <crmv:ApplicationPageView/>
         </DataTemplate>
-        <DataTemplate
-        DataType="tmvm:TaskPageViewModel">
-            <tmv:TaskPageView/>
-        </DataTemplate>
                 <DataTemplate
         DataType="tmvm:DeadlineDashboardPageViewModel">
             <tmv:DeadlineDashboardPageView/>

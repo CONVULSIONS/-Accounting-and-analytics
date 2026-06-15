@@ -3,6 +3,7 @@ using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.Views.Elements;
 using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
+using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.TaskManager.Interfaces;
@@ -11,6 +12,7 @@ using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using AccountingAndAnalytics.TaskManager.Views.Elements;
 using CommunityToolkit.Mvvm.Input;
 using DialogHostAvalonia;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +25,10 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
     public partial class DealTasksViewModel : ViewModelBase, IAsyncInitializableParam<Deal>
     {
         private readonly ITaskService _taskService;
-        private readonly ITaskInListVmFactory _factory;
+        private readonly ITaskInListVmFactory _taskFactory;
+        private readonly ICreateEditTaskVmFactory _createEditFactory;
+        private readonly ICommentService _commentService;
+        private readonly ICommentVmFactory _commentFactory;
         public string Title { get; set; } = "СДЕЛКА ";
         public string TaskTitle { get; } = "ЗАДАЧИ";
         public string ClientTitle { get; } = "КЛИЕНТ";
@@ -131,21 +136,37 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
             }
         }
 
-        public string Comment1AuthorName { get; set; } = "Сергеев Олег Васильевич";
-        public string Comment1CreatedAt { get; set; } = "14:32 03.09.26";
-        public string Comment1Text { get; set; } = "Клиент подтвердил встречу на завтра.";
-
-        public string Comment2AuthorName { get; set; } = "Петрова Мария Сергеевна";
-        public string Comment2CreatedAt { get; set; } = "10:10 02.03.26";
-        public string Comment2Text { get; set; } = "Договор отправлен на согласование в юридический отдел.";
-
         public string CommentWatermark { get; set; } = "Написать комментарий...";
         public string SendButtonLabel { get; set; } = "Отправить";
         public string CommentsTitle { get; set; } = "КОММЕНТАРИИ";
 
+        private string _newComment;
+        public string NewComment
+        {
+            get => _newComment;
+            set
+            {
+                if (_newComment != value)
+                {
+                    _newComment = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
-
-        public string NewComment { get; set; }
+        private ObservableCollection<CommentViewModel> _comments { get; set; } = new();
+        public ObservableCollection<CommentViewModel> Comments
+        {
+            get => _comments;
+            set
+            {
+                if (_comments != value)
+                {
+                    _comments = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         private ObservableCollection<TaskInListViewModel> _tasks { get; set; } = new();
         public ObservableCollection<TaskInListViewModel> Tasks
         {
@@ -160,21 +181,38 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
             }
         }
 
-        public DealTasksViewModel(ITaskService taskService, ITaskInListVmFactory factory)
+        public DealTasksViewModel(ITaskService taskService, ITaskInListVmFactory taskFactory, ICreateEditTaskVmFactory createEditFactory, ICommentService commentService, ICommentVmFactory commentFactory)
         {
             _taskService = taskService;
-            _factory = factory;
+            _taskFactory = taskFactory;
+            _createEditFactory = createEditFactory;
+            _commentService = commentService;
+            _commentFactory = commentFactory;
         }
 
         public async Task InitializeAsync(Deal deal)
         {
             _deal = deal;
+            _tasks.Clear();
+            _comments.Clear();
+
             var taskList = await _taskService.GetAllByDealIdAsync(_deal.Id);
 
             foreach (var task in taskList)
             {
-                _tasks.Add(_factory.Create(task));
+                _tasks.Add(_taskFactory.Create(task, async () =>
+                {
+                    _tasks.Clear();
+                    await InitializeAsync(_deal);
+                }));
             }
+
+            var commentList = await _commentService.GetByDealAsync(_deal.Id);
+            foreach (var comment in commentList)
+            {
+                _comments.Add(_commentFactory.Create(comment));
+            }
+
             Number = _deal.Number;
             Client = _deal.Client;
             RealEstate = _deal.RealEstate;
@@ -187,12 +225,24 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Pages
         [RelayCommand]
         public async Task OpenCreateDialog()
         {
-            var createVm = new CreateTaskViewModel();
-            var createV = new CreateTaskView { DataContext = createVm };
+            var createVm = _createEditFactory.Create(_deal.Id);
+            var createV = new CreateEditTaskView { DataContext = createVm };
 
             await DialogHost.Show(createV, "MainDialog");
             _tasks.Clear();
             await InitializeAsync(_deal);
+        }
+
+        [RelayCommand]
+        private async Task SendComment()
+        {
+            if (string.IsNullOrWhiteSpace(NewComment)) return;
+            await _commentService.CreateAsync(_deal.Id, NewComment);
+            NewComment = string.Empty;
+            _comments.Clear();
+            var commentList = await _commentService.GetByDealAsync(_deal.Id);
+            foreach (var comment in commentList)
+                _comments.Add(_commentFactory.Create(comment));
         }
     }
 }

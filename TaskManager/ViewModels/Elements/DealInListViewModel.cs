@@ -17,7 +17,6 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
     {
         private readonly IHomeNavigationService _navigation;
         private Deal _deal;
-        private int _id { get; set; }
         public string Number { get; set; }
         public string RealEstate { get; set; }
         public string Client { get; set; }
@@ -29,7 +28,6 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
         public DealInListViewModel(Deal deal, IHomeNavigationService navigation)
         {
             _navigation = navigation;
-            _id = deal.Id;
             Number = deal.Number;
             RealEstate = deal.RealEstate;
             Client = deal.Client;

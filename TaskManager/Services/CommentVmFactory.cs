@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.TaskManager.Services
 {
-    public class TaskInListVmFactory : ITaskInListVmFactory
+    public class CommentVmFactory : ICommentVmFactory
     {
         private readonly IServiceProvider _provider;
-        public TaskInListVmFactory(IServiceProvider provider)
+        public CommentVmFactory(IServiceProvider provider)
         {
             _provider = provider;
         }
-        public TaskInListViewModel Create(TaskModel task, Func<Task> onRefresh)
+
+        public CommentViewModel Create(CommentModel comment)
         {
-            var vm = _provider.GetRequiredService<TaskInListViewModel>();
-            vm.Init(task, onRefresh);
+            var vm = _provider.GetRequiredService<CommentViewModel>();
+            vm.Init(comment);
             return vm;
         }
     }

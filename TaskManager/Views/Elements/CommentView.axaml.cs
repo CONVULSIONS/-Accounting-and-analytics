@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace AccountingAndAnalytics.TaskManager.Views.Elements;
 
-public partial class CreateTaskView : UserControl
+public partial class CommentView : UserControl
 {
-    public CreateTaskView()
+    public CommentView()
     {
         InitializeComponent();
     }

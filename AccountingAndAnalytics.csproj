@@ -17,14 +17,10 @@
     <EmbeddedResource Remove="Shared\Interfaces\Repozitories\**" />
     <None Remove="CRM\Views\Elements\Deals\**" />
     <None Remove="Shared\Interfaces\Repozitories\**" />
-    <AvaloniaXaml Remove="App.axaml" />
-    <AvaloniaResource Include="App.axaml" />
-    <Folder Include="Analytics\Interfaces\Repozitories\" />
-    <Folder Include="Analytics\Services\Repozitories\" />
-    <Folder Include="Analytics\ViewModels\Elements\" />
-    <Folder Include="Analytics\ViewModels\Pages\" />
-    <Folder Include="Analytics\Views\Elements\" />
-    <Folder Include="Analytics\Views\Pages\" />
+    <Compile Remove="CRM\Views\Elements\Deals\**" />
+    <EmbeddedResource Remove="CRM\Views\Elements\Deals\**" />
+    <Folder Include="Shared\Interfaces\Repozitories\" />
+    <None Remove="CRM\Views\Elements\Deals\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +45,9 @@
     </Compile>
     <Compile Update="TaskManager\Views\Elements\AppointmentDealView.axaml.cs">
       <DependentUpon>AppointmentDealView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="TaskManager\Views\Elements\CreateEditTaskView.axaml.cs">
+      <DependentUpon>CreateEditTaskView.axaml</DependentUpon>
     </Compile>
     <Compile Update="TaskManager\Views\Elements\DealInListView.axaml.cs">
       <DependentUpon>DealInListView.axaml</DependentUpon>

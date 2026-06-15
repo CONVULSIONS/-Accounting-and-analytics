@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using DialogHostAvalonia;
 using System.Security.Cryptography.X509Certificates;
+using System.Collections.ObjectModel;
+using AccountingAndAnalytics.CRM.Models;
+using AccountingAndAnalytics.CRM.Interfaces.Api;
+using AccountingAndAnalytics.Shared.Interfaces;
+using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 {
     public partial class CreateApplicationViewModel : ViewModelBase
     {
+        private readonly IApplicationService _appService;
+        private readonly IRealEstateService _realService;
         private string _descriptionText { get; set; } = string.Empty;
         public string DescriptionText 
         { 
@@ -87,14 +94,52 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public string PhonTitle { get; } = "НОМЕР ТЕЛЕФОНА";
         public string RealEstateTitle { get; } = "ОБЪЕКТ НЕДВИЖИМОСТИ";
         public string btnCreateTitle { get; } = "СОЗДАТЬ";
-        public List<string> RealEstate { get; set; } = new();
-        public CreateApplicationViewModel()
-        {           
+        private ObservableCollection<RealEstateModel> _realEstate { get; set; } = new();
+        public ObservableCollection<RealEstateModel> RealEstate
+        {
+            get => _realEstate;
+            set
+            {
+                if (_realEstate != value)
+                    _realEstate = value;
+                OnPropertyChanged();
+            }
+        }
+        private RealEstateModel? _selectedRealEstate;
+        public RealEstateModel? SelectedRealEstate
+        {
+            get => _selectedRealEstate;
+            set
+            {
+                if (_selectedRealEstate != value)
+                    _selectedRealEstate = value;
+                    OnPropertyChanged();
+            }
+        }
+        public CreateApplicationViewModel(IApplicationService appService, IRealEstateService realService)
+        {          
+            _appService = appService;
+            _realService = realService;
+            _ = Load();
+        }
+        
+        private async Task Load()
+        {
+            var realEstateList = await _realService.GetRealEstateAsync();
+            foreach (var item in realEstateList)
+            {
+                _realEstate.Add(item);
+            }
         }
         [RelayCommand]
-        public async Task CloseCreateDialog()
+        private async Task CloseCreateDialog()
         {
             DialogHost.Close("MainDialog");
+        }
+        [RelayCommand]
+        private async Task Create()
+        {
+            await _appService.Create(_firstNameText, _secondNameText, _surnameText, _selectedRealEstate.Id, new DateOnly(2017, 11, 13));
         }
     }
 }

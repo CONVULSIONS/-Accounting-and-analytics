@@ -29,8 +29,8 @@ namespace AccountingAndAnalytics.Shared.Services
             Surname = response.surname;
             RoleId = response.role_id;
             RoleName = response.role_name;
-            DepartmentId = response.department_id;
-            DepartmentName = response.department_name;
+            //DepartmentId = response.department_id;
+            //DepartmentName = response.department_name;
             Token = response.token;
             Debug.WriteLine($"SET USER {GetHashCode()}");
         }

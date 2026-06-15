@@ -23,7 +23,8 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
     public partial class ApplicationPageViewModel : ViewModelBase, IAsyncInitializable
     {
         private readonly IApplicationInListVmFactory _factory;
-        private readonly IApplicationRepozitory _applicationsRepozitory;
+        private readonly IApplicationService _applicationsRepozitory;
+        private readonly IServiceProvider _provider;
 
         public string Title { get; set; } = "Заявки";
         public string btnCreateTitle { get; set; } = "+ Создать заявку";
@@ -42,10 +43,11 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
             }
         }
 
-        public ApplicationPageViewModel(IApplicationRepozitory applicationsRepository, IApplicationInListVmFactory factory)
+        public ApplicationPageViewModel(IApplicationService applicationsRepository, IApplicationInListVmFactory factory, IServiceProvider provider)
         {
             _applicationsRepozitory = applicationsRepository;
             _factory = factory;
+            _provider = provider;
         }
 
         public async Task InitializeAsync()
@@ -61,7 +63,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Pages
         [RelayCommand]
         public async Task OpenCreateDialog()
         {
-            var createVm = new CreateApplicationViewModel();
+            var createVm = _provider.GetRequiredService<CreateApplicationViewModel>();
             var createV = new CreateApplicationView { DataContext = createVm };
 
             await DialogHost.Show(createV, "MainDialog");

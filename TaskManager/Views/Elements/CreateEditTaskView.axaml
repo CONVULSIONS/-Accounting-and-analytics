@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Elements"
              mc:Ignorable="d"
-             x:DataType="vm:CreateTaskViewModel"
-             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.CreateTaskView">
+             x:DataType="vm:CreateEditTaskViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.CreateEditTaskView">
     <Border Background="White"
             CornerRadius="12"
             Width="480">
@@ -17,7 +17,7 @@
                     Padding="24,16">
                 <Grid ColumnDefinitions="*,Auto">
                     <TextBlock Grid.Column="0"
-                               Text="Создание задачи"
+                               Text="{Binding Title}"
                                FontSize="16"
                                FontWeight="Medium"
                                Foreground="White"
@@ -41,7 +41,7 @@
                                FontSize="10"
                                FontWeight="Medium"
                                Foreground="#9FB8C4"/>
-                    <TextBox Text="{Binding Title}"
+                    <TextBox Text="{Binding TaskTitle}"
                              Watermark="Введите заголовок задачи"
                              FontSize="13"
                              CornerRadius="8"
@@ -78,8 +78,8 @@
                 </StackPanel>
 
                 <!-- Кнопка -->
-                <Button Content="Создать"
-
+                <Button Content="Готово"
+                        Command="{Binding SaveCommand}"
                         HorizontalAlignment="Right"
                         Background="#1A3C4D"
                         Foreground="White"

@@ -1,19 +1,20 @@
-﻿using System;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+using AccountingAndAnalytics.CRM.Models.Applications;
+using AccountingAndAnalytics.Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using AccountingAndAnalytics.CRM.Models.Applications;
-using System.Net.Http.Json;
-using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 
 namespace AccountingAndAnalytics.CRM.Services.Repozitories
 {
-    public class ApiApplicationsRepository : IApplicationRepozitory
+    public class ApiApplicationService : IApplicationService
     {
         private readonly HttpClient _httpClient;
-        public ApiApplicationsRepository(HttpClient httpClient)
+        public ApiApplicationService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
@@ -44,6 +45,19 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                             })
                             .ToList();
             return AppList;
+        }
+        public async Task Create(string firstName, string secondName, string surname, int realEstateId, DateOnly period)
+        {
+            var data = new
+            {
+                client_first_name = firstName,
+                client_second_name = secondName,
+                client_surname = surname,
+                real_estate_id = realEstateId,
+                period = period.ToString("yyyy-MM-dd")
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("/applications/create-application", data);
         }
         public async Task AppToDeal(int appId)
         {

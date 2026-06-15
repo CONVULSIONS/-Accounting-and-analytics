@@ -24,7 +24,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Elements
         {
             _appNavigationService = appNavigationService;
             _currentUser = currentUser;
-            //Initials = _currentUser.FirstName[0].ToString() + _currentUser.SecondName[0].ToString();
+            Initials = _currentUser.FirstName; 
             RoleName = _currentUser.RoleName;
             FullName = _currentUser.Surname + " " + _currentUser.FirstName + " " + _currentUser.SecondName;
         }

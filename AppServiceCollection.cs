@@ -24,6 +24,8 @@ using AccountingAndAnalytics.Analytics.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
+using AccountingAndAnalytics.CRM.Interfaces.Api;
+using AccountingAndAnalytics.CRM.Services.Api;
 
 namespace AccountingAndAnalytics
 {
@@ -35,17 +37,23 @@ namespace AccountingAndAnalytics
             services.AddSingleton<CurrentUserService>();            
             services.AddSingleton<IAuthorizationService, AuthorizationService>();
             services.AddSingleton<IDialogService, DialogService>();
+            
 
             // фабрики
             services.AddSingleton<IApplicationInListVmFactory, ApplicationInListVmFactory>();
             services.AddSingleton<IDealInListVmFactory, DealInListVmFactory>();
             services.AddSingleton<ITaskInListVmFactory, TaskInListVmFactory>();
+            services.AddSingleton<ICreateEditTaskVmFactory, CreateEditTaskVmFactory>();            
+            services.AddSingleton<ICommentVmFactory, CommentVmFactory>();
+            services.AddSingleton<ITaskInDashboardVmFactory, TaskInDashboardVmFactory>();
 
             // репозитории
             services.AddSingleton<IDealRepozitory, ApiDealService>();
-            services.AddSingleton<IApplicationRepozitory, ApiApplicationsRepository>();
+            services.AddSingleton<IApplicationService, ApiApplicationService>();
             services.AddSingleton<IUserService, ApiUserService>();
             services.AddSingleton<ITaskService, ApiTaskService>();
+            services.AddSingleton<IRealEstateService, ApiRealEstateService>();
+            services.AddSingleton<ICommentService, ApiCommentService>();
 
             // главный контейнер
             // страницы приложения
@@ -61,8 +69,16 @@ namespace AccountingAndAnalytics
             services.AddTransient<ApplicationInListViewModel>(); //элемент заявка
             services.AddTransient<DealTasksViewModel>(); // задачи
             services.AddTransient<DeadlineDashboardPageViewModel>(); // сроки
-
+            // попапы
+            services.AddTransient<CreateApplicationViewModel>();
+            services.AddTransient<CreateEditTaskViewModel>();
+            // стата
             services.AddSingleton<StatisticViewModel>();
+
+            // элементы
+            services.AddTransient<TaskInListViewModel>();
+            services.AddTransient<CommentViewModel>();
+            services.AddTransient<TaskInDashboardViewModel>();
 
             // сервис навигации приложения
             services.AddSingleton<IAppNavigationService, AppNavigationService>();

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace AccountingAndAnalytics.TaskManager.Interfaces
 {
-    public interface ITaskInListVmFactory
+    public interface ITaskInDashboardVmFactory
     {
-        TaskInListViewModel Create(TaskModel task, Func<Task> onRefresh);
+        TaskInDashboardViewModel Create(TaskModel task);
     }
 }

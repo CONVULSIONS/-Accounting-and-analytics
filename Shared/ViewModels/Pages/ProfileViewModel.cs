@@ -31,7 +31,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
             _currentUser = currentUser;
 
             FullName = _currentUser.Surname + " " + _currentUser.FirstName + " " + _currentUser.SecondName;
-            Initials = _currentUser.FirstName[0].ToString() + _currentUser.SecondName[0].ToString();
+            //Initials = _currentUser.FirstName[0].ToString() + _currentUser.SecondName[0].ToString();
             //Department = _currentUser.Department;
             Role = _currentUser.RoleName;
 

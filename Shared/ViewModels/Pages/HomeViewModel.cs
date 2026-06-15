@@ -48,11 +48,11 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
             //Header = header;
             _serviceProvider = serviceProvider;
             _authorizationService = authorizationService;
-            CurrentPage = new ApplicationPageViewModel(_serviceProvider.GetRequiredService<IApplicationRepozitory>(), _serviceProvider.GetRequiredService<IApplicationInListVmFactory>());
+            CurrentPage = _serviceProvider.GetRequiredService<ApplicationPageViewModel>();
 
         }
         public async Task InitializeAsync()
-        {
+        {            
             await _authorizationService.AuthorizeUser("lera_alex", "2007");
             Header = _serviceProvider.GetRequiredService<HeaderViewModel>();
         }

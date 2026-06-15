@@ -17,7 +17,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
 {
     public partial class ApplicationInListViewModel : ViewModelBase
     {
-        private readonly IApplicationRepozitory _repozitory;
+        private readonly IApplicationService _repozitory;
         private int _id { get; set; }
         public int Number { get; private set; }
         public string Title { get; private set; }
@@ -31,7 +31,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         public string btnApproveTitle { get; private set; } = "Одобрить";
         public string btnRejectTitle { get; private set; } = "Отклонить";    
 
-        public ApplicationInListViewModel(Application application, IApplicationRepozitory repozitory)
+        public ApplicationInListViewModel(Application application, IApplicationService repozitory)
         {
             _repozitory = repozitory;
             _id = application.Id;

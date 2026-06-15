@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.Elements"
+             mc:Ignorable="d"
+             x:DataType="vm:CommentViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.Elements.CommentView">
+    <Border BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="10,8">
+        <StackPanel Spacing="2">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="{Binding UserName}"
+                           FontSize="12"
+                           FontWeight="Medium"
+                           Foreground="#1A3C4D"/>
+                <TextBlock Text="{Binding Time}"
+                           FontSize="11"
+                           Foreground="#9FB8C4"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <TextBlock Text="{Binding Text}"
+                       FontSize="12"
+                       Foreground="#6B7280"
+                       TextWrapping="Wrap"/>
+        </StackPanel>
+    </Border>
+</UserControl>
