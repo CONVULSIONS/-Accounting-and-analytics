@@ -12,6 +12,6 @@ namespace AccountingAndAnalytics.CRM.Interfaces.Repozitories
     {
         Task<List<Application>> GetAllAsync();
         Task AppToDeal(int appId);
-        Task Create(string firstName, string secondName, string surname, int realEstateId, DateOnly period);
+        Task Create(string firstName, string secondName, string surname, int realEstateId, string realEstateName, DateOnly period);
     }
 }

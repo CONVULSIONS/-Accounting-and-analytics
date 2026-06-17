@@ -44,16 +44,16 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
 
         public HomeViewModel(SidebarViewModel sidebar, HeaderViewModel header, IServiceProvider serviceProvider, IAuthorizationService authorizationService)
         {
-            Sidebar = sidebar;
-            //Header = header;
+            Sidebar = sidebar;            
             _serviceProvider = serviceProvider;
             _authorizationService = authorizationService;
+            //Header = _serviceProvider.GetRequiredService<HeaderViewModel>();
             CurrentPage = _serviceProvider.GetRequiredService<ApplicationPageViewModel>();
 
         }
         public async Task InitializeAsync()
-        {            
-            await _authorizationService.AuthorizeUser("lera_alex", "2007");
+        {
+            await _authorizationService.AuthorizeUser("lera", "2007");
             Header = _serviceProvider.GetRequiredService<HeaderViewModel>();
         }
     }

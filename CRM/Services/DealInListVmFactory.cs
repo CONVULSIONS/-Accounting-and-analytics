@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Factory;
 using AccountingAndAnalytics.CRM.Models.Deals;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;

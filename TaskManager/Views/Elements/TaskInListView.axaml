@@ -76,6 +76,8 @@
                                                    Foreground="#0C447C"/>
                                     </Border>
                                     <Button Content="{Binding MarkAsDoneLabel}"
+                                            Command="{Binding MarkReadyCommand}"
+                                            IsVisible="{Binding !IsCompleted}"
                                             Background="#1A3C4D"
                                             Foreground="White"
                                             CornerRadius="8"

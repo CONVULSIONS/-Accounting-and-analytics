@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.TaskManager.Interfaces;
+﻿using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.TaskManager.Services
+namespace AccountingAndAnalytics.TaskManager.Services.Factory
 {
     public class CreateEditTaskVmFactory : ICreateEditTaskVmFactory
     {

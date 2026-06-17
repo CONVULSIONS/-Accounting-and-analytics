@@ -139,7 +139,7 @@ namespace AccountingAndAnalytics.CRM.ViewModels.Elements
         [RelayCommand]
         private async Task Create()
         {
-            await _appService.Create(_firstNameText, _secondNameText, _surnameText, _selectedRealEstate.Id, new DateOnly(2017, 11, 13));
+            await _appService.Create(_firstNameText, _secondNameText, _surnameText, _selectedRealEstate.Id, _selectedRealEstate.Name, new DateOnly(2017, 11, 13));
         }
     }
 }

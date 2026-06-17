@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.TaskManager.Interfaces
+namespace AccountingAndAnalytics.TaskManager.Interfaces.Factory
 {
     public interface ICommentVmFactory
     {

@@ -13,10 +13,10 @@ using AccountingAndAnalytics.CRM.ViewModels.Elements;
 using AccountingAndAnalytics.CRM.Views.Elements;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using Microsoft.Extensions.DependencyInjection;
-using AccountingAndAnalytics.CRM.Interfaces;
 using AccountingAndAnalytics.Shared.Interfaces;
 using Avalonia.Controls;
 using DialogHostAvalonia;
+using AccountingAndAnalytics.CRM.Interfaces.Factory;
 
 namespace AccountingAndAnalytics.CRM.ViewModels.Pages
 {

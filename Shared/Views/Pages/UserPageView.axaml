@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Pages"
+             xmlns:views="using:AccountingAndAnalytics.Shared.Views.Elements"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:UserPageViewModel"
+             x:Class="AccountingAndAnalytics.Shared.Views.Pages.UserPageView">
+    <Grid Background="#F4F6F9"
+          RowDefinitions="Auto,Auto,*"
+          Margin="24,20,24,20">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,16">
+            <TextBlock Grid.Column="0"
+                       Text="{Binding Title}"
+                       FontSize="22"
+                       FontWeight="Medium"
+                       VerticalAlignment="Center"/>
+            <Button Grid.Column="1"
+                    Content="+ Создать"
+                    Command="{Binding OpenCreateDialogCommand}"
+                    Background="#1A3C4D"
+                    Foreground="White"
+                    CornerRadius="8"
+                    Padding="14,8"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    VerticalAlignment="Center"/>
+        </Grid>
+
+        <Border Grid.Row="1"
+                Height="1"
+                Background="#E0E0E0"
+                Margin="0,0,0,16"/>
+
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding Users}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:UserInListView DataContext="{Binding}"
+                                              Margin="0,0,0,8"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

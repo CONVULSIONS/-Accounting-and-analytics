@@ -1,5 +1,4 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces;
-using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.Services;
 using AccountingAndAnalytics.CRM.Services.Repozitories;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;
@@ -14,9 +13,7 @@ using AccountingAndAnalytics.Shared.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.ViewModels.Windows;
 using AccountingAndAnalytics.Shared.Views.Pages;
 using AccountingAndAnalytics.Shared.Views.Windows;
-using AccountingAndAnalytics.TaskManager.Interfaces;
 using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
-using AccountingAndAnalytics.TaskManager.Services;
 using AccountingAndAnalytics.TaskManager.Services.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
@@ -26,6 +23,11 @@ using System;
 using System.Net.Http;
 using AccountingAndAnalytics.CRM.Interfaces.Api;
 using AccountingAndAnalytics.CRM.Services.Api;
+using AccountingAndAnalytics.TaskManager.Services.Factory;
+using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
+using AccountingAndAnalytics.CRM.Interfaces.Factory;
+using AccountingAndAnalytics.TaskManager.Interfaces.API;
+using AccountingAndAnalytics.TaskManager.Services.API;
 
 namespace AccountingAndAnalytics
 {
@@ -46,6 +48,8 @@ namespace AccountingAndAnalytics
             services.AddSingleton<ICreateEditTaskVmFactory, CreateEditTaskVmFactory>();            
             services.AddSingleton<ICommentVmFactory, CommentVmFactory>();
             services.AddSingleton<ITaskInDashboardVmFactory, TaskInDashboardVmFactory>();
+            services.AddSingleton<IUserInListVmFactory, UserInListVmFactory>();
+            services.AddSingleton<ICreateEditUserVmFactory, CreateEditUserVmFactory>();
 
             // репозитории
             services.AddSingleton<IDealRepozitory, ApiDealService>();
@@ -54,6 +58,7 @@ namespace AccountingAndAnalytics
             services.AddSingleton<ITaskService, ApiTaskService>();
             services.AddSingleton<IRealEstateService, ApiRealEstateService>();
             services.AddSingleton<ICommentService, ApiCommentService>();
+            services.AddSingleton<IUserService, ApiUserService>();
 
             // главный контейнер
             // страницы приложения
@@ -69,9 +74,11 @@ namespace AccountingAndAnalytics
             services.AddTransient<ApplicationInListViewModel>(); //элемент заявка
             services.AddTransient<DealTasksViewModel>(); // задачи
             services.AddTransient<DeadlineDashboardPageViewModel>(); // сроки
+            services.AddTransient<UserPageViewModel>(); // управление пользователями
             // попапы
             services.AddTransient<CreateApplicationViewModel>();
             services.AddTransient<CreateEditTaskViewModel>();
+            services.AddTransient<CreateEditUserViewModel>();
             // стата
             services.AddSingleton<StatisticViewModel>();
 
@@ -79,6 +86,7 @@ namespace AccountingAndAnalytics
             services.AddTransient<TaskInListViewModel>();
             services.AddTransient<CommentViewModel>();
             services.AddTransient<TaskInDashboardViewModel>();
+            services.AddTransient<UserInListViewModel>();
 
             // сервис навигации приложения
             services.AddSingleton<IAppNavigationService, AppNavigationService>();

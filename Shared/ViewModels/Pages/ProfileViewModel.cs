@@ -47,7 +47,7 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Pages
         [RelayCommand]
         private void Logout()
         {
-         //   _appNavigationService.NavigateTo<LoginViewModel>();
+            _appNavigationService.NavigateTo<AuthorizationViewModel>();
         }
     }
 }

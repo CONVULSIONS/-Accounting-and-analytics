@@ -1,5 +1,5 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
-using AccountingAndAnalytics.CRM.Models.Deals;
+﻿using AccountingAndAnalytics.CRM.Models.Deals;
+using AccountingAndAnalytics.TaskManager.Interfaces.API;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.CRM.Services.Repozitories
+namespace AccountingAndAnalytics.TaskManager.Services.API
 {
     public class ApiDealService : IDealRepozitory
     {

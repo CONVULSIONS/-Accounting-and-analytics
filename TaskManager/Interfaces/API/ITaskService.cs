@@ -13,6 +13,7 @@ namespace AccountingAndAnalytics.TaskManager.Interfaces.Repozitories
         Task<List<TaskModel>> GetAllByUserAsync();
         Task<TaskModel> GetTaskByIdAsync(int taskId);
         Task CreateAsync(string title, string description, DateOnly deadline, DateOnly created, int dealId);
+        Task MarkReadyAsync(int taskId);
         Task EditAsync(int taskId, string title, string description, DateOnly deadline);
         Task DeleteAsync(int taskId);
     }

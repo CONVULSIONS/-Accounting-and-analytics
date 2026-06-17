@@ -46,7 +46,7 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                             .ToList();
             return AppList;
         }
-        public async Task Create(string firstName, string secondName, string surname, int realEstateId, DateOnly period)
+        public async Task Create(string firstName, string secondName, string surname, int realEstateId, string realEstateName, DateOnly period)
         {
             var data = new
             {
@@ -54,6 +54,7 @@ namespace AccountingAndAnalytics.CRM.Services.Repozitories
                 client_second_name = secondName,
                 client_surname = surname,
                 real_estate_id = realEstateId,
+                real_estate_name = realEstateName,
                 period = period.ToString("yyyy-MM-dd")
             };
 

@@ -1,6 +1,6 @@
 ﻿using AccountingAndAnalytics.CRM.Models.Deals;
 using AccountingAndAnalytics.CRM.Views.Elements;
-using AccountingAndAnalytics.TaskManager.Interfaces;
+using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
 using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
 using AccountingAndAnalytics.TaskManager.Models;
 using AccountingAndAnalytics.TaskManager.Views.Elements;
@@ -20,6 +20,7 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
         private readonly ITaskService _service;
         private Func<Task> _onRefresh;
         private int _taskId;
+        public bool IsCompleted { get; private set; } = false;
         public int Number { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -45,10 +46,18 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
             Deadline = task.Deadline.ToString();
             CreatedDate = task.Created.ToString();
             Status = task.StatusName;
+            if (task.StatusName == "выполнена")
+                IsCompleted = true;
         }
 
         [RelayCommand]
-        private async Task Edit()
+        private async Task MarkReadyAsync()
+        {
+            await _service.MarkReadyAsync(_taskId);
+            await _onRefresh();
+        }
+        [RelayCommand]
+        private async Task EditAsync()
         {
             var editVm = await _vmFactory.EditAsync(_taskId);
             var editV = new CreateEditTaskView { DataContext = editVm };
@@ -57,7 +66,7 @@ namespace AccountingAndAnalytics.TaskManager.ViewModels.Elements
             await _onRefresh();
         }
         [RelayCommand]
-        private async Task Delete()
+        private async Task DeleteAsync()
         {
             await _service.DeleteAsync(_taskId);
             await _onRefresh();

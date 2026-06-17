@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.CRM.Interfaces
+namespace AccountingAndAnalytics.CRM.Interfaces.Factory
 {
     public interface IDealInListVmFactory
     {

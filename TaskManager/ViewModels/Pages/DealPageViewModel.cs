@@ -1,7 +1,7 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces;
-using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Factory;
 using AccountingAndAnalytics.Shared.Interfaces;
 using AccountingAndAnalytics.Shared.ViewModels;
+using AccountingAndAnalytics.TaskManager.Interfaces.API;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using CommunityToolkit.Mvvm.Input;
 using System;

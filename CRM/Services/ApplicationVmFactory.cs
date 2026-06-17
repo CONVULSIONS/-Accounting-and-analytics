@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.CRM.Interfaces;
+﻿using AccountingAndAnalytics.CRM.Interfaces.Factory;
 using AccountingAndAnalytics.CRM.Interfaces.Repozitories;
 using AccountingAndAnalytics.CRM.Models.Applications;
 using AccountingAndAnalytics.CRM.ViewModels.Elements;

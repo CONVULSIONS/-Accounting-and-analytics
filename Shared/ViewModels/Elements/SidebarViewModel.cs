@@ -3,6 +3,7 @@ using System.Windows.Input;
 using AccountingAndAnalytics.CRM.ViewModels.Pages;
 using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.TaskManager.ViewModels.Pages;
+using AccountingAndAnalytics.Shared.ViewModels.Pages;
 
 namespace AccountingAndAnalytics.Shared.ViewModels.Elements
 {
@@ -60,6 +61,11 @@ namespace AccountingAndAnalytics.Shared.ViewModels.Elements
         private void GoToDeadlineDashboard()
         {
             _homeNavigationService.NavigateTo<DeadlineDashboardPageViewModel>();
+        }
+        [RelayCommand]
+        private void GoToUsers()
+        {
+            _homeNavigationService.NavigateTo<UserPageViewModel>();
         }
     }
 }

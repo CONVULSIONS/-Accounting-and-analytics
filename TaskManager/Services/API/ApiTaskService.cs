@@ -104,6 +104,11 @@ namespace AccountingAndAnalytics.TaskManager.Services.Repozitories
 
             var response = await _httpClient.PostAsJsonAsync("/tasks/create", newTask);
         }
+        public async Task MarkReadyAsync(int taskId)
+        {
+            var response = await _httpClient
+                .PatchAsync($"/tasks/mark-ready/{taskId}", null);
+        }
         public async Task EditAsync(int taskId, string title, string description, DateOnly deadline)
         {
             var data = new

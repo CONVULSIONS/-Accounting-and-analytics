@@ -1,0 +1,120 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AccountingAndAnalytics.TaskManager.ViewModels.PopUp"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:AssignDealViewModel"
+             x:Class="AccountingAndAnalytics.TaskManager.Views.PopUp.AssignDealView">
+    <Border Background="White"
+            CornerRadius="12"
+            Padding="0"
+            Width="560">
+        <StackPanel>
+
+            <!-- Шапка -->
+            <Border Background="#1A3C4D"
+                    CornerRadius="12,12,0,0"
+                    Padding="24,16">
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Grid.Column="0"
+                               Text="Назначение исполнителя"
+                               FontSize="16"
+                               FontWeight="Medium"
+                               Foreground="White"
+                               VerticalAlignment="Center"/>
+                    <Button Grid.Column="1"
+                            Content="✕"
+                            Command="{Binding CloseCommand}"
+                            Background="Transparent"
+                            Foreground="#9FB8C4"
+                            FontSize="16"
+                            Padding="8,4"/>
+                </Grid>
+            </Border>
+
+            <!-- Тело -->
+            <StackPanel Margin="24,20,24,24" Spacing="16">
+
+                <!-- Инфо о сделке -->
+                <Border Background="#F4F6F9"
+                        CornerRadius="8"
+                        Padding="16,12">
+                    <Grid ColumnDefinitions="1*,1*" RowDefinitions="Auto,Auto,Auto">
+
+                        <StackPanel Grid.Column="0" Grid.Row="0"
+                                    Spacing="2" Margin="0,0,0,10">
+                            <TextBlock Text="НОМЕР СДЕЛКИ"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="{Binding Number}"
+                                       FontSize="13" FontWeight="Medium"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Grid.Row="0"
+                                    Spacing="2" Margin="0,0,0,10">
+                            <TextBlock Text="ПЕРИОД"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="{Binding Period}"
+                                       FontSize="13" FontWeight="Medium"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Grid.Row="1"
+                                    Spacing="2" Margin="0,0,0,10">
+                            <TextBlock Text="КЛИЕНТ"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="{Binding Client}"
+                                       FontSize="13"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Grid.Row="2"
+                                    Spacing="2">
+                            <TextBlock Text="ОБЪЕКТ"
+                                       FontSize="10" FontWeight="Medium"
+                                       Foreground="#9FB8C4"/>
+                            <TextBlock Text="{Binding RealEstate}"
+                                       FontSize="13"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+
+                <!-- Разделитель -->
+                <Border Height="1" Background="#E0E0E0"/>
+
+                <!-- Выбор исполнителя -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="ИСПОЛНИТЕЛЬ"
+                               FontSize="10"
+                               FontWeight="Medium"
+                               Foreground="#9FB8C4"/>
+                    <ComboBox ItemsSource="{Binding Users}"
+                              SelectedItem="{Binding SelectedUser}"
+                              HorizontalAlignment="Stretch"
+                              Padding="12,8"
+                              CornerRadius="8">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Surname}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Кнопка -->
+                <Button Content="Назначить"
+                        Command="{Binding AssignCommand}"
+                        HorizontalAlignment="Right"
+                        Background="#1A3C4D"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="24,10"
+                        FontSize="13"
+                        FontWeight="Medium"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

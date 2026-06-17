@@ -43,6 +43,9 @@
     <Compile Update="CRM\Views\Elements\CreateApplicationView.axaml.cs">
       <DependentUpon>CreateApplicationView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Shared\Views\Elements\CreateEditUserView.axaml.cs">
+      <DependentUpon>CreateEditUserView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="TaskManager\Views\Elements\AppointmentDealView.axaml.cs">
       <DependentUpon>AppointmentDealView.axaml</DependentUpon>
     </Compile>
@@ -63,6 +66,9 @@
     </Compile>
     <Compile Update="TaskManager\Views\Pages\DealPageView.axaml.cs">
       <DependentUpon>DealPageView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="TaskManager\Views\PopUp\AssignDealView.axaml.cs">
+      <DependentUpon>AssignDealView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

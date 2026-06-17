@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.CRM.Interfaces.Repozitories
+namespace AccountingAndAnalytics.TaskManager.Interfaces.API
 {
     public interface IDealRepozitory
     {

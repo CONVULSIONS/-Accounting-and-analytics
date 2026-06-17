@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:AccountingAndAnalytics.Shared.ViewModels.Pages"
+             xmlns:v="using:AccountingAndAnalytics.Shared.Views.Pages"
              xmlns:crmvm="using:AccountingAndAnalytics.CRM.ViewModels.Pages"
              xmlns:crmv="using:AccountingAndAnalytics.CRM.Views.Pages"
              xmlns:tmvm="using:AccountingAndAnalytics.TaskManager.ViewModels.Pages"
@@ -28,6 +29,10 @@
                 <DataTemplate
         DataType="tmvm:DeadlineDashboardPageViewModel">
             <tmv:DeadlineDashboardPageView/>
+        </DataTemplate>
+        <DataTemplate
+        DataType="vm:UserPageViewModel">
+            <v:UserPageView/>
         </DataTemplate>
     </UserControl.DataTemplates>
 

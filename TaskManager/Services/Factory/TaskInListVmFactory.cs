@@ -1,4 +1,4 @@
-﻿using AccountingAndAnalytics.TaskManager.Interfaces;
+﻿using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
 using AccountingAndAnalytics.TaskManager.Models;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,20 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.TaskManager.Services
+namespace AccountingAndAnalytics.TaskManager.Services.Factory
 {
-    public class CommentVmFactory : ICommentVmFactory
+    public class TaskInListVmFactory : ITaskInListVmFactory
     {
         private readonly IServiceProvider _provider;
-        public CommentVmFactory(IServiceProvider provider)
+        public TaskInListVmFactory(IServiceProvider provider)
         {
             _provider = provider;
         }
-
-        public CommentViewModel Create(CommentModel comment)
+        public TaskInListViewModel Create(TaskModel task, Func<Task> onRefresh)
         {
-            var vm = _provider.GetRequiredService<CommentViewModel>();
-            vm.Init(comment);
+            var vm = _provider.GetRequiredService<TaskInListViewModel>();
+            vm.Init(task, onRefresh);
             return vm;
         }
     }

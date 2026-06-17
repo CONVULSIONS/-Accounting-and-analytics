@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountingAndAnalytics.TaskManager.Interfaces
+namespace AccountingAndAnalytics.TaskManager.Interfaces.Factory
 {
-    public interface ITaskInDashboardVmFactory
+    public interface ITaskInListVmFactory
     {
-        TaskInDashboardViewModel Create(TaskModel task);
+        TaskInListViewModel Create(TaskModel task, Func<Task> onRefresh);
     }
 }

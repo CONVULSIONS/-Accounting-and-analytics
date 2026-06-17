@@ -1,5 +1,5 @@
 ﻿using AccountingAndAnalytics.Shared.ViewModels;
-using AccountingAndAnalytics.TaskManager.Interfaces;
+using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
 using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using System;

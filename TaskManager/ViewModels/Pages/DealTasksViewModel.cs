@@ -6,7 +6,7 @@ using AccountingAndAnalytics.Shared.Interfaces.Navigation;
 using AccountingAndAnalytics.Shared.Services;
 using AccountingAndAnalytics.Shared.ViewModels;
 using AccountingAndAnalytics.Shared.ViewModels.Pages;
-using AccountingAndAnalytics.TaskManager.Interfaces;
+using AccountingAndAnalytics.TaskManager.Interfaces.Factory;
 using AccountingAndAnalytics.TaskManager.Interfaces.Repozitories;
 using AccountingAndAnalytics.TaskManager.ViewModels.Elements;
 using AccountingAndAnalytics.TaskManager.Views.Elements;
